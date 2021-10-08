@@ -1,18 +1,19 @@
 	<h2>Vivian</h2>
-	<table class="table">
+	<table class="table table-striped">
+	<thead>
 		<tr>
 			<th>#</th>
 			<th>Ordem</th>
-			<th>Matricula</th>
+			<th>Matrícula</th>
 			<th>Iniciais</th>
 			<th>Unidade</th>
 			<th>Covid</th>
-			<th>Data_diag_covid</th>
-			<th>Tempo_internacao</th>
+			<th>Data diagnóstico covid</th>
+			<th>Tempo de internação</th>
 			<th>Performance_status</th>
 			<th>Desfecho</th>
-			<th>Diagnostico_ev_tromb</th>
-			<th>Data_diagnostico</th>
+			<th>Diagnóstico de ev tromb</th>
+			<!--<th>Data_diagnostico</th>
 			<th>Tvp</th>
 			<th>Ep</th>
 			<th>Outro</th>
@@ -65,9 +66,11 @@
 			<th>Fatores_geneticos</th>
 			<th>Qual</th>
 			<th>Outros_fatores_tev</th>
-			<th>Score_de_padua</th>
-			<th colspan="2"></th>
+			<th>Score_de_padua</th>-->
+			<th colspan="2">Opções</th>
 		</tr>
+	</thead>	
+	<tbody>
 		<?php foreach ($vivian as $object) { ?>
 		<tr>
 			<td><?=$object->id ?></td>
@@ -81,7 +84,7 @@
 			<td><?= $object->performance_status ?></td>
 			<td><?= $object->desfecho ?></td>
 			<td><?= $object->diagnostico_ev_tromb ?></td>
-			<td><?= $object->data_diagnostico ?></td>
+			<!--<td><?= $object->data_diagnostico ?></td>
 			<td><?= $object->tvp ?></td>
 			<td><?= $object->ep ?></td>
 			<td><?= $object->outro ?></td>
@@ -134,10 +137,11 @@
 			<td><?= $object->fatores_geneticos ?></td>
 			<td><?= $object->qual ?></td>
 			<td><?= $object->outros_fatores_tev ?></td>
-			<td><?= $object->score_de_padua ?></td>
-			<td width="80"><?= anchor('/vivian/edit/'.$object->id, 'Edit','class="btn btn-warning"'); ?></td>
-			<td width="80"><?= anchor('/vivian/destroy/'.$object->id, 'Destroy','class="btn btn-danger"'); ?></td>
+			<td><?= $object->score_de_padua ?></td>-->
+			<td width="80"><?= anchor('/vivian/edit/'.$object->id, 'Editar','class="btn btn-warning"'); ?></td>
+			<td width="80"><?= anchor('/vivian/destroy/'.$object->id, 'Excluir','class="btn btn-danger"'); ?></td>
 		</tr><?php } ?>
+	</tbody>	
 	</table>
 	
-	<?= anchor('/vivian/create','Create','class="btn btn-primary"'); ?>
+	<?= anchor('/vivian/create','Novo','class="btn btn-primary"'); ?>

@@ -103,4 +103,14 @@ class Vivian_model extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
+	function GetAllByPage($limit, $offset){
+		$this->db->select('*')->from('vivian')->limit($limit,$offset);
+		$result	= $this->db->get()->result();
+		if($result){
+			return	$result;
+		}else{
+			return	false;
+		}
+	}
+
 }

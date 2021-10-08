@@ -49,6 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'Vivian/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['create'] = "Vivian/create";
+$route['paginacao/(:num)'] = "Vivian/index/$1";
+$route['paginacao'] = "Vivian/index";
+$route['destroy/(:num)'] = "Vivian/destroy/$1";
+$route['edit/(:num)'] = "Vivian/edit/$1";

@@ -8,24 +8,64 @@ class Vivian extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('Vivian_model');
+		$this->load->library('pagination');
 	}
 
 	# GET /vivian
 	function index() {
-		$data['vivian'] = $this->Vivian_model->find();
-		$data['content'] = '/vivian/index';
+		//$data['vivian'] = $this->Vivian_model->find();
+		//$data['content'] = '/vivian/index';
+		$config['base_url']	= base_url('paginacao');
+		$config['total_rows'] = $this->db->select('*')->from('vivian')->count_all_results();
+		$config['per_page']	= 5;
+		$config['uri_segment'] = 2;
+		$config['num_links'] = 5;
+		$config['use_page_numbers']	= TRUE;
+		$config['full_tag_open'] = "<nav aria-label='Paginação da tabela de clientes'><ul class='pagination'>";
+		$config['full_tag_close'] = "<ul></nav>";
+		$config['first_link'] = "Primeira";
+		$config['first_tag_open'] =	"<li class='page-item'>";
+		$config['first_tag_close'] = "</li>";
+		$config['last_link'] = "Última";
+		$config['last_tag_open'] = "<li class='page-item'>";
+		$config['last_tag_close'] =	"</li>";
+		$config['next_link'] =	"Próxima";
+		$config['next_tag_open'] =	"<li class='page-item'>";
+		$config['next_tag_close'] =	"</li>";
+		$config['prev_link'] =	"Anterior";
+		$config['prev_tag_open'] =	"<li class='page-item'>";
+		$config['prev_tag_close'] =	"</li>";
+		$config['cur_tag_open']	= "<li class='page-item active'><a class='page-link' href='#'>";
+		$config['cur_tag_close'] =	"</a></li>";
+		$config['num_tag_open']	= "<li class='page-item'>";
+		$config['num_tag_close'] =	"</li>";
+		$config['attributes'] = array('class' => 'page-link');
+		$this->pagination->initialize($config);
+		if($this->uri->segment(2))
+				$offset	= ($this->uri->segment(2) -	1) * $config['per_page'];
+		else
+				$offset	= 0;
+		$dados = $this->Vivian_model->GetAllByPage($config['per_page'], $offset);
+		$data['dados']	= $dados;
+		$data['error']	= null;
+		$data['short_url']	= false;
+		$data['pagination']	= $this->pagination->create_links();
+		
+		$data['content'] = '/vivian/paginacao';
 		$this->load->view('/includes/template', $data);
 	}
 
 	# GET /vivian/create
 	function create() {
+		$data['cabecalho'] = 'Novo Cadastro';
 		$data['content'] = '/vivian/create';
 		$this->load->view('/includes/template', $data);
 	}
 
 	# GET /vivian/edit/1
 	function edit() {
-		$id = $this->uri->segment(3);
+		$data['cabecalho'] = 'Editar';
+		$id = $this->uri->segment(2);
 		$data['vivian'] = $this->Vivian_model->find($id);
 		$data['content'] = '/vivian/create';
 		$this->load->view('/includes/template', $data);
@@ -33,14 +73,13 @@ class Vivian extends CI_Controller {
 
 	# GET /vivian/destroy/1
 	function destroy() {
-		$id = $this->uri->segment(3);
+		$id = $this->uri->segment(2);
 		$data['vivian'] = $this->Vivian_model->destroy($id);
-		redirect('/vivian/index', 'refresh');
+		redirect('/paginacao', 'refresh');
 	}
 
 	# POST /vivian/save
-	function save() {
-		
+	function save() {		
 		$this->form_validation->set_rules('ordem', 'Ordem', 'required');
 		$this->form_validation->set_rules('matricula', 'Matricula', 'required');
 		$this->form_validation->set_rules('iniciais', 'Iniciais', 'required');
@@ -175,7 +214,9 @@ class Vivian extends CI_Controller {
 			$data['outros_fatores_tev'] = $this->input->post('outros_fatores_tev', TRUE);
 			$data['score_de_padua'] = $this->input->post('score_de_padua', TRUE);
 			$this->Vivian_model->save($data);
-			redirect('/vivian/index', 'refresh');
+			$this->session->set_tempdata('msg','Dados salvos com sucesso', 15);	
+			redirect(base_url('paginacao/1'), 'refresh');	
+					
 		}
 		$data['vivian'] =	$this->rebuild();
 		$data['content'] = '/vivian/create';
