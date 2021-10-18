@@ -3,68 +3,94 @@
 	<?php }else{ ;?>
 	<h1>Novo Cadastro</h1>
 	<?php } ;?>
-	<?= form_open('vivian/save','role="form" autocomplete="on"'); ?><?php if(validation_errors() != NULL && validation_errors() != '') { ?>
+	<?= form_open('vivian/save','role="form" autocomplete="on"'); ?><?php if(validation_errors() != NULL && validation_errors() != 'N/A') { ?>
 		<div class="alert alert-danger"><?= validation_errors(); ?></div><?php } ?>
 		<input type="hidden" name="id" value="<?= isset($vivian)?$vivian->id:''?>"/>
 		
 <div class="card mt-3">
-  <div class="card-header">
-    <h4>Identificação</h4>
-  </div>
-	<div class="card-body">
-	<div class="row">
-		<div class="form-group col-sm-4">
-			<label for="ordem">Ordem:</label><br/>
-			
-			<textarea name="ordem"  class="form-control"><?= isset($vivian)?$vivian->ordem:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="matricula">Matricula:</label><br/>
-			
-			<textarea name="matricula"  class="form-control"><?= isset($vivian)?$vivian->matricula:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="iniciais">Iniciais:</label><br/>
-			
-			<textarea name="iniciais"  class="form-control"><?= isset($vivian)?$vivian->iniciais:''?></textarea>
-		</div>		
+	<div class="card-header">
+		<h4>Identificação</h4>
 	</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="form-group col-sm-4">
+				<label for="ordem">Ordem:</label><br/>
+				
+				<input type="text" name="ordem"  class="form-control" value="<?= isset($vivian)?$vivian->ordem:'N/A'?>">
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="matricula">Matricula:</label><br/>
+				
+				<input type="text" name="matricula"  class="form-control" value="<?= isset($vivian)?$vivian->matricula:'N/A'?>">
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="iniciais">Iniciais:</label><br/>
+				
+				<input type="text"  name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:'N/A'?>">
+			</div>		
+		</div>
 	
-	<div class="row">
-		<div class="form-group col-sm-4">
-			<label for="unidade">Unidade:</label><br/>
+		<div class="row">
+			<div class="form-group col-sm-4">
+				<label for="covid">Covid:</label><br/>
+				
+				<select name="covid" id="covid" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="data_diag_covid">Data de diagnóstico covid:</label><br/>
+				
+				<input type="text"  name="data_diag_covid"  class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:'N/A'?>">
+			</div>
 			
-			<textarea name="unidade"  class="form-control"><?= isset($vivian)?$vivian->unidade:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="covid">Covid:</label><br/>
-			
-			<textarea name="covid"  class="form-control"><?= isset($vivian)?$vivian->covid:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="data_diag_covid">Data de diagnótico covid:</label><br/>
-			
-			<textarea name="data_diag_covid"  class="form-control"><?= isset($vivian)?$vivian->data_diag_covid:''?></textarea>
-		</div>
-	</div>	
+			<div class="form-group col-sm-4">
+				<label for="tempo_internacao">Tempo de internação(em dias):</label><br/>
+				
+				<input type="text" name="tempo_internacao"  class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:'N/A'?>">
+			</div>		
+		</div>	
 		
-	<div class="row">	
-		<div class="form-group col-sm-6">
-			<label for="tempo_internacao">Tempo de internação:</label><br/>
-			
-			<textarea name="tempo_internacao"  class="form-control"><?= isset($vivian)?$vivian->tempo_internacao:''?></textarea>
-		</div>
-		<div class="form-group col-sm-6">
-			<label for="performance_status">Performance status:</label><br/>
-			
-			<textarea name="performance_status"  class="form-control"><?= isset($vivian)?$vivian->performance_status:''?></textarea>
-		</div>
-	</div>	
+		<div class="row">	
+
+			<div class="form-group col-sm-3">
+				<label for="performance_status">Performance status:</label><br/>
+				
+				<select name="performance_status" id="performance_status" class="form-select form-select mb-3">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>			
+			</div>
 		
-		<div class="form-group col-sm-12">
-			<label for="desfecho">Desfecho:</label><br/>
+			<div class="form-group col-sm-3">
+				<label for="desfecho">Desfecho alta:</label><br/>
+				
+				<select name="desfecho_alta" id ="desfecho_alta" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="1">1</option>
+				</select>				
+			</div>
 			
-			<textarea name="desfecho"  class="form-control"><?= isset($vivian)?$vivian->desfecho:''?></textarea>
+			<div class="form-group col-sm-3">
+				<label for="desfecho_obito">Desfecho óbito:</label><br/>
+				
+				<select name="desfecho_obito" id ="desfecho_obito" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="1">1</option>
+				</select>			
+			</div>		
+			
+			<div class="form-group col-sm-3">
+				<label for="desfecho">Desfecho acompanhamento ambulatorial:</label><br/>
+				
+				<select name="desfecho_acomp_amb" id ="desfecho_acomp_amb" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="1">1</option>
+				</select>				
+			</div>			
 		</div>
 	</div>
 </div>
@@ -76,43 +102,95 @@
   </div>
 	<div class="card-body">
 	
-	<div class="row">
-		<div class="form-group col-sm-6">
-			<label for="diagnostico_ev_tromb">Diagnóstico de ev tromb:</label><br/>
+		<div class="row">
+			<div class="form-group col-sm-6">
+				<label for="evento_tromb">Evento tromboembólico:</label><br/>
+				
+				<select name="evento_tromb" id ="evento_tromb" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
+			<div class="form-group col-sm-6">
+				<label for="data_diagnostico_evento_tromb">Data diagnóstico:</label><br/>
+				
+				<input type="text" name="data_diagnostico_evento_tromb"  class="form-control" value="<?= isset($vivian)?$vivian->data_diagnostico_evento_tromb:'N/A';?>">
+			</div>
 			
-			<!--<textarea name="diagnostico_ev_tromb"  class="form-control"><?= isset($vivian)?$vivian->diagnostico_ev_tromb:''?></textarea>-->
-			<select name="diagnostico_ev_tromb" id ="diagnostico_ev_tromb" class="form-select form-select-lg mb-3">
-				<option value="Sim">Sim</option>
-				<option value="Não">Não</option>
-			</select>			
-		</div>
-		<div class="form-group col-sm-6">
-			<label for="data_diagnostico">Data diagnóstico:</label><br/>
-			
-			<textarea name="data_diagnostico"  class="form-control"><?= isset($vivian)?$vivian->data_diagnostico:''?></textarea>
 		</div>
 		
-	</div>
-	
-	<div class="row">
-		<div class="form-group col-sm-6">
-			<label for="tvp">TVP:</label><br/>
-			
-			<textarea name="tvp"  class="form-control"><?= isset($vivian)?$vivian->tvp:''?></textarea>
-		</div>		
+		<div class="row">
+			<div class="form-group col-sm-6">
+				<label for="evento_tvp">Evento TVP:</label><br/>
+				
+				<select name="evento_tvp" id ="evento_tvp" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>				
+			</div>		
 
-	
-		<div class="form-group col-sm-6">
-			<label for="ep">EP:</label><br/>
-			
-			<textarea name="ep"  class="form-control"><?= isset($vivian)?$vivian->ep:''?></textarea>
-		</div>
-	</div>	
 		
-		<div class="form-group col-sm-12">
-			<label for="outro">Outro:</label><br/>
+			<div class="form-group col-sm-6">
+				<label for="evento_ep">Evento EP:</label><br/>
+				
+				<select name="evento_ep" id ="evento_ep" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="form-group col-sm-3">
+				<label for="evento_avc">Evento AVC:</label><br/>
+				
+				<select name="evento_avc" id ="evento_avc" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
 			
-			<textarea name="outro"  class="form-control"><?= isset($vivian)?$vivian->outro:''?></textarea>
+			<div class="form-group col-sm-3">
+				<label for="evento_coag_intr">Evento Coag. Intr. disseminada:</label><br/>
+				
+				<select name="evento_coag_intr" id ="evento_coag_intr" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="evento_avc">Evento IAM:</label><br/>
+				
+				<select name="evento_iam" id ="evento_iam" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
+
+			<div class="form-group col-sm-3">
+				<label for="evento_avc">Outro:</label><br/>
+				
+				<select name="evento_outro_lista" id ="evento_outro_lista" class="form-select form-select mb-3">
+					<option value="Trombose subclávia">Trombose subclávia</option>
+					<option value="Trombose VJI">Trombose VJI</option>
+					<option value="Tromboflebite">Tromboflebite</option>
+					<option value="Trombose veia superficial">Trombose veia superficial</option>
+					<option value="Trombo mural">Trombo mural</option>
+					<option value="Trombose renal">Trombose renal</option>
+					<option value="Trombose portal">Trombose portal</option>
+				</select>			
+			</div>			
+		</div>
+		<div class="row">
+			<div class="form-group col-sm-12">
+				<label for="evento_outro_escrito">Outro:</label><br/>
+				<textarea 
+						class="form-control mb-3"
+						name="evento_outro_escrito"
+						id="evento_outro_escrito"><?=isset($vivian)?$vivian->evento_outro_escrito:'N/A'?>
+				</textarea>
+			</div>
 		</div>
 	</div>
 </div>
@@ -125,39 +203,53 @@
 	
 	<div class="row">
 		<div class="form-group col-sm-1">
-			<label for="sexo">Sexo:</label><br/>
-			<textarea class="form-control" name="sexo" maxlength=1><?= isset($vivian)?$vivian->sexo:''?></textarea>			
+			<label for="sexo">Sexo:</label><br/>	
+			<select name="sexo" id ="sexo" class="form-select form-select mb-3">
+				<option value="f">F</option>
+				<option value="m">M</option>
+			</select>			
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="raca">Raça:</label><br/>
 			
-			<textarea name="raca"  class="form-control"><?= isset($vivian)?$vivian->raca:''?></textarea>
+			<select name="raca" id="raca" class="form-select form-select mb-3">
+				<option value="Branco">Branco</option>
+				<option value="Pardo">Pardo</option>
+				<option value="Preto">Preto</option>
+				<option value="Indigena">Indígena</option>
+				<option value="Amarelo">Amarelo</option>
+			</select>				
 		</div>
-		<div class="form-group col-sm-2">
+		<div class="form-group col-sm-1">
 			<label for="idade">Idade:</label><br/>
 			
-			<textarea name="idade"  class="form-control"><?= isset($vivian)?$vivian->idade:''?></textarea>
+			<input type="number" name="idade" id="idade" class="form-control" onkeyup="verificaIdade()" value="<?= isset($vivian)?$vivian->idade:'N/A'?>">
 		</div>
 		<div class="form-group col-sm-2">
-			<label for="maior_70">Maior de 70 anos:</label><br/>
-			<textarea class="form-control" name="maior_70" maxlength=3><?= isset($vivian)?$vivian->maior_70:''?></textarea>
-			
+			<label for="maior_que_70">Maior de 70 anos:</label><br/>
+			<input type="text" name="maior_que_70" id="maior_que_70" class="form-control" value="<?= isset($vivian)?$vivian->maior_que_70:'N/A'?>">		
+			<input type="hidden" name="maior_70" id="maior_70" class="form-control" value="<?= isset($vivian)?$vivian->maior_70:'N/A'?>">		
 		</div>
 		<div class="form-group col-sm-1">
 			<label for="peso">Peso:</label><br/>
 			
-			<textarea name="peso"  class="form-control"><?= isset($vivian)?$vivian->peso:''?></textarea>
+			<input type="text" name="peso"  class="form-control" value="<?= isset($vivian)?$vivian->peso:'N/A'?>">
 		</div>
-		<div class="form-group col-sm-2">
+		<div class="form-group col-sm-1">
 			<label for="altura">Altura:</label><br/>
 			
-			<textarea name="altura"  class="form-control"><?= isset($vivian)?$vivian->altura:''?></textarea>
+			<input type="text" name="altura"  class="form-control" value="<?= isset($vivian)?$vivian->altura:'N/A'?>">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="imc">Imc:</label><br/>
 			
-			<textarea name="imc"  class="form-control"><?= isset($vivian)?$vivian->imc:''?></textarea>
+			<input type="text" name="imc"  class="form-control" value="<?= isset($vivian)?$vivian->imc:'N/A'?>">
 		</div>
+		<div class="form-group col-sm-2">
+			<label for="classificacao">Classificação:</label><br/>
+			
+			<input type="text" name="classificacao"  class="form-control" value="<?= isset($vivian)?$vivian->classificacao:'N/A'?>">
+		</div>		
 	</div>	
 		
 	</div>
@@ -168,58 +260,185 @@
   <div class="card-header">
     <h4>Comorbidades</h4>
   </div>
+  
 	<div class="card-body">		
 	
-	<div class="row">
-		<div class="form-group col-sm-3">
-			<label for="obesidade">Obesidade:</label><br/>
+		<div class="row">
+			<div class="form-group col-sm-3">
+				<label for="obesidade">Obesidade:</label><br/>
+				
+				<select name="obesidade" id ="obesidade" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>	
+				<input type="hidden" name="possui_obesidade" id="possui_obesidade">
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="has">HAS:</label><br/>
+				
+				<select name="has" id ="has" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="dm">DM:</label><br/>
+				
+				<select name="dm" id ="dm" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="icc_ou_ir">ICC ou IR:</label><br/>
+				
+				<select name="icc_ou_ir" id ="icc_ou_ir" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="ICC">ICC</option>
+					<option value="IR">IR</option>
+					<option value="ICC + IR">ICC + IR</option>
+				</select>
+				<input type="hidden" name="possui_icc_ou_ir" id="possui_icc_ou_ir">
+			</div>
+		</div>	
 			
-			<textarea name="obesidade"  class="form-control"><?= isset($vivian)?$vivian->obesidade:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="has">HAS:</label><br/>
-			
-			<textarea name="has"  class="form-control"><?= isset($vivian)?$vivian->has:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="dm">DM:</label><br/>
-			
-			<textarea name="dm"  class="form-control"><?= isset($vivian)?$vivian->dm:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="icc_ou_ir">ICC ou IR:</label><br/>
-			
-			<textarea name="icc_ou_ir"  class="form-control"><?= isset($vivian)?$vivian->icc_ou_ir:''?></textarea>
-		</div>
-	</div>	
+		<div class="row">	
+			<div class="form-group col-sm-3">
+				<label for="iam">IAM:</label><br/>
+				
+				<select name="iam" id="iam" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+				<input type="hidden" name="possui_iam" id="possui_iam">
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="avc">AVC:</label><br/>
+				
+				<select name="avc" id="avc" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+				<input type="hidden" name="possui_avc" id="possui_avc">
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="infeccoes_doencas_reumaticas">Infecções ou doenças reumáticas:</label><br/>
+				
+				<select name="infeccoes_doencas_reumaticas" id="infeccoes_doencas_reumaticas" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="INF">INF</option>
+					<option value="DR">DR</option>
+					<option value="INF + DR">INF + DR</option>
+				</select>	
+				<input type="hidden" name="possui_infeccoes_doencas_reumaticas" id="possui_infeccoes_doencas_reumaticas">
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="trombofilia">Trombofilia:</label><br/>
+				
+				<select name="trombofilia" id="trombofilia" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+				<input type="hidden" name="possui_trombofilia" id="possui_trombofilia">
+			</div>
+		</div>	
 		
-	<div class="row">	
-		<div class="form-group col-sm-3">
-			<label for="iam">IAM:</label><br/>
+		<div class="row">
+			<div class="form-group col-sm-4">
+				<label for="outras_comorb_lista_1">Outras Comorbidades:</label><br/>
+				
+				<select name="outras_comorb_lista_1" id="possui_outras_comorb_lista_1" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="Desnutrição">Desnutrição</option>
+					<option value="Sífilis">Sífilis</option>
+					<option value="DPOC">DPOC</option>
+					<option value="IRA">IRA</option>
+					<option value="IRC/DRC">IRC/DRC</option>
+					<option value="Emagrecimento">Emagrecimento</option>
+					<option value="Cardiopatias">Cardiopatias</option>
+					<option value="Cegueira">Cegueira</option>
+					<option value="Labirintite">Labirintite</option>
+					<option value="Dislipidemia">Dislipidemia</option>
+					<option value="Osteoporose">Osteoporose</option>
+					<option value="Neuropatia periférica">Neuropatia periférica</option>
+					<option value="Glaucoma">Glaucoma</option>
+					<option value="Hepatite">Hepatite</option>
+					<option value="Cirrose hepática">Cirrose hepática</option>
+					<option value="Paraplesia">Paraplesia</option>
+					<option value="Escoliose">Escoliose</option>
+					<option value="Aneurisma aorta">Aneurisma aorta</option>
+					<option value="Aneurisma cerebral">Aneurisma cerebral</option>
+					<option value="Hiperplasia Prostática benigna">Hiperplasia Prostática benigna</option>				
+				</select>
+			</div>
 			
-			<textarea name="iam"  class="form-control"><?= isset($vivian)?$vivian->iam:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="avc">AVC:</label><br/>
+			<div class="form-group col-sm-4">
+				<label for="outras_comorb_lista_2">Outras Comorbidades:</label><br/>
+				
+				<select name="outras_comorb_lista_2" id="possui_outras_comorb_lista_2" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="Desnutrição">Desnutrição</option>
+					<option value="Sífilis">Sífilis</option>
+					<option value="DPOC">DPOC</option>
+					<option value="IRA">IRA</option>
+					<option value="IRC/DRC">IRC/DRC</option>
+					<option value="Emagrecimento">Emagrecimento</option>
+					<option value="Cardiopatias">Cardiopatias</option>
+					<option value="Cegueira">Cegueira</option>
+					<option value="Labirintite">Labirintite</option>
+					<option value="Dislipidemia">Dislipidemia</option>
+					<option value="Osteoporose">Osteoporose</option>
+					<option value="Neuropatia periférica">Neuropatia periférica</option>
+					<option value="Glaucoma">Glaucoma</option>
+					<option value="Hepatite">Hepatite</option>
+					<option value="Cirrose hepática">Cirrose hepática</option>
+					<option value="Paraplesia">Paraplesia</option>
+					<option value="Escoliose">Escoliose</option>
+					<option value="Aneurisma aorta">Aneurisma aorta</option>
+					<option value="Aneurisma cerebral">Aneurisma cerebral</option>
+					<option value="Hiperplasia Prostática benigna">Hiperplasia Prostática benigna</option>				
+				</select>
+			</div>
 			
-			<textarea name="avc"  class="form-control"><?= isset($vivian)?$vivian->avc:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="infeccoes_ou_doencas_reumaticas">Infecções ou doenças reumáticas:</label><br/>
+			<div class="form-group col-sm-4">
+				<label for="outras_comorb_lista_3">Outras Comorbidades:</label><br/>
+				
+				<select name="outras_comorb_lista_3" id="possui_outras_comorb_lista_3" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="Desnutrição">Desnutrição</option>
+					<option value="Sífilis">Sífilis</option>
+					<option value="DPOC">DPOC</option>
+					<option value="IRA">IRA</option>
+					<option value="IRC/DRC">IRC/DRC</option>
+					<option value="Emagrecimento">Emagrecimento</option>
+					<option value="Cardiopatias">Cardiopatias</option>
+					<option value="Cegueira">Cegueira</option>
+					<option value="Labirintite">Labirintite</option>
+					<option value="Dislipidemia">Dislipidemia</option>
+					<option value="Osteoporose">Osteoporose</option>
+					<option value="Neuropatia periférica">Neuropatia periférica</option>
+					<option value="Glaucoma">Glaucoma</option>
+					<option value="Hepatite">Hepatite</option>
+					<option value="Cirrose hepática">Cirrose hepática</option>
+					<option value="Paraplesia">Paraplesia</option>
+					<option value="Escoliose">Escoliose</option>
+					<option value="Aneurisma aorta">Aneurisma aorta</option>
+					<option value="Aneurisma cerebral">Aneurisma cerebral</option>
+					<option value="Hiperplasia Prostática benigna">Hiperplasia Prostática benigna</option>				
+				</select>
+			</div>
 			
-			<textarea name="infeccoes_ou_doencas_reumaticas"  class="form-control"><?= isset($vivian)?$vivian->infeccoes_ou_doencas_reumaticas:''?></textarea>
 		</div>
-		<div class="form-group col-sm-3">
-			<label for="trombofilia">Trombofilia:</label><br/>
-			
-			<textarea name="trombofilia"  class="form-control"><?= isset($vivian)?$vivian->trombofilia:''?></textarea>
-		</div>
-	</div>	
 		
-		<div class="form-group col-sm-12">
-			<label for="outras">Outras:</label><br/>
-			
-			<textarea name="outras"  class="form-control"><?= isset($vivian)?$vivian->outras:''?></textarea>
+		<div class="row">
+			<div class="form-group col-sm-12">
+				<label for="outras_comorb_escrito">Outro:</label><br/>
+				<textarea 
+						class="form-control mb-3" 
+						name="outras_comorb_escrito"
+						id="possui_outras_comorb_escrito"><?=isset($vivian)?$vivian->outras_comorb_escrito:'N/A'?>
+				</textarea>
+			</div>
 		</div>
 	</div>
 </div>
@@ -231,205 +450,371 @@
   </div>
 	<div class="card-body">	
 	
-	<div class="row">
-		<div class="form-group col-sm-4">
-			<label for="neoplasia_maligna">Neoplasia maligna:</label><br/>
+		<div class="row">
+			<div class="form-group col-sm-3">
+				<label for="neoplasia_maligna">Neoplasia maligna:</label><br/>
+				
+				<select name="neoplasia_maligna" id="neoplasia_maligna" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="cancer_ativo">Câncer ativo:</label><br/>
+				
+				<select name="cancer_ativo" id="cancer_ativo" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+				<input type="hidden" name="possui_cancer_ativo" id="possui_cancer_ativo">
+			</div>
 			
-			<textarea name="neoplasia_maligna"  class="form-control"><?= isset($vivian)?$vivian->neoplasia_maligna:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="cancer_ativo">Câncer ativo:</label><br/>
+			<div class="form-group col-sm-3">
+				<label for="sitio_tumoral_cerebro">Sítio Tumoral Cérebro:</label><br/>
+				
+				<select name="sitio_tumoral_cerebro" id="sitio_tumoral_cerebro" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
 			
-			<textarea name="cancer_ativo"  class="form-control"><?= isset($vivian)?$vivian->cancer_ativo:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="cerebro">Cérebro:</label><br/>
+			<div class="form-group col-sm-3">
+				<label for="sitio_tumoral_pancreas">Sítio Tumoral Pâncreas:</label><br/>
+				
+				<select name="sitio_tumoral_pancreas" id="sitio_tumoral_pancreas" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>		
+		</div>	
 			
-			<textarea name="cerebro"  class="form-control"><?= isset($vivian)?$vivian->cerebro:''?></textarea>
-		</div>
-	</div>	
+		<div class="row">
+			<div class="form-group col-sm-4">
+				<label for="sitio_tumoral_estomago">Sítio Tumoral Estômago:</label><br/>
+				
+				<select name="sitio_tumoral_estomago" id="sitio_tumoral_estomago" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
+			<div class="form-group col-sm-4">
+				<label for="sitio_tumoral_pulmao">Sítio Tumoral Pulmão:</label><br/>
+				
+				<select name="sitio_tumoral_pulmao" id="sitio_tumoral_pulmao" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
+			
+			<div class="form-group col-sm-4">
+				<label for="sitio_tumoral_bexiga">Sítio Tumoral Bexiga:</label><br/>
+				
+				<select name="sitio_tumoral_bexiga" id="sitio_tumoral_bexiga" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>		
+		</div>	
+			
+		<div class="row">		
+
+			<div class="form-group col-sm-3">
+				<label for="sitio_tumoral_ginecologicos">Sítio Tumoral Ginecológicos:</label><br/>
+				
+				<select name="sitio_tumoral_ginecologicos" id="sitio_tumoral_ginecologicos" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>			
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="sitio_tumoral_hematologicos">Sítio Tumoral Hematológicos:</label><br/>
+				
+				<select name="sitio_tumoral_hematologicos" id="sitio_tumoral_hematologicos" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>				
+			</div>
+			
+			<div class="form-group col-sm-2">
+				<label for="sitio_tumoral_mama">Sítio Tumoral Mama:</label><br/>
+				
+				<select name="sitio_tumoral_mama" id="sitio_tumoral_mama" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>				
+			</div>		
+			
+			<div class="form-group col-sm-2">
+				<label for="sitio_tumoral_outros_lista">Outros:</label><br/>
+				
+				<select name="sitio_tumoral_outros_lista" id="sitio_tumoral_outros_lista" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="Próstata">Próstata</option>
+					<option value="Cabeça e pescoço">Cabeça e pescoço</option>
+					<option value="Gastrointestinal">Gastrointestinal</option>
+					<option value="Ossos">Ossos</option>
+					<option value="Melanoma">Melanoma</option>
+					<option value="Não melanoma">Não melanoma</option>
+					<option value="Renal">Renal</option>
+					<option value="Linfomas">Linfomas</option>
+				</select>				
+			</div>	
+			
+			<div class="form-group col-sm-2">
+				<label for="metastase">Metástase:</label><br/>
+				
+				<select name="metastase" id="metastase" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>				
+			</div>				
+		</div>	
 		
-	<div class="row">	
-		<div class="form-group col-sm-4">
-			<label for="pancreas">Pâncreas:</label><br/>
-			
-			<textarea name="pancreas"  class="form-control"><?= isset($vivian)?$vivian->pancreas:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="estomago">Estômago:</label><br/>
-			
-			<textarea name="estomago"  class="form-control"><?= isset($vivian)?$vivian->estomago:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="pulmao">Pulmão:</label><br/>
-			
-			<textarea name="pulmao"  class="form-control"><?= isset($vivian)?$vivian->pulmao:''?></textarea>
-		</div>
-	</div>	
-		
-	<div class="row">		
-		<div class="form-group col-sm-4">
-			<label for="bexiga">Bexiga:</label><br/>
-			
-			<textarea name="bexiga"  class="form-control"><?= isset($vivian)?$vivian->bexiga:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="ginecologicos">Ginecológicos:</label><br/>
-			
-			<textarea name="ginecologicos"  class="form-control"><?= isset($vivian)?$vivian->ginecologicos:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="hematologicos">Hematológicos:</label><br/>
-			
-			<textarea name="hematologicos"  class="form-control"><?= isset($vivian)?$vivian->hematologicos:''?></textarea>
-		</div>
-	</div>	
-		
-		<div class="form-group col-sm-12">
-			<label for="outros">Outros:</label><br/>
-			
-			<textarea name="outros"  class="form-control"><?= isset($vivian)?$vivian->outros:''?></textarea>
+		<div class="row">
+			<div class="form-group col-sm-12">
+				<label for="sitio_tumoral_outros_escrito">Outros:</label><br/>
+				
+				<textarea 
+						name="sitio_tumoral_outros_escrito" 
+						id="sitio_tumoral_outros_escrito" 
+						class="form-control"><?= isset($vivian)?$vivian->sitio_tumoral_outros_escrito:'N/A'?>
+				</textarea>
+			</div>
 		</div>
 	</div>
 </div>
 
 		
-<div class="card mt-3">
+<div class="card mt-3 mb-5">
   <div class="card-header">
     <h4>Tratamento Realizado </h4>
   </div>
 	<div class="card-body">			
 	
-	<div class="row">
-		<div class="form-group col-sm-3">
-			<label for="quimioterapia">Quimioterapia:</label><br/>
-			
-			<textarea name="quimioterapia"  class="form-control"><?= isset($vivian)?$vivian->quimioterapia:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="radioterapia">Radioterapia:</label><br/>
-			
-			<textarea name="radioterapia"  class="form-control"><?= isset($vivian)?$vivian->radioterapia:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="braquiterapia">Braquiterapia:</label><br/>
-			
-			<textarea name="braquiterapia"  class="form-control"><?= isset($vivian)?$vivian->braquiterapia:''?></textarea>
-		</div>
-		<div class="form-group col-sm-3">
-			<label for="hormonioterapia">Hormonioterapia:</label><br/>
-			
-			<textarea name="hormonioterapia"  class="form-control"><?= isset($vivian)?$vivian->hormonioterapia:''?></textarea>
-		</div>
-	</div>	
-	
-	<div class="row">	
-		<div class="form-group col-sm-4">
-			<label for="imunoterapia">Imunoterapia:</label><br/>
-			
-			<textarea name="imunoterapia"  class="form-control"><?= isset($vivian)?$vivian->imunoterapia:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="cirurgia">Cirurgia:</label><br/>
-			
-			<textarea name="cirurgia"  class="form-control"><?= isset($vivian)?$vivian->cirurgia:''?></textarea>
-		</div>
-		<div class="form-group col-sm-4">
-			<label for="terapias_angiogenicas">Terapias angiogênicas:</label><br/>
-			
-			<textarea name="terapias_angiogenicas"  class="form-control"><?= isset($vivian)?$vivian->terapias_angiogenicas:''?></textarea>
-		</div>
-	</div>
-	
-		<div class="form-group col-sm-12">
-			<label for="outros_tratamentos">Outros tratamentos:</label><br/>
-			
-			<textarea name="outros_tratamentos"  class="form-control"><?= isset($vivian)?$vivian->outros_tratamentos:''?></textarea>
-		</div>
-	</div>
-</div>
+		<div class="row">
+			<div class="form-group col-sm-3">
+				<label for="tratamento_quimioterapia">Tratamento Quimioterapia:</label><br/>
+				
+					<select name="tratamento_quimioterapia" id="tratamento_quimioterapia" class="form-select form-select mb-3">
+						<option value="1">Sim</option>
+						<option value="0">Não</option>
+					</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="tratamento_radioterapia">Tratamento Radioterapia:</label><br/>
+				
+				<select name="tratamento_radioterapia" id="tratamento_radioterapia" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="tratamento_braquiterapia">Tratamento Braquiterapia:</label><br/>
+				
+				<select name="tratamento_braquiterapia" id="tratamento_braquiterapia" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="tratamento_hormonioterapia">Tratamento Hormonioterapia:</label><br/>
+				
+				<select name="tratamento_hormonioterapia" id="tratamento_hormonioterapia" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+				<input type="hidden" name="possui_tratamento_hormonioterapia" id="possui_tratamento_hormonioterapia">
+			</div>
+		</div>	
 		
-		<div class="form-group">
-			<label for="quimioterapia_recente">Quimioterapia recente:</label><br/>
+		<div class="row">	
+			<div class="form-group col-sm-3">
+				<label for="tratamento_imunoterapia">Tratamento Imunoterapia:</label><br/>
+				
+				<select name="tratamento_imunoterapia" id="tratamento_imunoterapia" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="tratamento_cirurgia">Tratamento Cirurgia:</label><br/>
+				
+				<select name="tratamento_cirurgia" id="tratamento_cirurgia" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="tratamento_terapias_angiogenicas">Tratamento Terapias angiogênicas:</label><br/>
+				
+				<select name="tratamento_terapias_angiogenicas" id="tratamento_terapias_angiogenicas" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
 			
-			<textarea name="quimioterapia_recente"  class="form-control"><?= isset($vivian)?$vivian->quimioterapia_recente:''?></textarea>
+			<div class="form-group col-sm-3">
+				<label for="tratamento_outros">Outros tratamentos:</label><br/>
+				
+				<select name="tratamento_outros" id="tratamento_outros" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
 		</div>
-		<div class="form-group">
-			<label for="plaquetas_pre_qt">Plaquetas pré-qt:</label><br/>
+		
+		<div class="row">
+		
+			<div class="form-group col-sm-3">
+				<label for="quimioterapia_recente">Quimioterapia recente:</label><br/>
+				
+				<select name="quimioterapia_recente" id="quimioterapia_recente" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
 			
-			<textarea name="plaquetas_pre_qt"  class="form-control"><?= isset($vivian)?$vivian->plaquetas_pre_qt:''?></textarea>
+			<div class="form-group col-sm-3">
+				<label for="plaquetas_pre_qt">Plaquetas pré-qt:</label><br/>
+				
+				<input type="text" name="plaquetas_pre_qt"  class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:'N/A'?>">
+			</div>
+			
+			<div class="form-group col-sm-3">
+				<label for="cirurgia_trauma_recente">Cirurgia ou trauma recente:</label><br/>
+				
+				<select name="cirurgia_trauma_recente" id="cirurgia_trauma_recente" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="CR">CR</option>
+					<option value="TR">TR</option>
+					<option value="CR + TR">CR + TR</option>
+				</select>	
+				<input type="hidden" name="possui_cirurgia_trauma_recente" id="possui_cirurgia_trauma_recente">
+			</div>
+			
+			<div class="form-group col-sm-3">
+				<label for="tev_previo">Tev prévio:</label><br/>
+				
+				<select name="tev_previo" id="tev_previo" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+				<input type="hidden" name="possui_tev_previo" id="possui_tev_previo">
+			</div>
 		</div>
-		<div class="form-group">
-			<label for="cirurgia_trauma_recente">Cirurgia ou trauma recente:</label><br/>
-			
-			<textarea name="cirurgia_trauma_recente"  class="form-control"><?= isset($vivian)?$vivian->cirurgia_trauma_recente:''?></textarea>
+		
+		<div class="row">
+		
+			<div class="form-group col-sm-3">
+				<label for="tabagismo">Tabagismo:</label><br/>
+				
+				<select name="tabagismo" id="tabagismo" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="uso_de_aco">Uso de ACO(Anticoncepcional Oral):</label><br/>
+				
+				<select name="uso_de_aco" id="uso_de_aco" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="imobilizacao_prolongada">Imobilização prolongada:</label><br/>
+				
+				<select name="imobilizacao_prolongada" id="imobilizacao_prolongada" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+				<input type="hidden" name="possui_imobilizacao_prolongada" id="possui_imobilizacao_prolongada">
+
+			</div>
+			<div class="form-group col-sm-3">
+				<label for="cvc">CVC:</label><br/>
+				
+				<select name="cvc" id="cvc" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+		
 		</div>
-		<div class="form-group">
-			<label for="tev_previo">Tev prévio:</label><br/>
+		
+		<div class="row">
+			<div class="form-group col-sm-3">
+				<label for="transfusoes">Transfusões:</label><br/>
+				
+				<select name="transfusoes" id="transfusoes" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
 			
-			<textarea name="tev_previo"  class="form-control"><?= isset($vivian)?$vivian->tev_previo:''?></textarea>
+			<div class="form-group col-sm-3">
+				<label for="ag_estimulantes_eritropoese">Ag. estimulantes da eritropoese:</label><br/>
+				
+				<select name="ag_estimulantes_eritropoese" id="ag_estimulantes_eritropoese" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
+			
+			<div class="form-group col-sm-3">
+				<label for="hemoglobina">Hemoglobina:</label><br/>
+				
+				<input type="text" name="hemoglobina"  class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:'N/A'?>">
+			</div>
+			
+			<div class="form-group col-sm-3">
+				<label for="ddimero">D-dímero(em ng/ml):</label><br/>
+				
+				<input type="text" name="ddimero"  class="form-control" value="<?= isset($vivian)?$vivian->ddimero:'N/A'?>">
+			</div>
+		
 		</div>
-		<div class="form-group">
-			<label for="tabagismo">Tabagismo:</label><br/>
+		
+		<div class="row">
+		
+			<div class="form-group col-sm-3">
+				<label for="fatores_geneticos">Fatores genéticos:</label><br/>
+				
+				<select name="fatores_geneticos" id="fatores_geneticos" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0">Não</option>
+				</select>
+			</div>
 			
-			<textarea name="tabagismo"  class="form-control"><?= isset($vivian)?$vivian->tabagismo:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="uso_de_aco">Uso de aço:</label><br/>
+			<div class="form-group col-sm-3">
+				<label for="qual">Qual:</label><br/>
+				
+				<select name="qual" id="qual" class="form-select form-select mb-3">
+					<option value="0">0</option>
+					<option value="Mut. Leiden">Mut. Leiden</option>
+					<option value="Mut. gene da Protrombina">Mut gene da Protrombina</option>
+					<option value="Def. Ptn S">Def. Ptn S</option>
+					<option value="Def. Ptn C">Def. Ptn C</option>
+					<option value="Def. AntitrombinaIII">Def. AntitrombinaIII</option>
+				</select>
+			</div>
 			
-			<textarea name="uso_de_aco"  class="form-control"><?= isset($vivian)?$vivian->uso_de_aco:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="imobilizacao_prolongada">Imobilização prolongada:</label><br/>
+			<div class="form-group col-sm-3">
+				<label for="outros_fatores_de_risco_tev">Outros fatores de risco para tev:</label><br/>
+				
+				<input type="text" name="outros_fatores_de_risco_tev"  class="form-control" value="<?= isset($vivian)?$vivian->outros_fatores_de_risco_tev:'N/A'?>">
+			</div>
 			
-			<textarea name="imobilizacao_prolongada"  class="form-control"><?= isset($vivian)?$vivian->imobilizacao_prolongada:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="cvc">CVC:</label><br/>
-			
-			<textarea name="cvc"  class="form-control"><?= isset($vivian)?$vivian->cvc:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="transfusoes">Transfusões:</label><br/>
-			
-			<textarea name="transfusoes"  class="form-control"><?= isset($vivian)?$vivian->transfusoes:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="ag_estimulante_eritropoese">Ag. estimulantes da eritropoese:</label><br/>
-			
-			<textarea name="ag_estimulante_eritropoese"  class="form-control"><?= isset($vivian)?$vivian->ag_estimulante_eritropoese:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="hemoglobina">Hemoglobina:</label><br/>
-			
-			<textarea name="hemoglobina"  class="form-control"><?= isset($vivian)?$vivian->hemoglobina:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="ddimero">D-dímero:</label><br/>
-			
-			<textarea name="ddimero"  class="form-control"><?= isset($vivian)?$vivian->ddimero:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="fatores_geneticos">Fatores genéticos:</label><br/>
-			
-			<textarea name="fatores_geneticos"  class="form-control"><?= isset($vivian)?$vivian->fatores_geneticos:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="qual">Qual:</label><br/>
-			
-			<textarea name="qual"  class="form-control"><?= isset($vivian)?$vivian->qual:''?></textarea>
-		</div>
-		<div class="form-group">
-			<label for="outros_fatores_tev">Outros fatores de risco para tev:</label><br/>
-			
-			<textarea name="outros_fatores_tev"  class="form-control"><?= isset($vivian)?$vivian->outros_fatores_tev:''?></textarea>
-		</div>
-		<div class="form-group pb-3">
-			<label for="score_de_padua">Score_de_padua:</label><br/>
-			
-			<textarea name="score_de_padua"  class="form-control"><?= isset($vivian)?$vivian->score_de_padua:''?></textarea>
+			<div class="form-group  col-sm-3 pb-3">
+				<label for="score_de_padua">Score de pádua:</label><br/>
+				
+				<input type="text" name="score_padua"  class="form-control" value="<?= isset($vivian)?$vivian->score_padua:'N/A'?>" readonly>
+			</div>
+		
 		</div>
 		<input type="submit" value="Salvar" class="btn btn-primary"/>
 		<?= anchor(base_url('paginacao/1'),'Voltar','class="btn btn-success"'); ?>
-	</form>
+	
+	</div>
+</div>
 
