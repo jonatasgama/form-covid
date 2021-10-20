@@ -13,44 +13,39 @@
 	</div>
 	<div class="card-body">
 		<div class="row">
-			<div class="form-group col-sm-4">
-				<label for="ordem">Ordem:</label><br/>
-				
-				<input type="text" name="ordem"  class="form-control" value="<?= isset($vivian)?$vivian->ordem:'N/A'?>">
-			</div>
-			<div class="form-group col-sm-4">
+			<div class="form-group col-sm-2">
 				<label for="matricula">Matricula:</label><br/>
 				
 				<input type="text" name="matricula"  class="form-control" value="<?= isset($vivian)?$vivian->matricula:'N/A'?>">
 			</div>
-			<div class="form-group col-sm-4">
+			<div class="form-group col-sm-2">
 				<label for="iniciais">Iniciais:</label><br/>
 				
 				<input type="text"  name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:'N/A'?>">
 			</div>		
-		</div>
-	
-		<div class="row">
-			<div class="form-group col-sm-4">
+			
+			<div class="form-group col-sm-2">
 				<label for="covid">Covid:</label><br/>
 				
 				<select name="covid" id="covid" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
-			<div class="form-group col-sm-4">
+			
+			<div class="form-group col-sm-3">
 				<label for="data_diag_covid">Data de diagnóstico covid:</label><br/>
 				
 				<input type="text"  name="data_diag_covid"  class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:'N/A'?>">
 			</div>
 			
-			<div class="form-group col-sm-4">
+			<div class="form-group col-sm-3">
 				<label for="tempo_internacao">Tempo de internação(em dias):</label><br/>
 				
 				<input type="text" name="tempo_internacao"  class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:'N/A'?>">
-			</div>		
-		</div>	
+			</div>	
+		</div>
+	
 		
 		<div class="row">	
 
@@ -69,8 +64,8 @@
 				<label for="desfecho">Desfecho alta:</label><br/>
 				
 				<select name="desfecho_alta" id ="desfecho_alta" class="form-select form-select mb-3">
-					<option value="0">0</option>
-					<option value="1">1</option>
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
 				</select>				
 			</div>
 			
@@ -78,8 +73,8 @@
 				<label for="desfecho_obito">Desfecho óbito:</label><br/>
 				
 				<select name="desfecho_obito" id ="desfecho_obito" class="form-select form-select mb-3">
-					<option value="0">0</option>
-					<option value="1">1</option>
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
 				</select>			
 			</div>		
 			
@@ -87,8 +82,8 @@
 				<label for="desfecho">Desfecho acompanhamento ambulatorial:</label><br/>
 				
 				<select name="desfecho_acomp_amb" id ="desfecho_acomp_amb" class="form-select form-select mb-3">
-					<option value="0">0</option>
-					<option value="1">1</option>
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
 				</select>				
 			</div>			
 		</div>
@@ -108,7 +103,7 @@
 				
 				<select name="evento_tromb" id ="evento_tromb" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 			<div class="form-group col-sm-6">
@@ -125,7 +120,7 @@
 				
 				<select name="evento_tvp" id ="evento_tvp" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>				
 			</div>		
 
@@ -135,7 +130,7 @@
 				
 				<select name="evento_ep" id ="evento_ep" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 		</div>	
@@ -146,7 +141,7 @@
 				
 				<select name="evento_avc" id ="evento_avc" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 			
@@ -155,7 +150,7 @@
 				
 				<select name="evento_coag_intr" id ="evento_coag_intr" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 
@@ -164,7 +159,7 @@
 				
 				<select name="evento_iam" id ="evento_iam" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 
@@ -172,7 +167,7 @@
 				<label for="evento_avc">Outro:</label><br/>
 				
 				<select name="evento_outro_lista" id ="evento_outro_lista" class="form-select form-select mb-3">
-					<option value="Trombose subclávia">Trombose subclávia</option>
+					<option value="Trombose subclavia">Trombose subclávia</option>
 					<option value="Trombose VJI">Trombose VJI</option>
 					<option value="Tromboflebite">Tromboflebite</option>
 					<option value="Trombose veia superficial">Trombose veia superficial</option>
@@ -205,8 +200,8 @@
 		<div class="form-group col-sm-1">
 			<label for="sexo">Sexo:</label><br/>	
 			<select name="sexo" id ="sexo" class="form-select form-select mb-3">
-				<option value="f">F</option>
-				<option value="m">M</option>
+				<option value="F">F</option>
+				<option value="M">M</option>
 			</select>			
 		</div>
 		<div class="form-group col-sm-2">
@@ -233,22 +228,22 @@
 		<div class="form-group col-sm-1">
 			<label for="peso">Peso:</label><br/>
 			
-			<input type="text" name="peso"  class="form-control" value="<?= isset($vivian)?$vivian->peso:'N/A'?>">
+			<input type="text" name="peso"  id="peso" class="form-control" value="<?= isset($vivian)?$vivian->peso:'N/A'?>">
 		</div>
 		<div class="form-group col-sm-1">
-			<label for="altura">Altura:</label><br/>
+			<label for="altura">Altura(cm):</label><br/>
 			
-			<input type="text" name="altura"  class="form-control" value="<?= isset($vivian)?$vivian->altura:'N/A'?>">
+			<input type="text" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:'N/A'?>" onblur="calculaImc()">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="imc">Imc:</label><br/>
 			
-			<input type="text" name="imc"  class="form-control" value="<?= isset($vivian)?$vivian->imc:'N/A'?>">
+			<input type="text" name="imc"  id="imc" class="form-control" value="<?= isset($vivian)?$vivian->imc:'N/A'?>" onblur="calculaClassificacao()">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="classificacao">Classificação:</label><br/>
 			
-			<input type="text" name="classificacao"  class="form-control" value="<?= isset($vivian)?$vivian->classificacao:'N/A'?>">
+			<input type="text" name="classificacao"  id="classificacao" class="form-control" value="<?= isset($vivian)?$vivian->classificacao:'N/A'?>">
 		</div>		
 	</div>	
 		
@@ -269,7 +264,7 @@
 				
 				<select name="obesidade" id ="obesidade" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>	
 				<input type="hidden" name="possui_obesidade" id="possui_obesidade">
 			</div>
@@ -278,7 +273,7 @@
 				
 				<select name="has" id ="has" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -286,14 +281,14 @@
 				
 				<select name="dm" id ="dm" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
 				<label for="icc_ou_ir">ICC ou IR:</label><br/>
 				
-				<select name="icc_ou_ir" id ="icc_ou_ir" class="form-select form-select mb-3">
-					<option value="0">0</option>
+				<select name="icc_ou_ir" id ="icc_ou_ir" class="form-select form-select mb-3" onblur="scorePadua()">
+					<option value="0">Não</option>
 					<option value="ICC">ICC</option>
 					<option value="IR">IR</option>
 					<option value="ICC + IR">ICC + IR</option>
@@ -308,7 +303,7 @@
 				
 				<select name="iam" id="iam" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 				<input type="hidden" name="possui_iam" id="possui_iam">
 			</div>
@@ -317,7 +312,7 @@
 				
 				<select name="avc" id="avc" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 				<input type="hidden" name="possui_avc" id="possui_avc">
 			</div>
@@ -325,7 +320,7 @@
 				<label for="infeccoes_doencas_reumaticas">Infecções ou doenças reumáticas:</label><br/>
 				
 				<select name="infeccoes_doencas_reumaticas" id="infeccoes_doencas_reumaticas" class="form-select form-select mb-3">
-					<option value="0">0</option>
+					<option value="0">Não</option>
 					<option value="INF">INF</option>
 					<option value="DR">DR</option>
 					<option value="INF + DR">INF + DR</option>
@@ -337,7 +332,7 @@
 				
 				<select name="trombofilia" id="trombofilia" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 				<input type="hidden" name="possui_trombofilia" id="possui_trombofilia">
 			</div>
@@ -347,10 +342,10 @@
 			<div class="form-group col-sm-4">
 				<label for="outras_comorb_lista_1">Outras Comorbidades:</label><br/>
 				
-				<select name="outras_comorb_lista_1" id="possui_outras_comorb_lista_1" class="form-select form-select mb-3">
-					<option value="0">0</option>
+				<select name="outras_comorb_lista_1" id="outras_comorb_lista_1" class="form-select form-select mb-3">
+					<option value="0">Não</option>
 					<option value="Desnutrição">Desnutrição</option>
-					<option value="Sífilis">Sífilis</option>
+					<option value="Sifilis">Sífilis</option>
 					<option value="DPOC">DPOC</option>
 					<option value="IRA">IRA</option>
 					<option value="IRC/DRC">IRC/DRC</option>
@@ -363,22 +358,22 @@
 					<option value="Neuropatia periférica">Neuropatia periférica</option>
 					<option value="Glaucoma">Glaucoma</option>
 					<option value="Hepatite">Hepatite</option>
-					<option value="Cirrose hepática">Cirrose hepática</option>
+					<option value="Cirrose hepatica">Cirrose hepática</option>
 					<option value="Paraplesia">Paraplesia</option>
 					<option value="Escoliose">Escoliose</option>
 					<option value="Aneurisma aorta">Aneurisma aorta</option>
 					<option value="Aneurisma cerebral">Aneurisma cerebral</option>
-					<option value="Hiperplasia Prostática benigna">Hiperplasia Prostática benigna</option>				
+					<option value="Hiperplasia Prostatica benigna">Hiperplasia Prostática benigna</option>				
 				</select>
 			</div>
 			
 			<div class="form-group col-sm-4">
 				<label for="outras_comorb_lista_2">Outras Comorbidades:</label><br/>
 				
-				<select name="outras_comorb_lista_2" id="possui_outras_comorb_lista_2" class="form-select form-select mb-3">
-					<option value="0">0</option>
+				<select name="outras_comorb_lista_2" id="outras_comorb_lista_2" class="form-select form-select mb-3">
+					<option value="0">Não</option>
 					<option value="Desnutrição">Desnutrição</option>
-					<option value="Sífilis">Sífilis</option>
+					<option value="Sifilis">Sífilis</option>
 					<option value="DPOC">DPOC</option>
 					<option value="IRA">IRA</option>
 					<option value="IRC/DRC">IRC/DRC</option>
@@ -388,10 +383,10 @@
 					<option value="Labirintite">Labirintite</option>
 					<option value="Dislipidemia">Dislipidemia</option>
 					<option value="Osteoporose">Osteoporose</option>
-					<option value="Neuropatia periférica">Neuropatia periférica</option>
+					<option value="Neuropatia periferica">Neuropatia periférica</option>
 					<option value="Glaucoma">Glaucoma</option>
 					<option value="Hepatite">Hepatite</option>
-					<option value="Cirrose hepática">Cirrose hepática</option>
+					<option value="Cirrose hepatica">Cirrose hepática</option>
 					<option value="Paraplesia">Paraplesia</option>
 					<option value="Escoliose">Escoliose</option>
 					<option value="Aneurisma aorta">Aneurisma aorta</option>
@@ -403,10 +398,10 @@
 			<div class="form-group col-sm-4">
 				<label for="outras_comorb_lista_3">Outras Comorbidades:</label><br/>
 				
-				<select name="outras_comorb_lista_3" id="possui_outras_comorb_lista_3" class="form-select form-select mb-3">
-					<option value="0">0</option>
+				<select name="outras_comorb_lista_3" id="outras_comorb_lista_3" class="form-select form-select mb-3">
+					<option value="0">Não</option>
 					<option value="Desnutrição">Desnutrição</option>
-					<option value="Sífilis">Sífilis</option>
+					<option value="Sifilis">Sífilis</option>
 					<option value="DPOC">DPOC</option>
 					<option value="IRA">IRA</option>
 					<option value="IRC/DRC">IRC/DRC</option>
@@ -416,7 +411,7 @@
 					<option value="Labirintite">Labirintite</option>
 					<option value="Dislipidemia">Dislipidemia</option>
 					<option value="Osteoporose">Osteoporose</option>
-					<option value="Neuropatia periférica">Neuropatia periférica</option>
+					<option value="Neuropatia periferica">Neuropatia periférica</option>
 					<option value="Glaucoma">Glaucoma</option>
 					<option value="Hepatite">Hepatite</option>
 					<option value="Cirrose hepática">Cirrose hepática</option>
@@ -436,7 +431,7 @@
 				<textarea 
 						class="form-control mb-3" 
 						name="outras_comorb_escrito"
-						id="possui_outras_comorb_escrito"><?=isset($vivian)?$vivian->outras_comorb_escrito:'N/A'?>
+						id="outras_comorb_escrito"><?=isset($vivian)?$vivian->outras_comorb_escrito:'N/A'?>
 				</textarea>
 			</div>
 		</div>
@@ -456,7 +451,7 @@
 				
 				<select name="neoplasia_maligna" id="neoplasia_maligna" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -464,7 +459,7 @@
 				
 				<select name="cancer_ativo" id="cancer_ativo" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 				<input type="hidden" name="possui_cancer_ativo" id="possui_cancer_ativo">
 			</div>
@@ -474,7 +469,7 @@
 				
 				<select name="sitio_tumoral_cerebro" id="sitio_tumoral_cerebro" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 			
@@ -483,7 +478,7 @@
 				
 				<select name="sitio_tumoral_pancreas" id="sitio_tumoral_pancreas" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>		
 		</div>	
@@ -494,7 +489,7 @@
 				
 				<select name="sitio_tumoral_estomago" id="sitio_tumoral_estomago" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 			<div class="form-group col-sm-4">
@@ -502,7 +497,7 @@
 				
 				<select name="sitio_tumoral_pulmao" id="sitio_tumoral_pulmao" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 			
@@ -511,7 +506,7 @@
 				
 				<select name="sitio_tumoral_bexiga" id="sitio_tumoral_bexiga" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>		
 		</div>	
@@ -523,7 +518,7 @@
 				
 				<select name="sitio_tumoral_ginecologicos" id="sitio_tumoral_ginecologicos" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>			
 			</div>
 			<div class="form-group col-sm-3">
@@ -531,7 +526,7 @@
 				
 				<select name="sitio_tumoral_hematologicos" id="sitio_tumoral_hematologicos" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>				
 			</div>
 			
@@ -540,7 +535,7 @@
 				
 				<select name="sitio_tumoral_mama" id="sitio_tumoral_mama" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>				
 			</div>		
 			
@@ -548,13 +543,13 @@
 				<label for="sitio_tumoral_outros_lista">Outros:</label><br/>
 				
 				<select name="sitio_tumoral_outros_lista" id="sitio_tumoral_outros_lista" class="form-select form-select mb-3">
-					<option value="0">0</option>
-					<option value="Próstata">Próstata</option>
+					<option value="0">Não</option>
+					<option value="Prostata">Próstata</option>
 					<option value="Cabeça e pescoço">Cabeça e pescoço</option>
 					<option value="Gastrointestinal">Gastrointestinal</option>
 					<option value="Ossos">Ossos</option>
 					<option value="Melanoma">Melanoma</option>
-					<option value="Não melanoma">Não melanoma</option>
+					<option value="Nao melanoma">Não melanoma</option>
 					<option value="Renal">Renal</option>
 					<option value="Linfomas">Linfomas</option>
 				</select>				
@@ -565,7 +560,7 @@
 				
 				<select name="metastase" id="metastase" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>				
 			</div>				
 		</div>	
@@ -597,7 +592,7 @@
 				
 					<select name="tratamento_quimioterapia" id="tratamento_quimioterapia" class="form-select form-select mb-3">
 						<option value="1">Sim</option>
-						<option value="0">Não</option>
+						<option value="0" selected>Não</option>
 					</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -605,7 +600,7 @@
 				
 				<select name="tratamento_radioterapia" id="tratamento_radioterapia" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -613,7 +608,7 @@
 				
 				<select name="tratamento_braquiterapia" id="tratamento_braquiterapia" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -621,7 +616,7 @@
 				
 				<select name="tratamento_hormonioterapia" id="tratamento_hormonioterapia" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 				<input type="hidden" name="possui_tratamento_hormonioterapia" id="possui_tratamento_hormonioterapia">
 			</div>
@@ -633,7 +628,7 @@
 				
 				<select name="tratamento_imunoterapia" id="tratamento_imunoterapia" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -641,7 +636,7 @@
 				
 				<select name="tratamento_cirurgia" id="tratamento_cirurgia" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -649,7 +644,7 @@
 				
 				<select name="tratamento_terapias_angiogenicas" id="tratamento_terapias_angiogenicas" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			
@@ -658,7 +653,7 @@
 				
 				<select name="tratamento_outros" id="tratamento_outros" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 		</div>
@@ -670,21 +665,21 @@
 				
 				<select name="quimioterapia_recente" id="quimioterapia_recente" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="plaquetas_pre_qt">Plaquetas pré-qt:</label><br/>
 				
-				<input type="text" name="plaquetas_pre_qt"  class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:'N/A'?>">
+				<input type="text" name="plaquetas_pre_qt"  id="plaquetas_pre_qt" class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:'N/A'?>">
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="cirurgia_trauma_recente">Cirurgia ou trauma recente:</label><br/>
 				
 				<select name="cirurgia_trauma_recente" id="cirurgia_trauma_recente" class="form-select form-select mb-3">
-					<option value="0">0</option>
+					<option value="0">Não</option>
 					<option value="CR">CR</option>
 					<option value="TR">TR</option>
 					<option value="CR + TR">CR + TR</option>
@@ -697,7 +692,7 @@
 				
 				<select name="tev_previo" id="tev_previo" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 				<input type="hidden" name="possui_tev_previo" id="possui_tev_previo">
 			</div>
@@ -710,7 +705,7 @@
 				
 				<select name="tabagismo" id="tabagismo" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -718,7 +713,7 @@
 				
 				<select name="uso_de_aco" id="uso_de_aco" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			<div class="form-group col-sm-3">
@@ -726,7 +721,7 @@
 				
 				<select name="imobilizacao_prolongada" id="imobilizacao_prolongada" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 				<input type="hidden" name="possui_imobilizacao_prolongada" id="possui_imobilizacao_prolongada">
 
@@ -736,7 +731,7 @@
 				
 				<select name="cvc" id="cvc" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 		
@@ -748,7 +743,7 @@
 				
 				<select name="transfusoes" id="transfusoes" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			
@@ -757,20 +752,20 @@
 				
 				<select name="ag_estimulantes_eritropoese" id="ag_estimulantes_eritropoese" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="hemoglobina">Hemoglobina:</label><br/>
 				
-				<input type="text" name="hemoglobina"  class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:'N/A'?>">
+				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:'N/A'?>">
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="ddimero">D-dímero(em ng/ml):</label><br/>
 				
-				<input type="text" name="ddimero"  class="form-control" value="<?= isset($vivian)?$vivian->ddimero:'N/A'?>">
+				<input type="text" name="ddimero"  id="ddimero" class="form-control" value="<?= isset($vivian)?$vivian->ddimero:'N/A'?>">
 			</div>
 		
 		</div>
@@ -782,7 +777,7 @@
 				
 				<select name="fatores_geneticos" id="fatores_geneticos" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
-					<option value="0">Não</option>
+					<option value="0" selected>Não</option>
 				</select>
 			</div>
 			
@@ -790,7 +785,7 @@
 				<label for="qual">Qual:</label><br/>
 				
 				<select name="qual" id="qual" class="form-select form-select mb-3">
-					<option value="0">0</option>
+					<option value="0">Não</option>
 					<option value="Mut. Leiden">Mut. Leiden</option>
 					<option value="Mut. gene da Protrombina">Mut gene da Protrombina</option>
 					<option value="Def. Ptn S">Def. Ptn S</option>
@@ -802,13 +797,19 @@
 			<div class="form-group col-sm-3">
 				<label for="outros_fatores_de_risco_tev">Outros fatores de risco para tev:</label><br/>
 				
-				<input type="text" name="outros_fatores_de_risco_tev"  class="form-control" value="<?= isset($vivian)?$vivian->outros_fatores_de_risco_tev:'N/A'?>">
+				<select name="outros_fatores_de_risco_tev" id="outros_fatores_de_risco_tev" class="form-select form-select mb-3">
+					<option value="1">Sim</option>
+					<option value="0" selected>Não</option>
+				</select>
 			</div>
 			
 			<div class="form-group  col-sm-3 pb-3">
-				<label for="score_de_padua">Score de pádua:</label><br/>
+				<label for="score_padua">Score de pádua:</label><br/>
 				
-				<input type="text" name="score_padua"  class="form-control" value="<?= isset($vivian)?$vivian->score_padua:'N/A'?>" readonly>
+				<div class="input-group">
+					<input type="text" name="score_padua"  id="score_padua" class="form-control" value="<?= isset($vivian)?$vivian->score_padua:'N/A'?>" readonly>
+					<button class="btn btn-outline-secondary" type="button" onclick="scorePadua()" id="calclulaScore">Calcular</button>
+				</div>
 			</div>
 		
 		</div>

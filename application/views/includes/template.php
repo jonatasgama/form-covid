@@ -57,7 +57,8 @@
 	</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="<?=base_url('assets/js/jquery.mask.min.js');?>"></script>
 <script>
 	function verificaIdade(){
 		x = document.getElementById('idade').value;
@@ -67,6 +68,35 @@
 		}else{
 			document.getElementById('maior_70').value = '0'
 			document.getElementById('maior_que_70').value = 'Não'
+		}
+	}
+	
+	function calculaImc(){
+		let peso = document.getElementById('peso').value;
+		let altura = document.getElementById('altura').value;
+		let imc = (peso / (altura * altura)) * 10000;
+		document.getElementById('imc').value = imc.toString().substr(0,5);
+	}
+	
+	function calculaClassificacao(){
+		let classificacao = document.getElementById('imc').value;
+		
+		if(classificacao >= 40){
+			document.getElementById('classificacao').value = 'Obesidade grau 3';
+		}else if(classificacao >= 35){
+			document.getElementById('classificacao').value = 'Obesidade grau 2';
+		}else if(classificacao >= 30){
+			document.getElementById('classificacao').value = 'Obesidade grau 1';
+		}else if(classificacao >= 25){
+			document.getElementById('classificacao').value = 'Sobrepeso';
+		}else if(classificacao >= 18.5){
+			document.getElementById('classificacao').value = 'Adequado';
+		}else if(classificacao >= 17){
+			document.getElementById('classificacao').value = 'Baixo peso leve';
+		}else if(classificacao >= 16){
+			document.getElementById('classificacao').value = 'Baixo peso moderado';
+		}else if(classificacao >= 15){
+			document.getElementById('classificacao').value = 'Baixo peso severo';
 		}
 	}
 	
@@ -81,6 +111,23 @@
 	document.getElementById('possui_tev_previo').value = document.getElementById('tev_previo').value;
 	document.getElementById('possui_imobilizacao_prolongada').value = document.getElementById('imobilizacao_prolongada').value;
 	document.getElementById('possui_cirurgia_trauma_recente').value = document.getElementById('cirurgia_trauma_recente').value;
+	
+	function scorePadua(){
+		let score = 0;
+		score += parseInt(document.getElementById('obesidade').value);
+		score += parseInt(document.getElementById('icc_ou_ir').value) == 0 ? parseInt(document.getElementById('possui_icc_ou_ir').value) : 1;
+		score += parseInt(document.getElementById('iam').value);
+		score += parseInt(document.getElementById('avc').value);
+		score += parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) == 0 ? parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) : 1;
+		score += parseInt(document.getElementById('trombofilia').value);
+		score += parseInt(document.getElementById('cancer_ativo').value) == 1 ? 3 : 0;
+		score += parseInt(document.getElementById('tratamento_hormonioterapia').value);
+		score += parseInt(document.getElementById('cirurgia_trauma_recente').value) == 1 ? 2 : 0;
+		score += parseInt(document.getElementById('tev_previo').value) == 1 ? 3 : 0;
+		score += parseInt(document.getElementById('imobilizacao_prolongada').value) == 1 ? 3 : 0;
+		score += parseInt(document.getElementById('maior_70').value);
+		document.getElementById('score_padua').value = score;
+	}
 	
 
 <?php
@@ -119,6 +166,7 @@ if(isset($vivian)){ ;?>
 	document.getElementById('outras_comorb_lista_1').value = '<?=$vivian->outras_comorb_lista_1;?>';
 	document.getElementById('outras_comorb_lista_2').value = '<?=$vivian->outras_comorb_lista_2;?>';
 	document.getElementById('outras_comorb_lista_3').value = '<?=$vivian->outras_comorb_lista_3;?>';
+	document.getElementById('outras_comorb_escrito').value = '<?=$vivian->outras_comorb_escrito;?>';
 	document.getElementById('neoplasia_maligna').value = '<?=$vivian->neoplasia_maligna;?>';
 	document.getElementById('cancer_ativo').value = '<?=$vivian->cancer_ativo;?>';
 	document.getElementById('sitio_tumoral_cerebro').value = '<?=$vivian->sitio_tumoral_cerebro;?>';

@@ -8,7 +8,7 @@ class Vivian_model extends CI_Model {
 	# save $data on 'vivian'
 	function save($data) {
 		
-		$this->db->set('ordem', $data['ordem']);
+		//$this->db->set('ordem', $data['ordem']);
 		$this->db->set('matricula', $data['matricula']);
 		$this->db->set('iniciais', $data['iniciais']);
 		$this->db->set('covid', $data['covid']);
@@ -119,6 +119,12 @@ class Vivian_model extends CI_Model {
 		}
 	}
 
+	function findToExtract() {
+		$sql = "SELECT * FROM form_covid";
+		$result = $this->db->query($sql);
+		return $result;
+	}
+	
 	# destroy $data from  'vivian'
 	function destroy($id) {
 		$this->db->where('id', $id);

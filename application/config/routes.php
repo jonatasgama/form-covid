@@ -57,3 +57,4 @@ $route['paginacao/(:num)'] = "Vivian/index/$1";
 $route['paginacao'] = "Vivian/index";
 $route['destroy/(:num)'] = "Vivian/destroy/$1";
 $route['edit/(:num)'] = "Vivian/edit/$1";
+$route['extrair'] = "Vivian/extrairDados";

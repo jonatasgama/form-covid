@@ -79,31 +79,23 @@ class Vivian extends CI_Controller {
 	}
 
 	# POST /vivian/save
-	function save() {		
-		$this->form_validation->set_rules('ordem', 'Ordem', 'required');
+	function save() {
 		$this->form_validation->set_rules('matricula', 'Matricula', 'required');
 		$this->form_validation->set_rules('iniciais', 'Iniciais', 'required');
-		//$this->form_validation->set_rules('unidade', 'Unidade', 'required');
 		$this->form_validation->set_rules('covid', 'Covid', 'required');
 		$this->form_validation->set_rules('data_diag_covid', 'Data_diag_covid', 'required');
 		$this->form_validation->set_rules('tempo_internacao', 'Tempo_internacao', 'required');
 		$this->form_validation->set_rules('performance_status', 'Performance_status', 'required');
-		//$this->form_validation->set_rules('desfecho', 'Desfecho', 'required');
 		$this->form_validation->set_rules('desfecho_alta', 'Desfecho alta', 'required');
 		$this->form_validation->set_rules('desfecho_obito', 'Desecho obito', 'required');
 		$this->form_validation->set_rules('desfecho_acomp_amb', 'Desecho acompanhamento amb.', 'required');
-		//$this->form_validation->set_rules('diagnostico_ev_tromb', 'Diagnostico_ev_tromb', 'required');
 		$this->form_validation->set_rules('evento_tromb', 'Evento tromboembolico', 'required');
-		//$this->form_validation->set_rules('data_diagnostico', 'Data_diagnostico', 'required');
 		$this->form_validation->set_rules('data_diagnostico_evento_tromb', 'Data diagnostico evento tromboembolico', 'required');
-		//$this->form_validation->set_rules('tvp', 'Tvp', 'required');
 		$this->form_validation->set_rules('evento_tvp', 'Evento tvp', 'required');
-		//$this->form_validation->set_rules('ep', 'Ep', 'required');
 		$this->form_validation->set_rules('evento_ep', 'Evento ep', 'required');
 		$this->form_validation->set_rules('evento_avc', 'Evento avc', 'required');
 		$this->form_validation->set_rules('evento_coag_intr', 'Evento cong. intr.', 'required');
 		$this->form_validation->set_rules('evento_iam', 'Evento iam', 'required');
-		//$this->form_validation->set_rules('outro', 'Outro', 'required');
 		$this->form_validation->set_rules('evento_outro_lista', 'Outro evento', 'required');
 		$this->form_validation->set_rules('evento_outro_escrito', 'Outro evento', 'required');
 		$this->form_validation->set_rules('sexo', 'Sexo', 'required');
@@ -125,12 +117,10 @@ class Vivian extends CI_Controller {
 		$this->form_validation->set_rules('possui_iam', 'Possui iam', 'required');
 		$this->form_validation->set_rules('avc', 'Avc', 'required');
 		$this->form_validation->set_rules('possui_avc', 'Possui avc', 'required');
-		//$this->form_validation->set_rules('infeccoes_ou_doencas_reumaticas', 'Infeccoes_ou_doencas_reumaticas', 'required');
 		$this->form_validation->set_rules('infeccoes_doencas_reumaticas', 'Infeccoes ou doencas reumaticas', 'required');
 		$this->form_validation->set_rules('possui_infeccoes_doencas_reumaticas', 'Possui Infeccoes ou doencas reumaticas', 'required');
 		$this->form_validation->set_rules('trombofilia', 'Trombofilia', 'required');
 		$this->form_validation->set_rules('possui_trombofilia', 'Possui trombofilia', 'required');
-		//$this->form_validation->set_rules('outras', 'Outras', 'required');
 		$this->form_validation->set_rules('outras_comorb_lista_1', 'Outras comorbidade', 'required');
 		$this->form_validation->set_rules('outras_comorb_lista_2', 'Outras comorbidade', 'required');
 		$this->form_validation->set_rules('outras_comorb_lista_3', 'Outras comorbidade', 'required');
@@ -138,41 +128,25 @@ class Vivian extends CI_Controller {
 		$this->form_validation->set_rules('neoplasia_maligna', 'Neoplasia maligna', 'required');
 		$this->form_validation->set_rules('cancer_ativo', 'Cancer ativo', 'required');
 		$this->form_validation->set_rules('possui_cancer_ativo', 'Possui Cancer ativo', 'required');
-		//$this->form_validation->set_rules('cerebro', 'Cerebro', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_cerebro', 'Sitio tumoral Cerebro', 'required');
-		//$this->form_validation->set_rules('pancreas', 'Pancreas', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_pancreas', 'Sitio tumoral Pancreas', 'required');
-		//$this->form_validation->set_rules('estomago', 'Estomago', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_estomago', 'sitio_tumoral_Estomago', 'required');
-		//$this->form_validation->set_rules('pulmao', 'Pulmao', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_pulmao', 'Sitio tumoral Pulmao', 'required');
-		//$this->form_validation->set_rules('bexiga', 'Bexiga', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_bexiga', 'Sitio tumoral Bexiga', 'required');
-		//$this->form_validation->set_rules('ginecologicos', 'Ginecologicos', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_ginecologicos', 'sitio tumoral Ginecologicos', 'required');
-		//$this->form_validation->set_rules('hematologicos', 'Hematologicos', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_hematologicos', 'sitio tumoral Hematologicos', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_mama', 'sitio tumoral mama', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_outros_lista', 'sitio tumoral outros', 'required');
 		$this->form_validation->set_rules('sitio_tumoral_outros_escrito', 'sitio tumoral outros', 'required');
-		//$this->form_validation->set_rules('outros', 'Outros', 'required');
 		$this->form_validation->set_rules('metastase', 'Metastase', 'required');
-		//$this->form_validation->set_rules('quimioterapia', 'Quimioterapia', 'required');
 		$this->form_validation->set_rules('tratamento_quimioterapia', 'Tratamento Quimioterapia', 'required');
-		//$this->form_validation->set_rules('radioterapia', 'Radioterapia', 'required');
 		$this->form_validation->set_rules('tratamento_radioterapia', 'Tratamento Radioterapia', 'required');
-		//$this->form_validation->set_rules('braquiterapia', 'Braquiterapia', 'required');
 		$this->form_validation->set_rules('tratamento_braquiterapia', 'Tratamento Braquiterapia', 'required');
-		//$this->form_validation->set_rules('hormonioterapia', 'Hormonioterapia', 'required');
 		$this->form_validation->set_rules('tratamento_hormonioterapia', 'Tratamento Hormonioterapia', 'required');
 		$this->form_validation->set_rules('possui_tratamento_hormonioterapia', 'Tratamento Hormonioterapia', 'required');
-		//$this->form_validation->set_rules('imunoterapia', 'Imunoterapia', 'required');
 		$this->form_validation->set_rules('tratamento_imunoterapia', 'Tratamento Imunoterapia', 'required');
-		//$this->form_validation->set_rules('cirurgia', 'Cirurgia', 'required');
 		$this->form_validation->set_rules('tratamento_cirurgia', 'Tratamento Cirurgia', 'required');
-		//$this->form_validation->set_rules('terapias_angiogenicas', 'Terapias_angiogenicas', 'required');
 		$this->form_validation->set_rules('tratamento_terapias_angiogenicas', 'Tratamento Terapias angiogenicas', 'required');
-		//$this->form_validation->set_rules('outros_tratamentos', 'Outros_tratamentos', 'required');
 		$this->form_validation->set_rules('tratamento_outros', 'Outros tratamentos', 'required');
 		$this->form_validation->set_rules('quimioterapia_recente', 'Quimioterapia_recente', 'required');
 		$this->form_validation->set_rules('plaquetas_pre_qt', 'Plaquetas_pre_qt', 'required');
@@ -191,78 +165,11 @@ class Vivian extends CI_Controller {
 		$this->form_validation->set_rules('ddimero', 'Ddimero', 'required');
 		$this->form_validation->set_rules('fatores_geneticos', 'Fatores_geneticos', 'required');
 		$this->form_validation->set_rules('qual', 'Qual', 'required');
-		//$this->form_validation->set_rules('outros_fatores_tev', 'Outros_fatores_tev', 'required');
 		$this->form_validation->set_rules('outros_fatores_de_risco_tev', 'Outros fatores de risco tev', 'required');
 		$this->form_validation->set_rules('score_padua', 'Score_de_padua', 'required');
 
 		if ($this->form_validation->run()) {
 
-			/*$data[] = array();
-			$data['id'] = $this->input->post('id', TRUE);
-			$data['ordem'] = $this->input->post('ordem', TRUE);
-			$data['matricula'] = $this->input->post('matricula', TRUE);
-			$data['iniciais'] = $this->input->post('iniciais', TRUE);
-			$data['unidade'] = $this->input->post('unidade', TRUE);
-			$data['covid'] = $this->input->post('covid', TRUE);
-			$data['data_diag_covid'] = $this->input->post('data_diag_covid', TRUE);
-			$data['tempo_internacao'] = $this->input->post('tempo_internacao', TRUE);
-			$data['performance_status'] = $this->input->post('performance_status', TRUE);
-			$data['desfecho'] = $this->input->post('desfecho', TRUE);
-			$data['diagnostico_ev_tromb'] = $this->input->post('diagnostico_ev_tromb', TRUE);
-			$data['data_diagnostico'] = $this->input->post('data_diagnostico', TRUE);
-			$data['tvp'] = $this->input->post('tvp', TRUE);
-			$data['ep'] = $this->input->post('ep', TRUE);
-			$data['outro'] = $this->input->post('outro', TRUE);
-			$data['sexo'] = $this->input->post('sexo', TRUE);
-			$data['raca'] = $this->input->post('raca', TRUE);
-			$data['idade'] = $this->input->post('idade', TRUE);
-			$data['maior_70'] = $this->input->post('maior_70', TRUE);
-			$data['peso'] = $this->input->post('peso', TRUE);
-			$data['altura'] = $this->input->post('altura', TRUE);
-			$data['imc'] = $this->input->post('imc', TRUE);
-			$data['obesidade'] = $this->input->post('obesidade', TRUE);
-			$data['has'] = $this->input->post('has', TRUE);
-			$data['dm'] = $this->input->post('dm', TRUE);
-			$data['icc_ou_ir'] = $this->input->post('icc_ou_ir', TRUE);
-			$data['iam'] = $this->input->post('iam', TRUE);
-			$data['avc'] = $this->input->post('avc', TRUE);
-			$data['infeccoes_ou_doencas_reumaticas'] = $this->input->post('infeccoes_ou_doencas_reumaticas', TRUE);
-			$data['trombofilia'] = $this->input->post('trombofilia', TRUE);
-			$data['outras'] = $this->input->post('outras', TRUE);
-			$data['neoplasia_maligna'] = $this->input->post('neoplasia_maligna', TRUE);
-			$data['cancer_ativo'] = $this->input->post('cancer_ativo', TRUE);
-			$data['cerebro'] = $this->input->post('cerebro', TRUE);
-			$data['pancreas'] = $this->input->post('pancreas', TRUE);
-			$data['estomago'] = $this->input->post('estomago', TRUE);
-			$data['pulmao'] = $this->input->post('pulmao', TRUE);
-			$data['bexiga'] = $this->input->post('bexiga', TRUE);
-			$data['ginecologicos'] = $this->input->post('ginecologicos', TRUE);
-			$data['hematologicos'] = $this->input->post('hematologicos', TRUE);
-			$data['outros'] = $this->input->post('outros', TRUE);
-			$data['quimioterapia'] = $this->input->post('quimioterapia', TRUE);
-			$data['radioterapia'] = $this->input->post('radioterapia', TRUE);
-			$data['braquiterapia'] = $this->input->post('braquiterapia', TRUE);
-			$data['hormonioterapia'] = $this->input->post('hormonioterapia', TRUE);
-			$data['imunoterapia'] = $this->input->post('imunoterapia', TRUE);
-			$data['cirurgia'] = $this->input->post('cirurgia', TRUE);
-			$data['terapias_angiogenicas'] = $this->input->post('terapias_angiogenicas', TRUE);
-			$data['outros_tratamentos'] = $this->input->post('outros_tratamentos', TRUE);
-			$data['quimioterapia_recente'] = $this->input->post('quimioterapia_recente', TRUE);
-			$data['plaquetas_pre_qt'] = $this->input->post('plaquetas_pre_qt', TRUE);
-			$data['cirurgia_trauma_recente'] = $this->input->post('cirurgia_trauma_recente', TRUE);
-			$data['tev_previo'] = $this->input->post('tev_previo', TRUE);
-			$data['tabagismo'] = $this->input->post('tabagismo', TRUE);
-			$data['uso_de_aco'] = $this->input->post('uso_de_aco', TRUE);
-			$data['imobilizacao_prolongada'] = $this->input->post('imobilizacao_prolongada', TRUE);
-			$data['cvc'] = $this->input->post('cvc', TRUE);
-			$data['transfusoes'] = $this->input->post('transfusoes', TRUE);
-			$data['ag_estimulante_eritropoese'] = $this->input->post('ag_estimulante_eritropoese', TRUE);
-			$data['hemoglobina'] = $this->input->post('hemoglobina', TRUE);
-			$data['ddimero'] = $this->input->post('ddimero', TRUE);
-			$data['fatores_geneticos'] = $this->input->post('fatores_geneticos', TRUE);
-			$data['qual'] = $this->input->post('qual', TRUE);
-			$data['outros_fatores_tev'] = $this->input->post('outros_fatores_tev', TRUE);
-			$data['score_de_padua'] = $this->input->post('score_de_padua', TRUE);*/
 			$data = $this->input->post(NULL, TRUE);
 			$this->Vivian_model->save($data);
 			$this->session->set_tempdata('msg','Dados salvos com sucesso', 15);	
@@ -277,7 +184,6 @@ class Vivian extends CI_Controller {
 	function rebuild() {
 		$object = new Vivian_model();
 		$object->id = $this->input->post('id', TRUE);
-		$object->ordem = $this->input->post('ordem', TRUE);
 		$object->matricula = $this->input->post('matricula', TRUE);
 		$object->iniciais = $this->input->post('iniciais', TRUE);
 		$object->unidade = $this->input->post('unidade', TRUE);
@@ -286,7 +192,7 @@ class Vivian extends CI_Controller {
 		$object->tempo_internacao = $this->input->post('tempo_internacao', TRUE);
 		$object->performance_status = $this->input->post('performance_status', TRUE);
 		$object->desfecho = $this->input->post('desfecho', TRUE);
-		$object->diagnostico_ev_tromb = $this->input->post('diagnostico_ev_tromb', TRUE);
+		$object->data_diagnostico_evento_tromb = $this->input->post('data_diagnostico_evento_tromb', TRUE);
 		$object->data_diagnostico = $this->input->post('data_diagnostico', TRUE);
 		$object->tvp = $this->input->post('tvp', TRUE);
 		$object->ep = $this->input->post('ep', TRUE);
@@ -340,8 +246,78 @@ class Vivian extends CI_Controller {
 		$object->fatores_geneticos = $this->input->post('fatores_geneticos', TRUE);
 		$object->qual = $this->input->post('qual', TRUE);
 		$object->outros_fatores_tev = $this->input->post('outros_fatores_tev', TRUE);
-		$object->score_de_padua = $this->input->post('score_de_padua', TRUE);
+		$object->evento_outro_escrito = $this->input->post('evento_outro_escrito', TRUE);
+		$object->maior_que_70 = $this->input->post('maior_que_70', TRUE);
+		$object->classificacao = $this->input->post('classificacao', TRUE);
+		$object->outras_comorb_escrito = $this->input->post('outras_comorb_escrito', TRUE);
+		$object->sitio_tumoral_outros_escrito = $this->input->post('sitio_tumoral_outros_escrito', TRUE);
+		$object->outros_fatores_de_risco_tev = $this->input->post('outros_fatores_de_risco_tev', TRUE);
+		$object->possui_obesidade = $this->input->post('possui_obesidade', TRUE);
+		$object->possui_avc = $this->input->post('possui_avc', TRUE);
+		$object->possui_infeccoes_doencas_reumaticas = $this->input->post('possui_infeccoes_doencas_reumaticas', TRUE);
+		$object->possui_trombofilia = $this->input->post('possui_trombofilia', TRUE);
+		$object->possui_cancer_ativo = $this->input->post('possui_cancer_ativo', TRUE);
+		$object->desfecho_alta = $this->input->post('desfecho_alta', TRUE);
+		$object->desfecho_obito = $this->input->post('desfecho_obito', TRUE);
+		$object->desfecho_acomp_amb = $this->input->post('desfecho_acomp_amb', TRUE);
+		$object->evento_tromb = $this->input->post('evento_tromb', TRUE);
+		$object->evento_tvp = $this->input->post('evento_tvp', TRUE);
+		$object->evento_ep = $this->input->post('evento_ep', TRUE);
+		$object->evento_avc = $this->input->post('evento_avc', TRUE);
+		$object->evento_coag_intr = $this->input->post('evento_coag_intr', TRUE);
+		$object->evento_iam = $this->input->post('evento_iam', TRUE);
+		$object->evento_outro_lista = $this->input->post('evento_outro_lista', TRUE);
+		$object->possui_icc_ou_ir = $this->input->post('possui_icc_ou_ir', TRUE);
+		$object->possui_iam = $this->input->post('possui_iam', TRUE);
+		$object->infeccoes_doencas_reumaticas = $this->input->post('infeccoes_doencas_reumaticas', TRUE);
+		$object->outras_comorb_lista_1 = $this->input->post('outras_comorb_lista_1', TRUE);
+		$object->outras_comorb_lista_2 = $this->input->post('outras_comorb_lista_2', TRUE);
+		$object->outras_comorb_lista_3 = $this->input->post('outras_comorb_lista_3', TRUE);
+		$object->sitio_tumoral_cerebro = $this->input->post('sitio_tumoral_cerebro', TRUE);
+		$object->sitio_tumoral_pancreas = $this->input->post('sitio_tumoral_pancreas', TRUE);
+		$object->sitio_tumoral_estomago = $this->input->post('sitio_tumoral_estomago', TRUE);
+		$object->sitio_tumoral_pulmao = $this->input->post('sitio_tumoral_pulmao', TRUE);
+		$object->sitio_tumoral_bexiga = $this->input->post('sitio_tumoral_bexiga', TRUE);
+		$object->sitio_tumoral_ginecologicos = $this->input->post('sitio_tumoral_ginecologicos', TRUE);
+		$object->sitio_tumoral_hematologicos = $this->input->post('sitio_tumoral_hematologicos', TRUE);
+		$object->sitio_tumoral_mama = $this->input->post('sitio_tumoral_mama', TRUE);
+		$object->sitio_tumoral_outros_lista = $this->input->post('sitio_tumoral_outros_lista', TRUE);
+		$object->metastase = $this->input->post('metastase', TRUE);
+		$object->tratamento_quimioterapia = $this->input->post('tratamento_quimioterapia', TRUE);
+		$object->tratamento_radioterapia = $this->input->post('tratamento_radioterapia', TRUE);
+		$object->tratamento_braquiterapia = $this->input->post('tratamento_braquiterapia', TRUE);
+		$object->tratamento_hormonioterapia = $this->input->post('tratamento_hormonioterapia', TRUE);
+		$object->possui_tratamento_hormonioterapia = $this->input->post('possui_tratamento_hormonioterapia', TRUE);
+		$object->tratamento_imunoterapia = $this->input->post('tratamento_imunoterapia', TRUE);
+		$object->tratamento_cirurgia = $this->input->post('tratamento_cirurgia', TRUE);
+		$object->tratamento_terapias_angiogenicas = $this->input->post('tratamento_terapias_angiogenicas', TRUE);
+		$object->tratamento_outros = $this->input->post('tratamento_outros', TRUE);
+		$object->possui_cirurgia_trauma_recente = $this->input->post('possui_cirurgia_trauma_recente', TRUE);
+		$object->possui_tev_previo = $this->input->post('possui_tev_previo', TRUE);
+		$object->possui_imobilizacao_prolongada = $this->input->post('possui_imobilizacao_prolongada', TRUE);
+		$object->ag_estimulantes_eritropoese = $this->input->post('ag_estimulantes_eritropoese', TRUE);
+		$object->score_padua = $this->input->post('score_padua', TRUE);
 		return $object;
+	}
+
+	public function extrairDados(){
+			$productResult = $this->Vivian_model->findToExtract()->result_array();
+			if (isset($_POST["export"])) {
+				$filename = "extracao.xls";
+				header("Content-Type: application/vnd.ms-excel");
+				header("Content-Disposition: attachment; filename=\"$filename\"");
+				$isPrintHeader = false;
+				if (! empty($productResult)) {
+					foreach ($productResult as $row) {
+						if (! $isPrintHeader) {
+							echo implode("\t", array_keys($row)) . "\n";
+							$isPrintHeader = true;
+						}
+						echo implode("\t", array_values($row)) . "\n";
+					}
+				}
+				exit();
+		}
 	}
 }
 
