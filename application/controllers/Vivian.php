@@ -127,6 +127,7 @@ class Vivian extends CI_Controller {
 	function destroy() {
 		$id = $this->uri->segment(2);
 		$data['vivian'] = $this->Vivian_model->destroy($id);
+		$this->session->set_flashdata('msg-success','Registro excluído com sucesso', 15);
 		redirect('/paginacao', 'refresh');
 	}
 

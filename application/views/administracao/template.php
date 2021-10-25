@@ -53,22 +53,6 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Usuários</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-            </li>
-
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="<?=base_url('administracao/dash');?>">
@@ -76,11 +60,12 @@
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link collapsed" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Usuários</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -109,7 +94,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!--<form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar"
@@ -120,7 +105,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form>-->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -132,12 +117,12 @@
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                            <!--<div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
+                                            placeholder="Pesquisar" aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
@@ -146,7 +131,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div>-->
                         </li>
 
                         <!-- Nav Item - Alerts
@@ -290,7 +275,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>-->
-                                <a class="dropdown-item" href="<?=base_url('sair');?>" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -437,20 +422,24 @@
 	document.getElementById('possui_cirurgia_trauma_recente').value = document.getElementById('cirurgia_trauma_recente').value;
 	
 	function scorePadua(){
-		let score = 0;
-		score += parseInt(document.getElementById('obesidade').value);
-		score += parseInt(document.getElementById('icc_ou_ir').value) == 0 ? parseInt(document.getElementById('possui_icc_ou_ir').value) : 1;
-		score += parseInt(document.getElementById('iam').value);
-		score += parseInt(document.getElementById('avc').value);
-		score += parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) == 0 ? parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) : 1;
-		score += parseInt(document.getElementById('trombofilia').value);
-		score += parseInt(document.getElementById('cancer_ativo').value) == 1 ? 3 : 0;
-		score += parseInt(document.getElementById('tratamento_hormonioterapia').value);
-		score += parseInt(document.getElementById('cirurgia_trauma_recente').value) == 1 ? 2 : 0;
-		score += parseInt(document.getElementById('tev_previo').value) == 1 ? 3 : 0;
-		score += parseInt(document.getElementById('imobilizacao_prolongada').value) == 1 ? 3 : 0;
-		score += parseInt(document.getElementById('maior_70').value);
-		document.getElementById('score_padua').value = score;
+		if(isNaN(document.getElementById('maior_70').value)){
+			alert('Favor informar a idade');
+		}else{
+			let score = 0;
+			score += parseInt(document.getElementById('obesidade').value);
+			score += parseInt(document.getElementById('icc_ou_ir').value) == 0 ? 0 : 1;
+			score += parseInt(document.getElementById('iam').value);
+			score += parseInt(document.getElementById('avc').value);
+			score += parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) == 0 ? 0 : 1;
+			score += parseInt(document.getElementById('trombofilia').value);
+			score += parseInt(document.getElementById('cancer_ativo').value) == 1 ? 3 : 0;
+			score += parseInt(document.getElementById('tratamento_hormonioterapia').value);
+			score += parseInt(document.getElementById('cirurgia_trauma_recente').value) == 1 ? 2 : 0;
+			score += parseInt(document.getElementById('tev_previo').value) == 1 ? 3 : 0;
+			score += parseInt(document.getElementById('imobilizacao_prolongada').value) == 1 ? 3 : 0;
+			score += parseInt(document.getElementById('maior_70').value);
+			document.getElementById('score_padua').value = score;
+		}
 	}
 	
 	function confirmacao(id) {
@@ -458,6 +447,12 @@
 		 if (resposta == true) {
 			  window.location.href = "<?=base_url('administracao/destroy/');?>"+id;
 		 }
+	}
+	
+	function pegaId(id){
+		let urlExclusao = document.getElementById('confirmaExclusao');
+		
+		urlExclusao.setAttribute("href","<?=base_url('administracao/destroy/');?>"+id);
 	}
 	
 	function dataCovid(){

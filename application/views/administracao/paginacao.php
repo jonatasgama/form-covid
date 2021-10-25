@@ -28,7 +28,7 @@
 		</div>
 <?php } ; ?>
 
-	<table class="table table-striped">
+	<table class="table">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -191,7 +191,7 @@
 				<td><?= $object->outros_fatores_de_risco_tev == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->score_padua ?></td>
 				<td width="80"><?= anchor(base_url('administracao/edit/').$object->id, 'Editar','class="btn btn-warning"'); ?></td>
-				<td width="80"><a href="javascript:func()" onclick="confirmacao('<?=$object->id;?>')" class="btn btn-danger">Deletar</a></td>
+				<td width="80"><a href="#" class="btn btn-danger" onclick="pegaId(<?=$object->id;?>)" data-toggle="modal" data-target="#excluirModal">Deletar</a></td>
 			</tr><?php } ;?>
 		<?php } ;?>
 		</tbody>	
@@ -202,3 +202,22 @@
 <form method="post">
 	<button type="submit" class="btn btn-success" name="export" formaction="<?=base_url('extrair');?>">Download</button>	
 </form>	
+
+<!-- Logout Modal-->
+<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel2">Excluir</h5>
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">Deseja realmente excluir o registro?</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+				<a class="btn btn-primary" id="confirmaExclusao">Sim</a>
+			</div>
+		</div>
+	</div>
+</div>

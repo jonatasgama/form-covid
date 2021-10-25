@@ -95,7 +95,7 @@ class Vivian_model extends CI_Model {
 		$this->db->set('qual', $data['qual']);
 		$this->db->set('outros_fatores_de_risco_tev', $data['outros_fatores_de_risco_tev']);
 		$this->db->set('score_padua', $data['score_padua']);
-		$this->db->set('id_usuario', $this->session->userdata('id'));
+		$this->db->set('id_usuario', $this->session->userdata('id_usuario'));
 
 		if($data['id'] == NULL) {
 			$this->db->set('created_at', date('Y-m-d h:i:s',time()));
@@ -120,7 +120,95 @@ class Vivian_model extends CI_Model {
 	}
 
 	function findToExtract() {
-		$sql = "SELECT * FROM form_covid";
+		$sql = "SELECT `form_covid`.`id`,
+			`form_covid`.`matricula`,
+			`form_covid`.`iniciais`,
+			`form_covid`.`covid`,
+			`form_covid`.`data_diag_covid`,
+			`form_covid`.`tempo_internacao`,
+			`form_covid`.`performance_status`,
+			`form_covid`.`desfecho_alta`,
+			`form_covid`.`desfecho_obito`,
+			`form_covid`.`desfecho_acomp_amb`,
+			`form_covid`.`evento_tromb`,
+			`form_covid`.`data_diagnostico_evento_tromb`,
+			`form_covid`.`evento_tvp`,
+			`form_covid`.`evento_ep`,
+			`form_covid`.`evento_avc`,
+			`form_covid`.`evento_coag_intr`,
+			`form_covid`.`evento_iam`,
+			`form_covid`.`evento_outro_lista`,
+			`form_covid`.`evento_outro_escrito`,
+			`form_covid`.`sexo`,
+			`form_covid`.`raca`,
+			`form_covid`.`idade`,
+			`form_covid`.`maior_que_70`,
+			`form_covid`.`peso`,
+			`form_covid`.`altura`,
+			`form_covid`.`imc`,
+			`form_covid`.`classificacao`,
+			`form_covid`.`obesidade`,
+			`form_covid`.`possui_obesidade`,
+			`form_covid`.`has`,
+			`form_covid`.`dm`,
+			`form_covid`.`icc_ou_ir`,
+			`form_covid`.`possui_icc_ou_ir`,
+			`form_covid`.`iam`,
+			`form_covid`.`possui_iam`,
+			`form_covid`.`avc`,
+			`form_covid`.`possui_avc`,
+			`form_covid`.`infeccoes_doencas_reumaticas`,
+			`form_covid`.`possui_infeccoes_doencas_reumaticas`,
+			`form_covid`.`trombofilia`,
+			`form_covid`.`possui_trombofilia`,
+			`form_covid`.`outras_comorb_lista_1`,
+			`form_covid`.`outras_comorb_lista_2`,
+			`form_covid`.`outras_comorb_lista_3`,
+			`form_covid`.`outras_comorb_escrito`,
+			`form_covid`.`neoplasia_maligna`,
+			`form_covid`.`cancer_ativo`,
+			`form_covid`.`possui_cancer_ativo`,
+			`form_covid`.`sitio_tumoral_cerebro`,
+			`form_covid`.`sitio_tumoral_pancreas`,
+			`form_covid`.`sitio_tumoral_estomago`,
+			`form_covid`.`sitio_tumoral_pulmao`,
+			`form_covid`.`sitio_tumoral_bexiga`,
+			`form_covid`.`sitio_tumoral_ginecologicos`,
+			`form_covid`.`sitio_tumoral_hematologicos`,
+			`form_covid`.`sitio_tumoral_mama`,
+			`form_covid`.`sitio_tumoral_outros_lista`,
+			`form_covid`.`sitio_tumoral_outros_escrito`,
+			`form_covid`.`metastase`,
+			`form_covid`.`tratamento_quimioterapia`,
+			`form_covid`.`tratamento_radioterapia`,
+			`form_covid`.`tratamento_braquiterapia`,
+			`form_covid`.`tratamento_hormonioterapia`,
+			`form_covid`.`possui_tratamento_hormonioterapia`,
+			`form_covid`.`tratamento_imunoterapia`,
+			`form_covid`.`tratamento_cirurgia`,
+			`form_covid`.`tratamento_terapias_angiogenicas`,
+			`form_covid`.`tratamento_outros`,
+			`form_covid`.`quimioterapia_recente`,
+			`form_covid`.`plaquetas_pre_qt`,
+			`form_covid`.`cirurgia_trauma_recente`,
+			`form_covid`.`possui_cirurgia_trauma_recente`,
+			`form_covid`.`tev_previo`,
+			`form_covid`.`possui_tev_previo`,
+			`form_covid`.`tabagismo`,
+			`form_covid`.`uso_de_aco`,
+			`form_covid`.`imobilizacao_prolongada`,
+			`form_covid`.`possui_imobilizacao_prolongada`,
+			`form_covid`.`cvc`,
+			`form_covid`.`transfusoes`,
+			`form_covid`.`ag_estimulantes_eritropoese`,
+			`form_covid`.`hemoglobina`,
+			`form_covid`.`ddimero`,
+			`form_covid`.`fatores_geneticos`,
+			`form_covid`.`qual`,
+			`form_covid`.`outros_fatores_de_risco_tev`,
+			`form_covid`.`score_padua`,
+			`form_covid`.`maior_70`
+			FROM `covid`.`form_covid`";
 		$result = $this->db->query($sql);
 		return $result;
 	}
@@ -133,6 +221,7 @@ class Vivian_model extends CI_Model {
 
 	function desfechoAlta() {
 		$sql = "SELECT count(*) as total FROM form_covid WHERE desfecho_alta = 1";
+		//SELECT t.alta / COUNT(*) * 100 AS total from form_covid,(SELECT count(*) as alta FROM form_covid WHERE desfecho_alta = 1) t
 		$result = $this->db->query($sql);
 		return $result;
 	}

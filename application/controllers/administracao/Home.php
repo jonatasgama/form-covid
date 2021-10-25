@@ -90,9 +90,9 @@ class Home extends CI_Controller {
 	
 	# GET /vivian/destroy/1
 	function destroy() {
-		$id = $this->uri->segment(2);
+		$id = $this->uri->segment(3);
 		$data['vivian'] = $this->Vivian_model->destroy($id);
-		redirect('/paginacao', 'refresh');
+		redirect('/administracao', 'refresh');
 	}
 
 	# POST /vivian/save
@@ -190,12 +190,12 @@ class Home extends CI_Controller {
 			$data = $this->input->post(NULL, TRUE);
 			$this->Vivian_model->save($data);
 			$this->session->set_flashdata('msg-success','Dados salvos com sucesso', 15);
-			redirect(base_url('paginacao/1'), 'refresh');	
+			redirect(base_url('administracao/paginacao/1'), 'refresh');	
 					
 		}
 		$data['vivian'] =	$this->rebuild();
-		$data['content'] = '/vivian/create';
-		$this->load->view('/includes/template', $data);
+		$data['content'] = '/administracao/create';
+		$this->load->view('/administracao/template', $data);
 	}
 
 	function rebuild() {

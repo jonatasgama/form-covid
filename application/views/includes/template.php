@@ -117,20 +117,24 @@
 	document.getElementById('possui_cirurgia_trauma_recente').value = document.getElementById('cirurgia_trauma_recente').value;
 	
 	function scorePadua(){
-		let score = 0;
-		score += parseInt(document.getElementById('obesidade').value);
-		score += parseInt(document.getElementById('icc_ou_ir').value) == 0 ? parseInt(document.getElementById('possui_icc_ou_ir').value) : 1;
-		score += parseInt(document.getElementById('iam').value);
-		score += parseInt(document.getElementById('avc').value);
-		score += parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) == 0 ? parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) : 1;
-		score += parseInt(document.getElementById('trombofilia').value);
-		score += parseInt(document.getElementById('cancer_ativo').value) == 1 ? 3 : 0;
-		score += parseInt(document.getElementById('tratamento_hormonioterapia').value);
-		score += parseInt(document.getElementById('cirurgia_trauma_recente').value) == 1 ? 2 : 0;
-		score += parseInt(document.getElementById('tev_previo').value) == 1 ? 3 : 0;
-		score += parseInt(document.getElementById('imobilizacao_prolongada').value) == 1 ? 3 : 0;
-		score += parseInt(document.getElementById('maior_70').value);
-		document.getElementById('score_padua').value = score;
+		if(isNaN(document.getElementById('maior_70').value)){
+			alert('Favor informar a idade');
+		}else{
+			let score = 0;
+			score += parseInt(document.getElementById('obesidade').value);
+			score += parseInt(document.getElementById('icc_ou_ir').value) == 0 ? 0 : 1;
+			score += parseInt(document.getElementById('iam').value);
+			score += parseInt(document.getElementById('avc').value);
+			score += parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) == 0 ? 0 : 1;
+			score += parseInt(document.getElementById('trombofilia').value);
+			score += parseInt(document.getElementById('cancer_ativo').value) == 1 ? 3 : 0;
+			score += parseInt(document.getElementById('tratamento_hormonioterapia').value);
+			score += parseInt(document.getElementById('cirurgia_trauma_recente').value) == 1 ? 2 : 0;
+			score += parseInt(document.getElementById('tev_previo').value) == 1 ? 3 : 0;
+			score += parseInt(document.getElementById('imobilizacao_prolongada').value) == 1 ? 3 : 0;
+			score += parseInt(document.getElementById('maior_70').value);
+			document.getElementById('score_padua').value = score;
+		}
 	}
 	
 	function confirmacao(id) {

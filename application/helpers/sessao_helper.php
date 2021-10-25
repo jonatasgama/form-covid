@@ -1,14 +1,15 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 	if(!function_exists('verificaSessao')){
-		function verificaSessao($sessao){
-
-			$ci = get_instance();
-			if(!$ci->session->userdata('nome')){
-				$ci->session->set_flashdata('msg-warning', 'Favor realizar login novamente');
-				redirect('/login');
-				exit();
-			}
+		function verificaSessao(){
+			$CI =& get_instance();
+			$user = $CI->session->userdata('nome');
+				if (!isset($user)){ 
+					return false; 
+				} 
+				else{ 
+					return true;
+				}
 
 		}
 	}
