@@ -29,12 +29,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="<?=base_url()?>">Home</a>
+	    <a class="nav-link" aria-current="page" href="<?=base_url('paginacao')?>">Home</a>
         <a class="nav-link" href="<?=base_url('create')?>">Novo</a>
+			<a class="nav-link" aria-current="page" href="#">Bem vindo(a) <?= $this->session->userdata('nome') ;?></a>
+			<a class="nav-link" aria-current="page" href="<?=base_url('/sair');?>">Sair</a>
+		
+		
       </div>
     </div>
   </div>
-</nav>
+</nav>	
 
 	<div class="container">
 		<div class="row">
@@ -129,7 +133,25 @@
 		document.getElementById('score_padua').value = score;
 	}
 	
-
+	function confirmacao(id) {
+		 var resposta = confirm("Deseja remover esse registro?");
+		 if (resposta == true) {
+			  window.location.href = "<?=base_url('destroy/');?>"+id;
+		 }
+	}
+	
+	function dataCovid(){
+		let teveCovid = document.getElementById('covid').value;
+		console.log(teveCovid);
+		if(teveCovid == '1'){
+			document.getElementById('data_diag_covid').removeAttribute("readonly");
+			document.getElementById('tempo_internacao').removeAttribute("readonly");
+		}else{
+			document.getElementById('data_diag_covid').setAttribute("readonly", "readonly");
+			document.getElementById('tempo_internacao').setAttribute("readonly", "readonly");
+		}
+	}
+	
 <?php
 if(isset($vivian)){ ;?>
 	

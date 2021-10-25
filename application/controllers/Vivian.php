@@ -9,8 +9,60 @@ class Vivian extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Vivian_model');
 		$this->load->library('pagination');
+		//verificaSessao($this->session->userdata('nome'));
 	}
 
+	function login() {
+		$this->load->view('/vivian/login');
+	}
+	
+	function welcome() {
+		$this->load->view('/welcome_message');
+	}
+	
+	function logar(){
+		$this->form_validation->set_rules('usuario', 'usuario', 'required');
+		$this->form_validation->set_rules('senha', 'senha', 'required');
+		if($this->form_validation->run() == FALSE){
+			$this->login();
+		}else{
+			$user = $this->input->post('usuario');
+			$senha = MD5($this->input->post('senha'));
+			$usuario = $this->Vivian_model->logar($user, $senha)->result();
+			$administrador = $this->Vivian_model->logarAdmin($user, $senha)->result();
+			//echo $this->db->last_query();
+			//print_r($usuario);
+			//exit();
+			if($usuario){
+				foreach($usuario as $u){
+					$this->session->set_userdata('nome', $u->nome);
+					$this->session->set_userdata('id_usuario', $u->id);
+					$this->session->set_userdata('logado', TRUE);
+					redirect(base_url('/paginacao'));
+				}
+			}elseif($administrador){
+				foreach($administrador as $a){
+					$this->session->set_userdata('nome', $a->nome);
+					$this->session->set_userdata('id_usuario', $a->id);
+					$this->session->set_userdata('logado', TRUE);
+					redirect(base_url('/administracao'));
+				}
+			}else{
+				$this->session->set_userdata('nome', NULL);
+				$this->session->set_userdata('logado', FALSE);
+				$this->session->set_flashdata('msg-danger', 'Usuário ou senha incorreto.');
+				redirect(base_url('/'));
+			}
+		}
+
+	}
+	
+	public function logout(){
+		$this->session->set_userdata('nome', NULL);
+		$this->session->set_userdata('logado', FALSE);
+		redirect('/');
+	}
+	
 	# GET /vivian
 	function index() {
 		//$data['vivian'] = $this->Vivian_model->find();
@@ -172,7 +224,7 @@ class Vivian extends CI_Controller {
 
 			$data = $this->input->post(NULL, TRUE);
 			$this->Vivian_model->save($data);
-			$this->session->set_tempdata('msg','Dados salvos com sucesso', 15);	
+			$this->session->set_flashdata('msg-success','Dados salvos com sucesso', 15);
 			redirect(base_url('paginacao/1'), 'refresh');	
 					
 		}

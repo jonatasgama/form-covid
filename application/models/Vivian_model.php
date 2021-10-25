@@ -8,7 +8,6 @@ class Vivian_model extends CI_Model {
 	# save $data on 'vivian'
 	function save($data) {
 		
-		//$this->db->set('ordem', $data['ordem']);
 		$this->db->set('matricula', $data['matricula']);
 		$this->db->set('iniciais', $data['iniciais']);
 		$this->db->set('covid', $data['covid']);
@@ -96,6 +95,7 @@ class Vivian_model extends CI_Model {
 		$this->db->set('qual', $data['qual']);
 		$this->db->set('outros_fatores_de_risco_tev', $data['outros_fatores_de_risco_tev']);
 		$this->db->set('score_padua', $data['score_padua']);
+		$this->db->set('id_usuario', $this->session->userdata('id'));
 
 		if($data['id'] == NULL) {
 			$this->db->set('created_at', date('Y-m-d h:i:s',time()));
@@ -124,6 +124,24 @@ class Vivian_model extends CI_Model {
 		$result = $this->db->query($sql);
 		return $result;
 	}
+
+	function pacientesComCovid() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE covid = 1";
+		$result = $this->db->query($sql);
+		return $result;
+	}
+
+	function desfechoAlta() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE desfecho_alta = 1";
+		$result = $this->db->query($sql);
+		return $result;
+	}
+
+	function desfechoObito() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE desfecho_obito = 1";
+		$result = $this->db->query($sql);
+		return $result;
+	}
 	
 	# destroy $data from  'vivian'
 	function destroy($id) {
@@ -142,5 +160,17 @@ class Vivian_model extends CI_Model {
 			return	false;
 		}
 	}
+	
+	function logar($usuario, $senha){
+		$sql = "SELECT * FROM usuarios WHERE usuario = ? AND senha = ? AND status = 1 AND id_acesso = 1";
+		$result = $this->db->query($sql, array($usuario, $senha));
+		return $result;
+	}
+	
+	function logarAdmin($usuario, $senha){
+		$sql = "SELECT * FROM usuarios WHERE usuario = ? AND senha = ? AND status = 1 AND id_acesso = 2";
+		$result = $this->db->query($sql, array($usuario, $senha));
+		return $result;
+	}	
 
 }

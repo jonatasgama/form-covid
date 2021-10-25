@@ -27,7 +27,7 @@
 			<div class="form-group col-sm-2">
 				<label for="covid">Covid:</label><br/>
 				
-				<select name="covid" id="covid" class="form-select form-select mb-3">
+				<select name="covid" id="covid" class="form-select form-select mb-3" onchange="dataCovid()">
 					<option value="1">Sim</option>
 					<option value="0" selected>Não</option>
 				</select>
@@ -36,13 +36,13 @@
 			<div class="form-group col-sm-3">
 				<label for="data_diag_covid">Data de diagnóstico covid:</label><br/>
 				
-				<input type="text"  name="data_diag_covid"  class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:'N/A'?>">
+				<input type="text"  name="data_diag_covid"  id="data_diag_covid" class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:'N/A'?>" readonly="readonly">
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="tempo_internacao">Tempo de internação(em dias):</label><br/>
 				
-				<input type="text" name="tempo_internacao"  class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:'N/A'?>">
+				<input type="text" name="tempo_internacao"  id="tempo_internacao" class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:'N/A'?>" readonly="readonly">
 			</div>	
 		</div>
 	
@@ -218,7 +218,7 @@
 		<div class="form-group col-sm-1">
 			<label for="idade">Idade:</label><br/>
 			
-			<input type="number" name="idade" id="idade" class="form-control" onkeyup="verificaIdade()" value="<?= isset($vivian)?$vivian->idade:'N/A'?>">
+			<input type="number" name="idade" id="idade" class="form-control" onkeyup="verificaIdade()" value="<?= isset($vivian)?$vivian->idade:'00'?>">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="maior_que_70">Maior de 70 anos:</label><br/>

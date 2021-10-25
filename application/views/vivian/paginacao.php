@@ -1,5 +1,33 @@
 <h2>Pacientes</h2>
+
+
 <div class="table-responsive">
+
+
+<?php
+	if($this->session->flashdata('msg-danger')){ ?>
+		<div class="alert alert-danger alert-dismissible fade show text-center col-md-6 offset-3">
+			<?=$this->session->flashdata('msg-danger');?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+<?php } ;?>
+
+<?php
+	if($this->session->flashdata('msg-success')){ ?>
+		<div class="alert alert-success alert-dismissible fade show text-center col-md-6 offset-3">
+			<?=$this->session->flashdata('msg-success');?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+<?php } ; ?>
+
+<?php
+	if($this->session->flashdata('msg-warning')){ ?>
+		<div class="alert alert-warning alert-dismissible fade show text-center col-md-6 offset-3">
+			<?=$this->session->flashdata('msg-warning');?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+<?php } ; ?>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -163,7 +191,7 @@
 				<td><?= $object->outros_fatores_de_risco_tev == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->score_padua ?></td>
 				<td width="80"><?= anchor(base_url('edit/').$object->id, 'Editar','class="btn btn-warning"'); ?></td>
-				<td width="80"><?= anchor(base_url('destroy/').$object->id, 'Excluir','class="btn btn-danger"'); ?></td>
+				<td width="80"><a href="javascript:func()" onclick="confirmacao('<?=$object->id;?>')" class="btn btn-danger">Deletar</a></td>
 			</tr><?php } ;?>
 		<?php } ;?>
 		</tbody>	
