@@ -73,7 +73,7 @@ class Home extends CI_Controller {
 	# GET /vivian/edit/1
 	function edit() {
 		$data['cabecalho'] = 'Editar';
-		$id = $this->uri->segment(2);
+		$id = $this->uri->segment(3);
 		$data['vivian'] = $this->Vivian_model->find($id);
 		$data['content'] = '/administracao/create';
 		$this->load->view('/administracao/template', $data);
@@ -82,8 +82,27 @@ class Home extends CI_Controller {
 	function dash() {
 		$data['cabecalho'] = 'Editar';
 		$data['covid'] = $this->Vivian_model->pacientesComCovid()->result();
-		$data['alta'] = $this->Vivian_model->desfechoAlta()->result();
-		$data['obito'] = $this->Vivian_model->desfechoObito()->result();
+		$data['comEventoTromb'] = $this->Vivian_model->comEventoTromb()->result();
+		$data['semEventoTromb'] = $this->Vivian_model->semEventoTromb()->result();
+		$data['obesos'] = $this->Vivian_model->obesos()->result();
+		$data['obito'] = $this->Vivian_model->obito()->result();
+		$data['covidComEventoTromb'] = $this->Vivian_model->covidComEventoTromb()->result();
+		$data['covidSemEventoTromb'] = $this->Vivian_model->covidSemEventoTromb()->result();
+
+		$covidPorMes = $this->Vivian_model->covidPorMes()->result();
+		foreach($covidPorMes as $row){
+			$covid_mes['label'][] = $row->mes;
+			$covid_mes['qtd'][] = $row->total;
+		}
+		$data['chart_line'] = json_encode($covid_mes);
+
+		$sexo = $this->Vivian_model->sexo()->result();
+		foreach($sexo as $row){
+			$qtd_sexo['label'][] = $row->sexo;
+			$qtd_sexo['qtd'][] = $row->total;
+		}
+		$data['chart_data'] = json_encode($qtd_sexo);
+		$data['total'] = $this->db->count_all('form_covid');
 		$data['content'] = '/administracao/dash';
 		$this->load->view('/administracao/template', $data);
 	}
@@ -189,7 +208,7 @@ class Home extends CI_Controller {
 
 			$data = $this->input->post(NULL, TRUE);
 			$this->Vivian_model->save($data);
-			$this->session->set_flashdata('msg-success','Dados salvos com sucesso', 15);
+			$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 15);
 			redirect(base_url('administracao/paginacao/1'), 'refresh');	
 					
 		}

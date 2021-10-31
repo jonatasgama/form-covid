@@ -5,28 +5,28 @@
 
 
 <?php
-	if($this->session->flashdata('msg-danger')){ ?>
+	if($this->session->tempdata('msg-danger')){ ?>
 		<div class="alert alert-danger alert-dismissible fade show text-center col-md-6 offset-3">
-			<?=$this->session->flashdata('msg-danger');?>
+			<?=$this->session->tempdata('msg-danger');?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 <?php } ;?>
 
 <?php
-	if($this->session->flashdata('msg-success')){ ?>
+	if($this->session->tempdata('msg-success')){ ?>
 		<div class="alert alert-success alert-dismissible fade show text-center col-md-6 offset-3">
-			<?=$this->session->flashdata('msg-success');?>
+			<?=$this->session->tempdata('msg-success');?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 <?php } ; ?>
 
 <?php
-	if($this->session->flashdata('msg-warning')){ ?>
+	if($this->session->tempdata('msg-warning')){ ?>
 		<div class="alert alert-warning alert-dismissible fade show text-center col-md-6 offset-3">
-			<?=$this->session->flashdata('msg-warning');?>
+			<?=$this->session->tempdata('msg-warning');?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
-<?php } ; ?>
+<?php } ; ?>   
 
 	<table class="table">
 		<thead>

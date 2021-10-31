@@ -219,19 +219,55 @@ class Vivian_model extends CI_Model {
 		return $result;
 	}
 
-	function desfechoAlta() {
-		$sql = "SELECT count(*) as total FROM form_covid WHERE desfecho_alta = 1";
-		//SELECT t.alta / COUNT(*) * 100 AS total from form_covid,(SELECT count(*) as alta FROM form_covid WHERE desfecho_alta = 1) t
+	function comEventoTromb() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE evento_tromb = 1";
+		//SELECT t.evento / COUNT(*) * 100 AS total from form_covid,(SELECT count(*) as alta FROM form_covid WHERE evento_tromb = 1) t
 		$result = $this->db->query($sql);
 		return $result;
 	}
 
-	function desfechoObito() {
-		$sql = "SELECT count(*) as total FROM form_covid WHERE desfecho_obito = 1";
+	function semEventoTromb() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE evento_tromb = 0";
+		$result = $this->db->query($sql);
+		return $result;
+	}
+
+	function obesos() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE obesidade = 1";
 		$result = $this->db->query($sql);
 		return $result;
 	}
 	
+	function sexo() {
+		$sql = "SELECT count(*) as total, sexo FROM form_covid group by sexo";
+		$result = $this->db->query($sql);
+		return $result;
+	}
+
+	function obito() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE desfecho_obito = 1";
+		$result = $this->db->query($sql);
+		return $result;
+	}
+
+	function covidComEventoTromb() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE evento_tromb = 1 AND covid = 1";
+		$result = $this->db->query($sql);
+		return $result;
+	}	
+
+	function covidSemEventoTromb() {
+		$sql = "SELECT count(*) as total FROM form_covid WHERE evento_tromb = 0 AND covid = 1";
+		$result = $this->db->query($sql);
+		return $result;
+	}		
+
+	function covidPorMes() {
+		$sql = "SELECT COUNT(*) as total, MONTHNAME(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')) as mes FROM form_covid WHERE data_diag_covid != 'N/A' AND YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')) = '2021' GROUP BY YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')), MONTH(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))";
+		$result = $this->db->query($sql);
+		return $result;
+	}		
+
 	# destroy $data from  'vivian'
 	function destroy($id) {
 		$this->db->where('id', $id);
