@@ -430,3 +430,243 @@ INFO - 2021-11-04 03:08:54 --> File loaded: C:\xampp\htdocs\form-covid\applicati
 INFO - 2021-11-04 03:08:54 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/includes/template.php
 INFO - 2021-11-04 03:08:54 --> Final output sent to browser
 DEBUG - 2021-11-04 03:08:54 --> Total execution time: 1.9994
+INFO - 2021-11-04 03:20:45 --> Config Class Initialized
+INFO - 2021-11-04 03:20:45 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:20:45 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:20:45 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:20:45 --> URI Class Initialized
+INFO - 2021-11-04 03:20:45 --> Router Class Initialized
+INFO - 2021-11-04 03:20:45 --> Output Class Initialized
+INFO - 2021-11-04 03:20:45 --> Security Class Initialized
+DEBUG - 2021-11-04 03:20:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:20:45 --> Input Class Initialized
+INFO - 2021-11-04 03:20:45 --> Language Class Initialized
+INFO - 2021-11-04 03:20:45 --> Loader Class Initialized
+INFO - 2021-11-04 03:20:45 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:20:45 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:20:45 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:20:45 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:20:45 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:20:47 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:20:47 --> Parser Class Initialized
+INFO - 2021-11-04 03:20:47 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:20:47 --> Migrations Class Initialized
+INFO - 2021-11-04 03:20:47 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:20:47 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:20:47 --> Controller Class Initialized
+INFO - 2021-11-04 03:20:47 --> Model "Vivian_model" initialized
+INFO - 2021-11-04 03:20:47 --> Language file loaded: language/portuguese-brazilian/pagination_lang.php
+INFO - 2021-11-04 03:20:47 --> Pagination Class Initialized
+INFO - 2021-11-04 03:20:47 --> Config Class Initialized
+INFO - 2021-11-04 03:20:47 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:20:47 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:20:47 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:20:47 --> URI Class Initialized
+DEBUG - 2021-11-04 03:20:47 --> No URI present. Default controller set.
+INFO - 2021-11-04 03:20:47 --> Router Class Initialized
+INFO - 2021-11-04 03:20:47 --> Output Class Initialized
+INFO - 2021-11-04 03:20:47 --> Security Class Initialized
+DEBUG - 2021-11-04 03:20:47 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:20:47 --> Input Class Initialized
+INFO - 2021-11-04 03:20:47 --> Language Class Initialized
+INFO - 2021-11-04 03:20:47 --> Loader Class Initialized
+INFO - 2021-11-04 03:20:47 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:20:47 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:20:47 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:20:47 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:20:47 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:20:49 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:20:49 --> Parser Class Initialized
+INFO - 2021-11-04 03:20:49 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:20:49 --> Migrations Class Initialized
+INFO - 2021-11-04 03:20:49 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:20:49 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:20:49 --> Controller Class Initialized
+INFO - 2021-11-04 03:20:49 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/vivian/login.php
+INFO - 2021-11-04 03:20:49 --> Final output sent to browser
+DEBUG - 2021-11-04 03:20:49 --> Total execution time: 1.4812
+INFO - 2021-11-04 03:20:57 --> Config Class Initialized
+INFO - 2021-11-04 03:20:57 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:20:57 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:20:57 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:20:57 --> URI Class Initialized
+INFO - 2021-11-04 03:20:57 --> Router Class Initialized
+INFO - 2021-11-04 03:20:57 --> Output Class Initialized
+INFO - 2021-11-04 03:20:57 --> Security Class Initialized
+DEBUG - 2021-11-04 03:20:57 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:20:57 --> Input Class Initialized
+INFO - 2021-11-04 03:20:57 --> Language Class Initialized
+INFO - 2021-11-04 03:20:57 --> Loader Class Initialized
+INFO - 2021-11-04 03:20:57 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:20:57 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:20:57 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:20:57 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:20:57 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:20:59 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:20:59 --> Parser Class Initialized
+INFO - 2021-11-04 03:20:59 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:20:59 --> Migrations Class Initialized
+INFO - 2021-11-04 03:20:59 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:20:59 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:20:59 --> Controller Class Initialized
+INFO - 2021-11-04 03:20:59 --> Model "Vivian_model" initialized
+INFO - 2021-11-04 03:20:59 --> Language file loaded: language/portuguese-brazilian/pagination_lang.php
+INFO - 2021-11-04 03:20:59 --> Pagination Class Initialized
+INFO - 2021-11-04 03:20:59 --> Language file loaded: language/portuguese-brazilian/form_validation_lang.php
+INFO - 2021-11-04 03:21:00 --> Config Class Initialized
+INFO - 2021-11-04 03:21:00 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:21:00 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:21:00 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:21:00 --> URI Class Initialized
+INFO - 2021-11-04 03:21:00 --> Router Class Initialized
+INFO - 2021-11-04 03:21:00 --> Output Class Initialized
+INFO - 2021-11-04 03:21:00 --> Security Class Initialized
+DEBUG - 2021-11-04 03:21:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:21:00 --> Input Class Initialized
+INFO - 2021-11-04 03:21:00 --> Language Class Initialized
+INFO - 2021-11-04 03:21:00 --> Loader Class Initialized
+INFO - 2021-11-04 03:21:00 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:21:00 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:21:00 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:21:00 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:21:00 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:21:01 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:21:01 --> Parser Class Initialized
+INFO - 2021-11-04 03:21:01 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:21:01 --> Migrations Class Initialized
+INFO - 2021-11-04 03:21:01 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:21:01 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:21:01 --> Controller Class Initialized
+INFO - 2021-11-04 03:21:01 --> Model "Vivian_model" initialized
+INFO - 2021-11-04 03:21:01 --> Language file loaded: language/portuguese-brazilian/pagination_lang.php
+INFO - 2021-11-04 03:21:01 --> Pagination Class Initialized
+INFO - 2021-11-04 03:21:01 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/paginacao.php
+ERROR - 2021-11-04 03:21:01 --> Severity: Warning --> Undefined variable $chart_data C:\xampp\htdocs\form-covid\application\views\administracao\template.php 549
+ERROR - 2021-11-04 03:21:01 --> Severity: Warning --> Undefined variable $chart_line C:\xampp\htdocs\form-covid\application\views\administracao\template.php 607
+INFO - 2021-11-04 03:21:01 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/template.php
+INFO - 2021-11-04 03:21:01 --> Final output sent to browser
+DEBUG - 2021-11-04 03:21:01 --> Total execution time: 1.8071
+INFO - 2021-11-04 03:21:04 --> Config Class Initialized
+INFO - 2021-11-04 03:21:04 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:21:04 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:21:04 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:21:04 --> URI Class Initialized
+INFO - 2021-11-04 03:21:04 --> Router Class Initialized
+INFO - 2021-11-04 03:21:04 --> Output Class Initialized
+INFO - 2021-11-04 03:21:04 --> Security Class Initialized
+DEBUG - 2021-11-04 03:21:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:21:04 --> Input Class Initialized
+INFO - 2021-11-04 03:21:04 --> Language Class Initialized
+INFO - 2021-11-04 03:21:04 --> Loader Class Initialized
+INFO - 2021-11-04 03:21:04 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:21:04 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:21:04 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:21:04 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:21:04 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:21:05 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:21:05 --> Parser Class Initialized
+INFO - 2021-11-04 03:21:05 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:21:05 --> Migrations Class Initialized
+INFO - 2021-11-04 03:21:05 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:21:05 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:21:05 --> Controller Class Initialized
+INFO - 2021-11-04 03:21:05 --> Model "Vivian_model" initialized
+INFO - 2021-11-04 03:21:05 --> Language file loaded: language/portuguese-brazilian/pagination_lang.php
+INFO - 2021-11-04 03:21:05 --> Pagination Class Initialized
+INFO - 2021-11-04 03:21:07 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/dash.php
+INFO - 2021-11-04 03:21:07 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/template.php
+INFO - 2021-11-04 03:21:07 --> Final output sent to browser
+DEBUG - 2021-11-04 03:21:07 --> Total execution time: 3.0074
+INFO - 2021-11-04 03:22:31 --> Config Class Initialized
+INFO - 2021-11-04 03:22:31 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:22:31 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:22:31 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:22:31 --> URI Class Initialized
+INFO - 2021-11-04 03:22:31 --> Router Class Initialized
+INFO - 2021-11-04 03:22:31 --> Output Class Initialized
+INFO - 2021-11-04 03:22:31 --> Security Class Initialized
+DEBUG - 2021-11-04 03:22:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:22:31 --> Input Class Initialized
+INFO - 2021-11-04 03:22:31 --> Language Class Initialized
+INFO - 2021-11-04 03:22:31 --> Loader Class Initialized
+INFO - 2021-11-04 03:22:31 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:22:31 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:22:31 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:22:31 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:22:31 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:22:32 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:22:32 --> Parser Class Initialized
+INFO - 2021-11-04 03:22:32 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:22:32 --> Migrations Class Initialized
+INFO - 2021-11-04 03:22:32 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:22:32 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:22:32 --> Controller Class Initialized
+INFO - 2021-11-04 03:22:32 --> Model "Vivian_model" initialized
+INFO - 2021-11-04 03:22:32 --> Language file loaded: language/portuguese-brazilian/pagination_lang.php
+INFO - 2021-11-04 03:22:32 --> Pagination Class Initialized
+INFO - 2021-11-04 03:22:34 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/dash.php
+INFO - 2021-11-04 03:22:34 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/template.php
+INFO - 2021-11-04 03:22:34 --> Final output sent to browser
+DEBUG - 2021-11-04 03:22:34 --> Total execution time: 3.0053
+INFO - 2021-11-04 03:22:46 --> Config Class Initialized
+INFO - 2021-11-04 03:22:46 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:22:46 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:22:46 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:22:46 --> URI Class Initialized
+INFO - 2021-11-04 03:22:46 --> Router Class Initialized
+INFO - 2021-11-04 03:22:46 --> Output Class Initialized
+INFO - 2021-11-04 03:22:46 --> Security Class Initialized
+DEBUG - 2021-11-04 03:22:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:22:46 --> Input Class Initialized
+INFO - 2021-11-04 03:22:46 --> Language Class Initialized
+INFO - 2021-11-04 03:22:46 --> Loader Class Initialized
+INFO - 2021-11-04 03:22:46 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:22:46 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:22:46 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:22:46 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:22:46 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:22:48 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:22:48 --> Parser Class Initialized
+INFO - 2021-11-04 03:22:48 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:22:48 --> Migrations Class Initialized
+INFO - 2021-11-04 03:22:48 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:22:48 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:22:48 --> Controller Class Initialized
+INFO - 2021-11-04 03:22:48 --> Model "Vivian_model" initialized
+INFO - 2021-11-04 03:22:48 --> Language file loaded: language/portuguese-brazilian/pagination_lang.php
+INFO - 2021-11-04 03:22:48 --> Pagination Class Initialized
+INFO - 2021-11-04 03:22:49 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/dash.php
+INFO - 2021-11-04 03:22:49 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/template.php
+INFO - 2021-11-04 03:22:49 --> Final output sent to browser
+DEBUG - 2021-11-04 03:22:49 --> Total execution time: 3.0593
+INFO - 2021-11-04 03:24:24 --> Config Class Initialized
+INFO - 2021-11-04 03:24:24 --> Hooks Class Initialized
+DEBUG - 2021-11-04 03:24:24 --> UTF-8 Support Enabled
+INFO - 2021-11-04 03:24:24 --> Utf8 Class Initialized
+INFO - 2021-11-04 03:24:24 --> URI Class Initialized
+INFO - 2021-11-04 03:24:24 --> Router Class Initialized
+INFO - 2021-11-04 03:24:24 --> Output Class Initialized
+INFO - 2021-11-04 03:24:24 --> Security Class Initialized
+DEBUG - 2021-11-04 03:24:24 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-11-04 03:24:24 --> Input Class Initialized
+INFO - 2021-11-04 03:24:24 --> Language Class Initialized
+INFO - 2021-11-04 03:24:24 --> Loader Class Initialized
+INFO - 2021-11-04 03:24:24 --> Helper loaded: url_helper
+INFO - 2021-11-04 03:24:24 --> Helper loaded: form_helper
+INFO - 2021-11-04 03:24:24 --> Helper loaded: html_helper
+INFO - 2021-11-04 03:24:24 --> Helper loaded: sessao_helper
+INFO - 2021-11-04 03:24:24 --> Database Driver Class Initialized
+INFO - 2021-11-04 03:24:25 --> Session: Class initialized using 'database' driver.
+INFO - 2021-11-04 03:24:25 --> Parser Class Initialized
+INFO - 2021-11-04 03:24:25 --> Form Validation Class Initialized
+INFO - 2021-11-04 03:24:25 --> Migrations Class Initialized
+INFO - 2021-11-04 03:24:25 --> Language file loaded: language/portuguese-brazilian/migration_lang.php
+INFO - 2021-11-04 03:24:25 --> Database Forge Class Initialized
+INFO - 2021-11-04 03:24:25 --> Controller Class Initialized
+INFO - 2021-11-04 03:24:25 --> Model "Vivian_model" initialized
+INFO - 2021-11-04 03:24:25 --> Language file loaded: language/portuguese-brazilian/pagination_lang.php
+INFO - 2021-11-04 03:24:25 --> Pagination Class Initialized
+INFO - 2021-11-04 03:24:27 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/dash.php
+INFO - 2021-11-04 03:24:27 --> File loaded: C:\xampp\htdocs\form-covid\application\views\/administracao/template.php
+INFO - 2021-11-04 03:24:27 --> Final output sent to browser
+DEBUG - 2021-11-04 03:24:27 --> Total execution time: 2.9706
