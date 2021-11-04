@@ -19,3 +19,21 @@ Adicionar paciente
 ```
 
 ![](https://github.com/jonatasgama/form-covid/blob/main/img/print3.png)
+
+```
+Admin > Dashboard
+```
+
+![](https://github.com/jonatasgama/form-covid/blob/main/img/admin/dash.png)
+
+```
+Admin > Adicionar paciente
+```
+
+![](https://github.com/jonatasgama/form-covid/blob/main/img/admin/novo.png)
+
+```
+Admin > Paginação de pacientes
+```
+
+![](https://github.com/jonatasgama/form-covid/blob/main/img/admin/novo.png)
