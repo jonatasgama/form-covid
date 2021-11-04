@@ -107,7 +107,6 @@
 				<th>Qual</th>
 				<th>Outros Fatores De Risco Para Tev</th>
 				<th>Score De Pádua</th>
-				<th colspan="2">Opções</th>
 			</tr>
 		<thead>
 		<tbody>	
@@ -190,15 +189,9 @@
 				<td><?= $object->qual == '0' ? 'Não' : $object->qual ?></td>
 				<td><?= $object->outros_fatores_de_risco_tev == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->score_padua ?></td>
-				<td width="80"><?= anchor(base_url('edit/').$object->id, 'Editar','class="btn btn-warning"'); ?></td>
-				<td width="80"><a href="javascript:func()" onclick="confirmacao('<?=$object->id;?>')" class="btn btn-danger">Deletar</a></td>
 			</tr><?php } ;?>
 		<?php } ;?>
 		</tbody>	
 	</table>
 </div>
-<?=$pagination?>
-
-<form method="post">
-	<button type="submit" class="btn btn-success" name="export" formaction="<?=base_url('extrair');?>">Download</button>	
-</form>	
+<?=$pagination?>	
