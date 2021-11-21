@@ -50,7 +50,7 @@ class Vivian extends CI_Controller {
 			}else{
 				$this->session->set_userdata('nome', NULL);
 				$this->session->set_userdata('logado', FALSE);
-				$this->session->set_flashdata('msg-danger', 'Usuário ou senha incorreto.');
+				$this->session->set_tempdata('msg-danger', 'Usuário ou senha incorreto.', 5);
 				redirect(base_url('/'));
 			}
 		}
@@ -68,7 +68,7 @@ class Vivian extends CI_Controller {
 		//$data['vivian'] = $this->Vivian_model->find();
 		//$data['content'] = '/vivian/index';
 		$config['base_url']	= base_url('paginacao');
-		$config['total_rows'] = $this->db->select('*')->from('vivian')->count_all_results();
+		$config['total_rows'] = $this->db->select('*')->from('form_covid')->count_all_results();
 		$config['per_page']	= 5;
 		$config['uri_segment'] = 2;
 		$config['num_links'] = 5;
@@ -225,7 +225,7 @@ class Vivian extends CI_Controller {
 
 			$data = $this->input->post(NULL, TRUE);
 			$this->Vivian_model->save($data);
-			$this->session->set_flashdata('msg-success','Dados salvos com sucesso', 15);
+			$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 5);
 			redirect(base_url('paginacao/1'), 'refresh');	
 					
 		}

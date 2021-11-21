@@ -17,8 +17,8 @@ class Home extends CI_Controller {
 	function index() {
 		//$data['vivian'] = $this->Vivian_model->find();
 		//$data['content'] = '/vivian/index';
-		$config['base_url']	= base_url('paginacao');
-		$config['total_rows'] = $this->db->select('*')->from('vivian')->count_all_results();
+		$config['base_url']	= base_url('/administracao/paginacao');
+		$config['total_rows'] = $this->db->select('*')->from('form_covid')->count_all_results();
 		$config['per_page']	= 5;
 		$config['uri_segment'] = 3;
 		$config['num_links'] = 5;
@@ -94,14 +94,14 @@ class Home extends CI_Controller {
 			$covid_mes['label'][] = $row->mes;
 			$covid_mes['qtd'][] = $row->total;
 		}
-		$data['chart_line'] = json_encode($covid_mes);
+		$data['chart_line'] = isset($covid_mes)?json_encode($covid_mes):null;
 
 		$sexo = $this->Vivian_model->sexo()->result();
 		foreach($sexo as $row){
 			$qtd_sexo['label'][] = $row->sexo;
 			$qtd_sexo['qtd'][] = $row->total;
 		}
-		$data['chart_data'] = json_encode($qtd_sexo);
+		$data['chart_data'] = isset($qtd_sexo)?json_encode($qtd_sexo):null;
 		$data['total'] = $this->db->count_all('form_covid');
 		$data['content'] = '/administracao/dash';
 		$this->load->view('/administracao/template', $data);
@@ -208,7 +208,7 @@ class Home extends CI_Controller {
 
 			$data = $this->input->post(NULL, TRUE);
 			$this->Vivian_model->save($data);
-			$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 15);
+			$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 5);
 			redirect(base_url('administracao/paginacao/1'), 'refresh');	
 					
 		}

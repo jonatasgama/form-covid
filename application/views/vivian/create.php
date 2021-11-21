@@ -3,7 +3,7 @@
 	<?php }else{ ;?>
 	<h1>Novo Cadastro</h1>
 	<?php } ;?>
-	<?= form_open('vivian/save','role="form" autocomplete="on"'); ?><?php if(validation_errors() != NULL && validation_errors() != 'N/A') { ?>
+	<?= form_open('vivian/save','role="form" autocomplete="on" onSubmit="verificaZeros(); return false;"'); ?><?php if(validation_errors() != NULL && validation_errors() != '') { ?>
 		<div class="alert alert-danger"><?= validation_errors(); ?></div><?php } ?>
 		<input type="hidden" name="id" value="<?= isset($vivian)?$vivian->id:''?>"/>
 		
@@ -16,12 +16,12 @@
 			<div class="form-group col-sm-2">
 				<label for="matricula">Matricula:</label><br/>
 				
-				<input type="text" name="matricula"  class="form-control" value="<?= isset($vivian)?$vivian->matricula:'N/A'?>">
+				<input type="text" name="matricula"  class="form-control" value="<?= isset($vivian)?$vivian->matricula:''?>">
 			</div>
 			<div class="form-group col-sm-2">
 				<label for="iniciais">Iniciais:</label><br/>
 				
-				<input type="text"  name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:'N/A'?>">
+				<input type="text"  name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:''?>">
 			</div>		
 			
 			<div class="form-group col-sm-2">
@@ -36,13 +36,13 @@
 			<div class="form-group col-sm-3">
 				<label for="data_diag_covid">Data de diagnóstico covid:</label><br/>
 				
-				<input type="text"  name="data_diag_covid"  id="data_diag_covid" class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:'N/A'?>" readonly="readonly">
+				<input type="text"  name="data_diag_covid"  id="data_diag_covid" class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:''?>" readonly="readonly">
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="tempo_internacao">Tempo de internação(em dias):</label><br/>
 				
-				<input type="text" name="tempo_internacao"  id="tempo_internacao" class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:'N/A'?>" readonly="readonly">
+				<input type="text" name="tempo_internacao"  id="tempo_internacao" class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:''?>" readonly="readonly">
 			</div>	
 		</div>
 	
@@ -109,7 +109,7 @@
 			<div class="form-group col-sm-6">
 				<label for="data_diagnostico_evento_tromb">Data diagnóstico:</label><br/>
 				
-				<input type="text" name="data_diagnostico_evento_tromb"  class="form-control" value="<?= isset($vivian)?$vivian->data_diagnostico_evento_tromb:'N/A';?>">
+				<input type="text" name="data_diagnostico_evento_tromb"  class="form-control" value="<?= isset($vivian)?$vivian->data_diagnostico_evento_tromb:'';?>">
 			</div>
 			
 		</div>
@@ -167,6 +167,7 @@
 				<label for="evento_avc">Outro:</label><br/>
 				
 				<select name="evento_outro_lista" id ="evento_outro_lista" class="form-select form-select mb-3">
+				<option value="0">Não</option>
 					<option value="Trombose subclavia">Trombose subclávia</option>
 					<option value="Trombose VJI">Trombose VJI</option>
 					<option value="Tromboflebite">Tromboflebite</option>
@@ -183,7 +184,7 @@
 				<textarea 
 						class="form-control mb-3"
 						name="evento_outro_escrito"
-						id="evento_outro_escrito"><?=isset($vivian)?$vivian->evento_outro_escrito:'N/A'?>
+						id="evento_outro_escrito"><?=isset($vivian)?$vivian->evento_outro_escrito:''?>
 				</textarea>
 			</div>
 		</div>
@@ -222,28 +223,28 @@
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="maior_que_70">Maior de 70 anos:</label><br/>
-			<input type="text" name="maior_que_70" id="maior_que_70" class="form-control" value="<?= isset($vivian)?$vivian->maior_que_70:'N/A'?>">		
-			<input type="hidden" name="maior_70" id="maior_70" class="form-control" value="<?= isset($vivian)?$vivian->maior_70:'N/A'?>">		
+			<input type="text" name="maior_que_70" id="maior_que_70" class="form-control" value="<?= isset($vivian)?$vivian->maior_que_70:''?>">		
+			<input type="hidden" name="maior_70" id="maior_70" class="form-control" value="<?= isset($vivian)?$vivian->maior_70:''?>">
 		</div>
 		<div class="form-group col-sm-1">
 			<label for="peso">Peso:</label><br/>
 			
-			<input type="text" name="peso"  id="peso" class="form-control" value="<?= isset($vivian)?$vivian->peso:'N/A'?>">
+			<input type="text" name="peso"  id="peso" class="form-control" value="<?= isset($vivian)?$vivian->peso:''?>">
 		</div>
 		<div class="form-group col-sm-1">
 			<label for="altura">Altura(cm):</label><br/>
 			
-			<input type="text" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:'N/A'?>" onblur="calculaImc()">
+			<input type="text" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:''?>" onblur="calculaImc()">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="imc">Imc:</label><br/>
 			
-			<input type="text" name="imc"  id="imc" class="form-control" value="<?= isset($vivian)?$vivian->imc:'N/A'?>" onblur="calculaClassificacao()">
+			<input type="text" name="imc"  id="imc" class="form-control" value="<?= isset($vivian)?$vivian->imc:''?>" onblur="calculaClassificacao()">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="classificacao">Classificação:</label><br/>
 			
-			<input type="text" name="classificacao"  id="classificacao" class="form-control" value="<?= isset($vivian)?$vivian->classificacao:'N/A'?>">
+			<input type="text" name="classificacao"  id="classificacao" class="form-control" value="<?= isset($vivian)?$vivian->classificacao:''?>">
 		</div>		
 	</div>	
 		
@@ -431,7 +432,7 @@
 				<textarea 
 						class="form-control mb-3" 
 						name="outras_comorb_escrito"
-						id="outras_comorb_escrito"><?=isset($vivian)?$vivian->outras_comorb_escrito:'N/A'?>
+						id="outras_comorb_escrito"><?=isset($vivian)?$vivian->outras_comorb_escrito:''?>
 				</textarea>
 			</div>
 		</div>
@@ -572,7 +573,7 @@
 				<textarea 
 						name="sitio_tumoral_outros_escrito" 
 						id="sitio_tumoral_outros_escrito" 
-						class="form-control"><?= isset($vivian)?$vivian->sitio_tumoral_outros_escrito:'N/A'?>
+						class="form-control"><?= isset($vivian)?$vivian->sitio_tumoral_outros_escrito:''?>
 				</textarea>
 			</div>
 		</div>
@@ -672,7 +673,7 @@
 			<div class="form-group col-sm-3">
 				<label for="plaquetas_pre_qt">Plaquetas pré-qt:</label><br/>
 				
-				<input type="text" name="plaquetas_pre_qt"  id="plaquetas_pre_qt" class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:'N/A'?>">
+				<input type="text" name="plaquetas_pre_qt"  id="plaquetas_pre_qt" class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:''?>">
 			</div>
 			
 			<div class="form-group col-sm-3">
@@ -759,13 +760,13 @@
 			<div class="form-group col-sm-3">
 				<label for="hemoglobina">Hemoglobina:</label><br/>
 				
-				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:'N/A'?>">
+				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:''?>">
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="ddimero">D-dímero(em ng/ml):</label><br/>
 				
-				<input type="text" name="ddimero"  id="ddimero" class="form-control" value="<?= isset($vivian)?$vivian->ddimero:'N/A'?>">
+				<input type="text" name="ddimero"  id="ddimero" class="form-control" value="<?= isset($vivian)?$vivian->ddimero:''?>">
 			</div>
 		
 		</div>
@@ -807,12 +808,13 @@
 				<label for="score_padua">Score de pádua:</label><br/>
 				
 				<div class="input-group">
-					<input type="text" name="score_padua"  id="score_padua" class="form-control" value="<?= isset($vivian)?$vivian->score_padua:'N/A'?>" readonly>
+					<input type="text" name="score_padua"  id="score_padua" class="form-control" value="<?= isset($vivian)?$vivian->score_padua:''?>" readonly>
 					<button class="btn btn-outline-secondary" type="button" onclick="scorePadua()" id="calclulaScore">Calcular</button>
 				</div>
 			</div>
 		
 		</div>
+		
 		<input type="submit" value="Salvar" class="btn btn-primary"/>
 		<?= anchor(base_url('paginacao/1'),'Voltar','class="btn btn-success"'); ?>
 	

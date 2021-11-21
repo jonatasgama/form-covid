@@ -131,7 +131,7 @@
 				<td><?= $object->evento_avc == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->evento_coag_intr == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->evento_iam == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_outro_lista ?></td>
+				<td><?= $object->evento_outro_lista == '0' ? 'Não' : $object->evento_outro_lista ?></td>
 				<td><?= $object->evento_outro_escrito ?></td>
 				<td><?= $object->sexo ?></td>
 				<td><?= $object->raca ?></td>
@@ -139,7 +139,7 @@
 				<td><?= $object->maior_que_70 ?></td>
 				<td><?= $object->peso ?></td>
 				<td><?= $object->altura ?></td>
-				<td><?= $object->imc ?></td>
+				<td><?= $object->imc == 'NaN' ? 'N/A' : $object->imc ?></td>
 				<td><?= $object->classificacao ?></td>
 				<td><?= $object->obesidade == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->has == '0' ? 'Não':'Sim' ?></td>

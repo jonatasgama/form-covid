@@ -263,7 +263,7 @@ class Vivian_model extends CI_Model {
 	}		
 
 	function covidPorMes() {
-		$sql = "SELECT COUNT(*) as total, MONTHNAME(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')) as mes FROM form_covid WHERE data_diag_covid != 'N/A' AND YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')) = '2021' GROUP BY YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')), MONTH(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))";
+		$sql = "SELECT COUNT(*) as total, CONCAT(YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')),'-',MONTHNAME(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))) as mes FROM form_covid WHERE data_diag_covid != 'N/A' GROUP BY YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')), MONTH(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))";
 		$result = $this->db->query($sql);
 		return $result;
 	}		

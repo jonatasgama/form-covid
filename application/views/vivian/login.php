@@ -12,25 +12,28 @@
     <div class="container mt-5">
 	
 <?php
-	if($this->session->flashdata('msg-danger')){ ?>
-		<div class="mt-2 alert alert-danger text-center">
-			<?=$this->session->flashdata('msg-danger');?>
+	if($this->session->tempdata('msg-danger')){ ?>
+		<div class="alert alert-danger alert-dismissible fade show text-center col-md-6 offset-3">
+			<?=$this->session->tempdata('msg-danger');?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 <?php } ;?>
 
 <?php
-	if($this->session->flashdata('msg-success')){ ?>
-		<div class="mt-2 alert alert-success text-center">
-			<?=$this->session->flashdata('msg-success');?>
+	if($this->session->tempdata('msg-success')){ ?>
+		<div class="alert alert-success alert-dismissible fade show text-center col-md-6 offset-3">
+			<?=$this->session->tempdata('msg-success');?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 <?php } ; ?>
 
 <?php
-	if($this->session->flashdata('msg-warning')){ ?>
-		<div class="mt-2 alert alert-warning text-center">
-			<?=$this->session->flashdata('msg-warning');?>
+	if($this->session->tempdata('msg-warning')){ ?>
+		<div class="alert alert-warning alert-dismissible fade show text-center col-md-6 offset-3">
+			<?=$this->session->tempdata('msg-warning');?>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
-<?php } ; ?>
+<?php } ; ?>  
 
         <div class="row">
             <div class="col-md-4 offset-md-4 mt-5">

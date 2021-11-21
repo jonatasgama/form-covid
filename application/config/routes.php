@@ -68,5 +68,6 @@ $route['administracao/edit'] = "administracao/Home/edit";
 $route['administracao/edit/(:num)'] = "administracao/Home/edit/$1";
 $route['administracao/destroy/(:num)'] = "administracao/Home/destroy/$1";
 $route['administracao/paginacao/(:num)'] = "administracao/Home/index/$1";
+$route['administracao/paginacao'] = "administracao/Home/index";
 $route['administracao/sair'] = "administracao/Home/logout";
 $route['administracao/dash'] = "administracao/Home/dash";

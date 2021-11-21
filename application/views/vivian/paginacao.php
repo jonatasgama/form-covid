@@ -5,30 +5,30 @@
 
 
 <?php
-	if($this->session->flashdata('msg-danger')){ ?>
+	if($this->session->tempdata('msg-danger')){ ?>
 		<div class="alert alert-danger alert-dismissible fade show text-center col-md-6 offset-3">
-			<?=$this->session->flashdata('msg-danger');?>
+			<?=$this->session->tempdata('msg-danger');?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 <?php } ;?>
 
 <?php
-	if($this->session->flashdata('msg-success')){ ?>
+	if($this->session->tempdata('msg-success')){ ?>
 		<div class="alert alert-success alert-dismissible fade show text-center col-md-6 offset-3">
-			<?=$this->session->flashdata('msg-success');?>
+			<?=$this->session->tempdata('msg-success');?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 <?php } ; ?>
 
 <?php
-	if($this->session->flashdata('msg-warning')){ ?>
+	if($this->session->tempdata('msg-warning')){ ?>
 		<div class="alert alert-warning alert-dismissible fade show text-center col-md-6 offset-3">
-			<?=$this->session->flashdata('msg-warning');?>
+			<?=$this->session->tempdata('msg-warning');?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
-<?php } ; ?>
+<?php } ; ?> 
 
-	<table class="table table-striped">
+	<table class="table">
 		<thead>
 			<tr>
 				<th>#</th>
@@ -130,7 +130,7 @@
 				<td><?= $object->evento_avc == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->evento_coag_intr == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->evento_iam == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_outro_lista ?></td>
+				<td><?= $object->evento_outro_lista == '0' ? 'Não' : $object->evento_outro_lista ?></td>
 				<td><?= $object->evento_outro_escrito ?></td>
 				<td><?= $object->sexo ?></td>
 				<td><?= $object->raca ?></td>
@@ -138,7 +138,7 @@
 				<td><?= $object->maior_que_70 ?></td>
 				<td><?= $object->peso ?></td>
 				<td><?= $object->altura ?></td>
-				<td><?= $object->imc ?></td>
+				<td><?= $object->imc == 'NaN' ? 'N/A' : $object->imc ?></td>
 				<td><?= $object->classificacao ?></td>
 				<td><?= $object->obesidade == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->has == '0' ? 'Não':'Sim' ?></td>

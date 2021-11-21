@@ -50,12 +50,6 @@
 				</div>
 			<?php } ?>
 			
-			<?php if($this->session->flashdata('msg')) { ?>
-				<div class="alert alert-success alert-dismissible" role="alert">
-					<?= $this->session->flashdata('msg'); ?>
-				</div>
-			<?php } ?>
-			
 			<?php $this->load->view($content); ?>
 		</div>
 	</div>
@@ -79,7 +73,11 @@
 		let peso = document.getElementById('peso').value;
 		let altura = document.getElementById('altura').value;
 		let imc = (peso / (altura * altura)) * 10000;
-		document.getElementById('imc').value = imc.toString().substr(0,5);
+		if(imc.toString().substr(0,5) == 'NaN' || altura == '0' || peso == '0'){
+			document.getElementById('imc').value = 'N/A';
+		}else{
+			document.getElementById('imc').value = imc.toString().substr(0,5);
+		}
 	}
 	
 	function calculaClassificacao(){
@@ -117,7 +115,7 @@
 	document.getElementById('possui_cirurgia_trauma_recente').value = document.getElementById('cirurgia_trauma_recente').value;
 	
 	function scorePadua(){
-		if(isNaN(document.getElementById('maior_70').value)){
+		if(isNaN(document.getElementById('maior_70').value) || document.getElementById('maior_70').value == ''){
 			alert('Favor informar a idade');
 		}else{
 			let score = 0;
@@ -155,6 +153,18 @@
 			document.getElementById('tempo_internacao').setAttribute("readonly", "readonly");
 		}
 	}
+	
+	function verificaZeros() {
+	  let peso = document.getElementById("peso").value
+	  let altura = document.getElementById("altura").value
+	  
+	  if(peso == '0' || peso == '00' || altura == '0' || altura == '00'){
+		  alert('Os campos peso e/ou altura não podem ser 0(zero).\n Favor preencher N/A caso não tenha a informação.');
+		  return false;
+	  }else{
+		  document.form.submit();
+	  }
+	}	
 	
 <?php
 if(isset($vivian)){ ;?>

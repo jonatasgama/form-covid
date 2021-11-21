@@ -378,7 +378,11 @@
 		let peso = document.getElementById('peso').value;
 		let altura = document.getElementById('altura').value;
 		let imc = (peso / (altura * altura)) * 10000;
-		document.getElementById('imc').value = imc.toString().substr(0,5);
+		if(imc.toString().substr(0,5) == 'NaN' || altura == '0' || peso == '0'){
+			document.getElementById('imc').value = 'N/A';
+		}else{
+			document.getElementById('imc').value = imc.toString().substr(0,5);
+		}
 	}
 	
 	function calculaClassificacao(){
@@ -460,6 +464,18 @@
 			document.getElementById('tempo_internacao').setAttribute("readonly", "readonly");
 		}
 	}
+
+	function verificaZeros() {
+	  let peso = document.getElementById("peso").value
+	  let altura = document.getElementById("altura").value
+	  
+	  if(peso == '0' || peso == '00' || altura == '0' || altura == '00'){
+		  alert('Os campos peso e/ou altura não podem ser 0(zero).\n Favor preencher N/A caso não tenha a informação.');
+		  return false;
+	  }else{
+		  document.form.submit();
+	  }
+	}	
 	
 <?php
 if(isset($vivian)){ ;?>
