@@ -223,9 +223,9 @@
 			<input type="text" name="peso"  id="peso" class="form-control" value="<?= isset($vivian)?$vivian->peso:''?>">
 		</div>
 		<div class="form-group col-sm-2">
-			<label for="altura">Altura(cm):</label><br/>
+			<label for="altura">Altura(em metros):</label><br/>
 			
-			<input type="number" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:''?>" placeholder="Sem vírgula ou ponto">
+			<input type="text" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:''?>" placeholder="Ex. 1,77" data-mask="0,00">
 		</div>
 		<!--<div class="form-group col-sm-2">
 			<label for="imc">Imc:</label><br/>
@@ -664,7 +664,7 @@
 			<div class="form-group col-sm-3">
 				<label for="plaquetas_pre_qt">Plaquetas pré-qt:</label><br/>
 				
-				<input type="text" name="plaquetas_pre_qt"  id="plaquetas_pre_qt" class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:''?>">
+				<input type="number" name="plaquetas_pre_qt"  id="plaquetas_pre_qt" class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:''?>" placeholder="somente números">
 			</div>
 			
 			<div class="form-group col-sm-3">
