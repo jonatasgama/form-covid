@@ -33,7 +33,7 @@ class Vivian_model extends CI_Model {
 		$this->db->set('maior_70', $data['maior_70']);
 		$this->db->set('peso', $data['peso']);
 		$this->db->set('altura', $data['altura']);
-		$this->db->set('imc', $data['imc']);
+		//$this->db->set('imc', $data['imc']);
 		$this->db->set('classificacao', $data['classificacao']);
 		$this->db->set('obesidade', $data['obesidade']);
 		$this->db->set('possui_obesidade', $data['possui_obesidade']);
@@ -144,7 +144,6 @@ class Vivian_model extends CI_Model {
 			`form_covid`.`idade`,
 			`form_covid`.`peso`,
 			`form_covid`.`altura`,
-			`form_covid`.`imc`,
 			`form_covid`.`classificacao`,
 			`form_covid`.`obesidade`,
 			`form_covid`.`possui_obesidade`,

@@ -33,7 +33,7 @@
 			<div class="form-group col-sm-3">
 				<label for="tempo_internacao">Tempo de internação(em dias):</label><br/>
 				
-				<input type="text" name="tempo_internacao"  id="tempo_internacao" class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:''?>" readonly="readonly">
+				<input type="number" name="tempo_internacao"  id="tempo_internacao" class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:''?>" readonly="readonly" placeholder="somente números">
 			</div>	
 		</div>
 	
@@ -158,7 +158,7 @@
 				<label for="evento_avc">Outro:</label><br/>
 				
 				<select name="evento_outro_lista" id ="evento_outro_lista" class="form-select form-select mb-3">
-				<option value="0">Não</option>
+					<option value="0">Não</option>
 					<option value="Trombose subclavia">Trombose subclávia</option>
 					<option value="Trombose VJI">Trombose VJI</option>
 					<option value="Tromboflebite">Tromboflebite</option>
@@ -799,7 +799,7 @@
 				<label for="score_padua">Score de pádua:</label><br/>
 				
 				<div class="input-group">
-					<input type="text" name="score_padua"  id="score_padua" class="form-control" value="<?= isset($vivian)?$vivian->score_padua:''?>" readonly>
+					<input type="number" name="score_padua"  id="score_padua" class="form-control" value="<?= isset($vivian)?$vivian->score_padua:''?>" readonly>
 					<button class="btn btn-outline-secondary" type="button" onclick="scorePadua()" id="calclulaScore">Calcular</button>
 				</div>
 			</div>

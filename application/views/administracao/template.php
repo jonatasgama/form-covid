@@ -420,7 +420,7 @@
 	document.getElementById('possui_cirurgia_trauma_recente').value = document.getElementById('cirurgia_trauma_recente').value;
 	
 	function scorePadua(){
-		if(isNaN(document.getElementById('maior_70').value)){
+		if(isNaN(document.getElementById('maior_70').value) || document.getElementById('maior_70').value == ''){
 			alert('Favor informar a idade');
 		}else{
 			let score = 0;
