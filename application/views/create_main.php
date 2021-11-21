@@ -225,7 +225,7 @@
 		<div class="form-group col-sm-2">
 			<label for="altura">Altura(cm):</label><br/>
 			
-			<input type="text" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:''?>" onblur="calculaImc()">
+			<input type="number" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:''?>" placeholder="Sem vírgula ou ponto">
 		</div>
 		<!--<div class="form-group col-sm-2">
 			<label for="imc">Imc:</label><br/>

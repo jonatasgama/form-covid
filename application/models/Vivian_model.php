@@ -142,7 +142,6 @@ class Vivian_model extends CI_Model {
 			`form_covid`.`sexo`,
 			`form_covid`.`raca`,
 			`form_covid`.`idade`,
-			`form_covid`.`maior_que_70`,
 			`form_covid`.`peso`,
 			`form_covid`.`altura`,
 			`form_covid`.`imc`,
@@ -207,7 +206,7 @@ class Vivian_model extends CI_Model {
 			`form_covid`.`qual`,
 			`form_covid`.`outros_fatores_de_risco_tev`,
 			`form_covid`.`score_padua`,
-			`form_covid`.`maior_70`
+			`form_covid`.`maior_70` as 'maior_que_70'
 			FROM `covid`.`form_covid`";
 		$result = $this->db->query($sql);
 		return $result;

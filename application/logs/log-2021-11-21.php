@@ -20,3 +20,9 @@ ERROR - 2021-11-21 16:06:48 --> Severity: Warning --> Undefined variable $chart_
 ERROR - 2021-11-21 16:06:48 --> Severity: Warning --> Undefined variable $chart_line C:\xampp\htdocs\form-covid\application\views\administracao\template.php 623
 ERROR - 2021-11-21 21:44:46 --> Severity: Warning --> Undefined variable $chart_data C:\xampp\htdocs\form-covid\application\views\administracao\template.php 565
 ERROR - 2021-11-21 21:44:46 --> Severity: Warning --> Undefined variable $chart_line C:\xampp\htdocs\form-covid\application\views\administracao\template.php 623
+ERROR - 2021-11-21 22:04:53 --> Severity: Warning --> Undefined variable $chart_data C:\xampp\htdocs\form-covid\application\views\administracao\template.php 565
+ERROR - 2021-11-21 22:04:53 --> Severity: Warning --> Undefined variable $chart_line C:\xampp\htdocs\form-covid\application\views\administracao\template.php 623
+ERROR - 2021-11-21 22:04:56 --> Severity: Warning --> Undefined variable $chart_data C:\xampp\htdocs\form-covid\application\views\administracao\template.php 565
+ERROR - 2021-11-21 22:04:56 --> Severity: Warning --> Undefined variable $chart_line C:\xampp\htdocs\form-covid\application\views\administracao\template.php 623
+ERROR - 2021-11-21 22:04:59 --> Severity: Warning --> Undefined variable $chart_data C:\xampp\htdocs\form-covid\application\views\administracao\template.php 565
+ERROR - 2021-11-21 22:04:59 --> Severity: Warning --> Undefined variable $chart_line C:\xampp\htdocs\form-covid\application\views\administracao\template.php 623
