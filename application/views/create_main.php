@@ -751,7 +751,7 @@
 			<div class="form-group col-sm-3">
 				<label for="hemoglobina">Hemoglobina:</label><br/>
 				
-				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:''?>">
+				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:''?>" data-mask="00,00">
 			</div>
 			
 			<div class="form-group col-sm-3">
