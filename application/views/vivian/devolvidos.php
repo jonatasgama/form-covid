@@ -1,4 +1,4 @@
-<h2>Pacientes</h2>
+<h2>Registros Devolvidos</h2>
 
 
 <div class="table-responsive">
@@ -26,7 +26,7 @@
 			<?=$this->session->tempdata('msg-warning');?>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
-<?php } ; ?>   
+<?php } ; ?> 
 
 	<table class="table">
 		<thead>
@@ -107,7 +107,7 @@
 				<th>Qual</th>
 				<th>Outros Fatores De Risco Para Tev</th>
 				<th>Score De Pádua</th>
-				<th colspan="3">Opções</th>
+				<th>Opções</th>
 			</tr>
 		<thead>
 		<tbody>	
@@ -190,57 +190,10 @@
 				<td><?= $object->qual == '0' ? 'Não' : $object->qual ?></td>
 				<td><?= $object->outros_fatores_de_risco_tev == '0' ? 'Não':'Sim' ?></td>
 				<td><?= $object->score_padua ?></td>
-				<td width="80"><?= anchor(base_url('administracao/edit/').$object->id, 'Editar','class="btn btn-primary"'); ?></td>
-				<td width="80"><a href="#" class="btn btn-danger" onclick="pegaId(<?=$object->id;?>)" data-toggle="modal" data-target="#excluirModal">Deletar</a></td>
-				<td width="80"><a href="#" class="btn btn-secondary" onclick="devolveId(<?=$object->id;?>)" data-toggle="modal" data-target="#devolveModal">Devolver</a></td>
+				<td width="80"><?= anchor(base_url('edit/').$object->id, 'Editar','class="btn btn-primary"'); ?></td>
 			</tr><?php } ;?>
 		<?php } ;?>
 		</tbody>	
 	</table>
 </div>
 <?=$pagination?>
-
-<form method="post">
-	<button type="submit" class="btn btn-success" name="export" formaction="<?=base_url('extrair');?>">Download</button>	
-</form>	
-
-<!-- Delete Modal-->
-<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel2">Excluir</h5>
-				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-			</div>
-			<div class="modal-body">Deseja realmente excluir o registro?</div>
-			<div class="modal-footer">
-				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-				<a class="btn btn-primary" id="confirmaExclusao">Sim</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!--Devolve Modal-->
-<div class="modal fade" id="devolveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel2">Devolver</h5>
-				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				Deseja realmente devolver o registro nº <span id="devolucao"></span>?
-				<br>O mesmo ficará disponível para edição dos dados.
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-				<a class="btn btn-primary" id="confirmaDevolucao">Sim</a>
-			</div>
-		</div>
-	</div>
-</div>

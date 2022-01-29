@@ -31,8 +31,9 @@
       <div class="navbar-nav">
 	    <a class="nav-link" aria-current="page" href="<?=base_url('paginacao')?>">Home</a>
         <a class="nav-link" href="<?=base_url('create')?>">Novo</a>
-			<a class="nav-link" aria-current="page" href="#">Bem vindo(a) <?= $this->session->userdata('nome') ;?></a>
-			<a class="nav-link" aria-current="page" href="<?=base_url('/sair');?>">Sair</a>
+		 <a class="nav-link" href="<?=base_url('devolvidos')?>">Devolvidos</a>
+		<a class="nav-link" aria-current="page" href="#">Bem vindo(a) <?= $this->session->userdata('nome') ;?></a>
+		<a class="nav-link" aria-current="page" href="<?=base_url('/sair');?>">Sair</a>
 		
 		
       </div>

@@ -96,7 +96,8 @@ class Vivian_model extends CI_Model {
 		$this->db->set('outros_fatores_de_risco_tev', $data['outros_fatores_de_risco_tev']);
 		$this->db->set('score_padua', $data['score_padua']);
 		$this->db->set('id_usuario', $this->session->userdata('id_usuario'));
-
+		$this->db->set('dono_registro', 'adm');
+		
 		if($data['id'] == NULL) {
 			$this->db->set('created_at', date('Y-m-d h:i:s',time()));
 			$this->db->insert('form_covid');
@@ -261,7 +262,7 @@ class Vivian_model extends CI_Model {
 	}		
 
 	function covidPorMes() {
-		$sql = "SELECT COUNT(*) as total, CONCAT(YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')),'-',MONTHNAME(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))) as mes FROM form_covid WHERE data_diag_covid != 'N/A' GROUP BY YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')), MONTH(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))";
+		$sql = "SELECT COUNT(*) as total, CONCAT(YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')),'-',MONTHNAME(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))) as mes FROM form_covid WHERE data_diag_covid != 'N/A' AND data_diag_covid != '' GROUP BY YEAR(STR_TO_DATE(data_diag_covid, '%d/%m/%Y')), MONTH(STR_TO_DATE(data_diag_covid, '%d/%m/%Y'))";
 		$result = $this->db->query($sql);
 		return $result;
 	}		
@@ -296,4 +297,19 @@ class Vivian_model extends CI_Model {
 		return $result;
 	}	
 
+	function devolveRegistro($id){
+		$sql = "UPDATE form_covid SET dono_registro = 'usr' WHERE id = ? ";
+		$result = $this->db->query($sql, $id);
+		return $result;
+	}
+	
+	function listaDevolvidos($limit, $offset){
+		$this->db->select('*')->from('form_covid')->where('dono_registro', 'usr')->where('id_usuario', $this->session->userdata('id_usuario'))->limit($limit,$offset);
+		$result	= $this->db->get()->result();
+		if($result){
+			return	$result;
+		}else{
+			return	false;
+		}
+	}	
 }

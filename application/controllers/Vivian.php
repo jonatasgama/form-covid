@@ -126,9 +126,9 @@ class Vivian extends CI_Controller {
 	# GET /vivian/destroy/1
 	function destroy() {
 		$id = $this->uri->segment(2);
-		$data['vivian'] = $this->Vivian_model->destroy($id);
-		$this->session->set_flashdata('msg-success','Registro excluído com sucesso', 15);
-		redirect('/paginacao', 'refresh');
+		$this->Vivian_model->destroy($id);
+		$this->session->set_tempdata('msg-success','Registro excluído com sucesso', 5);
+		redirect(base_url('paginacao/1'), 'refresh');
 	}
 
 	# POST /vivian/save
@@ -136,10 +136,7 @@ class Vivian extends CI_Controller {
 		$data = $this->input->post(NULL, TRUE);
 		$this->Vivian_model->save($data);
 		$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 5);
-		redirect(base_url('paginacao/1'), 'refresh');						
-		$data['vivian'] =	$this->rebuild();
-		$data['content'] = '/vivian/create';
-		$this->load->view('/includes/template', $data);
+		redirect(base_url('paginacao/1'), 'refresh');
 	}
 
 	function rebuild() {
@@ -280,6 +277,48 @@ class Vivian extends CI_Controller {
 				exit();
 		}
 	}
+	
+	function devolvidos() {
+		$config['base_url']	= base_url('devolvidos');
+		$config['total_rows'] = $this->db->select('*')->from('form_covid')->where('dono_registro', 'usr')->where('id_usuario', $this->session->userdata('id_usuario'))->count_all_results();
+		$config['per_page']	= 5;
+		$config['uri_segment'] = 2;
+		$config['num_links'] = 5;
+		$config['use_page_numbers']	= TRUE;
+		$config['full_tag_open'] = "<nav aria-label='Paginação da tabela de clientes'><ul class='pagination'>";
+		$config['full_tag_close'] = "<ul></nav>";
+		$config['first_link'] = "Primeira";
+		$config['first_tag_open'] =	"<li class='page-item'>";
+		$config['first_tag_close'] = "</li>";
+		$config['last_link'] = "Última";
+		$config['last_tag_open'] = "<li class='page-item'>";
+		$config['last_tag_close'] =	"</li>";
+		$config['next_link'] =	"Próxima";
+		$config['next_tag_open'] =	"<li class='page-item'>";
+		$config['next_tag_close'] =	"</li>";
+		$config['prev_link'] =	"Anterior";
+		$config['prev_tag_open'] =	"<li class='page-item'>";
+		$config['prev_tag_close'] =	"</li>";
+		$config['cur_tag_open']	= "<li class='page-item active'><a class='page-link' href='#'>";
+		$config['cur_tag_close'] =	"</a></li>";
+		$config['num_tag_open']	= "<li class='page-item'>";
+		$config['num_tag_close'] =	"</li>";
+		$config['attributes'] = array('class' => 'page-link');
+		$this->pagination->initialize($config);
+		if($this->uri->segment(2))
+				$offset	= ($this->uri->segment(2) -	1) * $config['per_page'];
+		else
+				$offset	= 0;
+		$dados = $this->Vivian_model->listaDevolvidos($config['per_page'], $offset);
+		$data['dados']	= $dados;
+		$data['error']	= null;
+		$data['short_url']	= false;
+		$data['pagination']	= $this->pagination->create_links();
+		
+		$data['content'] = '/vivian/devolvidos';
+		$this->load->view('/includes/template', $data);
+	}	
+		
 }
 
 ?>

@@ -110,8 +110,9 @@ class Home extends CI_Controller {
 	# GET /vivian/destroy/1
 	function destroy() {
 		$id = $this->uri->segment(3);
-		$data['vivian'] = $this->Vivian_model->destroy($id);
-		redirect('/administracao', 'refresh');
+		$this->Vivian_model->destroy($id);
+		$this->session->set_tempdata('msg-success','Registro excluído com sucesso', 5);
+		redirect(base_url('administracao/paginacao/1'), 'refresh');
 	}
 
 	# POST /vivian/save
@@ -120,9 +121,9 @@ class Home extends CI_Controller {
 		$this->Vivian_model->save($data);
 		$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 5);
 		redirect(base_url('administracao/paginacao/1'), 'refresh');
-		$data['vivian'] =	$this->rebuild();
-		$data['content'] = '/administracao/create';
-		$this->load->view('/administracao/template', $data);
+		//$data['vivian'] =	$this->rebuild();
+		//$data['content'] = '/administracao/create';
+		//$this->load->view('/administracao/template', $data);
 	}
 
 	function rebuild() {
@@ -263,6 +264,15 @@ class Home extends CI_Controller {
 				exit();
 		}
 	}
+	
+	function devolveregistro() {
+		$id = $this->uri->segment(3);
+		$data['vivian'] = $this->Vivian_model->devolveRegistro($id);
+		$this->session->set_tempdata('msg-success','Registro devolvido para edição', 5);
+		redirect(base_url('administracao/paginacao/1'), 'refresh');
+	}	
+
+	
 }
 
 ?>

@@ -453,6 +453,13 @@
 		urlExclusao.setAttribute("href","<?=base_url('administracao/destroy/');?>"+id);
 	}
 	
+	function devolveId(id){
+		let urlDevolucao = document.getElementById('confirmaDevolucao');
+		
+		urlDevolucao.setAttribute("href","<?=base_url('administracao/devolveregistro/');?>"+id);
+		document.getElementById('devolucao').innerHTML = id;
+	}
+
 	function dataCovid(){
 		let teveCovid = document.getElementById('covid').value;
 		console.log(teveCovid);
