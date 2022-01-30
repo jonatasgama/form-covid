@@ -107,7 +107,6 @@
 				<th>Qual</th>
 				<th>Outros Fatores De Risco Para Tev</th>
 				<th>Score De Pádua</th>
-				<th>Usuario</th>
 				<th colspan="3">Opções</th>
 			</tr>
 		<thead>
@@ -191,7 +190,6 @@
 				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->qual == '0' ? 'Não' : $object->qual ?></td>
 				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->outros_fatores_de_risco_tev == '0' ? 'Não':'Sim' ?></td>
 				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->score_padua ?></td>
-				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->id_usuario ?></td>
 				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= anchor(base_url('administracao/edit/').$object->id, 'Editar','class="btn btn-primary"'); ?></td>
 				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><a href="#" class="btn btn-danger" onclick="pegaId(<?=$object->id;?>)" data-toggle="modal" data-target="#excluirModal">Deletar</a></td>
 				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><a href="#" class="<?=$object->dono_registro == 'usr' || $object->id_usuario == '1' ? 'disable ' : '' ?> btn btn-secondary" onclick="devolveId(<?=$object->id;?>)" data-toggle="modal" data-target="#devolveModal">Devolver</a></td>
