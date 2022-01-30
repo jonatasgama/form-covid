@@ -95,7 +95,11 @@ class Vivian_model extends CI_Model {
 		$this->db->set('qual', $data['qual']);
 		$this->db->set('outros_fatores_de_risco_tev', $data['outros_fatores_de_risco_tev']);
 		$this->db->set('score_padua', $data['score_padua']);
-		$this->db->set('id_usuario', $this->session->userdata('id_usuario'));
+		if($data['id'] == NULL){
+			$this->db->set('id_usuario', $this->session->userdata('id_usuario'));
+		}else{
+			$this->db->set('id_usuario', $data['id_usuario']);
+		}
 		$this->db->set('dono_registro', 'adm');
 
 		if($data['id'] == NULL) {

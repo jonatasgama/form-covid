@@ -808,3 +808,5 @@
 			</div>
 		
 		</div>
+		
+		<?=isset($vivian) ? "<input type='hidden' name='id_usuario' value=$vivian->id_usuario>" :''?>
