@@ -97,7 +97,7 @@ class Vivian_model extends CI_Model {
 		$this->db->set('score_padua', $data['score_padua']);
 		$this->db->set('id_usuario', $this->session->userdata('id_usuario'));
 		$this->db->set('dono_registro', 'adm');
-		
+
 		if($data['id'] == NULL) {
 			$this->db->set('created_at', date('Y-m-d h:i:s',time()));
 			$this->db->insert('form_covid');
@@ -311,5 +311,5 @@ class Vivian_model extends CI_Model {
 		}else{
 			return	false;
 		}
-	}	
+	}
 }

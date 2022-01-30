@@ -136,7 +136,7 @@ class Vivian extends CI_Controller {
 		$data = $this->input->post(NULL, TRUE);
 		$this->Vivian_model->save($data);
 		$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 5);
-		redirect(base_url('paginacao/1'), 'refresh');
+		redirect(base_url('paginacao/1'), 'refresh');		
 	}
 
 	function rebuild() {
@@ -318,7 +318,6 @@ class Vivian extends CI_Controller {
 		$data['content'] = '/vivian/devolvidos';
 		$this->load->view('/includes/template', $data);
 	}	
-		
 }
 
 ?>

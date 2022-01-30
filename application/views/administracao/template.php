@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?=base_url('assets/css/sb-admin-2.min.css');?>" rel="stylesheet">
+	<link href="<?=base_url('assets/css/main.css');?>" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 
@@ -308,7 +309,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>2021</span>
+                        <span>2022</span>
                     </div>
                 </div>
             </footer>
@@ -362,127 +363,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="<?=base_url('assets/js/jquery.mask.min.js');?>"></script>
+<script src="<?=base_url('assets/js/main.js');?>"></script>
 <script>
-	function verificaIdade(){
-		x = document.getElementById('idade').value;
-		if(x > 70){
-			document.getElementById('maior_70').value = '1'
-			document.getElementById('maior_que_70').value = 'Sim'
-		}else{
-			document.getElementById('maior_70').value = '0'
-			document.getElementById('maior_que_70').value = 'Não'
-		}
-	}
-	
-	function calculaImc(){
-		let peso = document.getElementById('peso').value;
-		let altura = document.getElementById('altura').value;
-		let imc = (peso / (altura * altura)) * 10000;
-		if(imc.toString().substr(0,5) == 'NaN' || altura == '0' || peso == '0'){
-			document.getElementById('imc').value = 'N/A';
-		}else{
-			document.getElementById('imc').value = imc.toString().substr(0,5);
-		}
-	}
-	
-	function calculaClassificacao(){
-		let classificacao = document.getElementById('imc').value;
-		
-		if(classificacao >= 40){
-			document.getElementById('classificacao').value = 'Obesidade grau 3';
-		}else if(classificacao >= 35){
-			document.getElementById('classificacao').value = 'Obesidade grau 2';
-		}else if(classificacao >= 30){
-			document.getElementById('classificacao').value = 'Obesidade grau 1';
-		}else if(classificacao >= 25){
-			document.getElementById('classificacao').value = 'Sobrepeso';
-		}else if(classificacao >= 18.5){
-			document.getElementById('classificacao').value = 'Adequado';
-		}else if(classificacao >= 17){
-			document.getElementById('classificacao').value = 'Baixo peso leve';
-		}else if(classificacao >= 16){
-			document.getElementById('classificacao').value = 'Baixo peso moderado';
-		}else if(classificacao >= 15){
-			document.getElementById('classificacao').value = 'Baixo peso severo';
-		}
-	}
-	
-	document.getElementById('possui_obesidade').value = document.getElementById('obesidade').value;
-	document.getElementById('possui_icc_ou_ir').value = document.getElementById('icc_ou_ir').value;
-	document.getElementById('possui_iam').value = document.getElementById('iam').value;
-	document.getElementById('possui_avc').value = document.getElementById('avc').value;
-	document.getElementById('possui_infeccoes_doencas_reumaticas').value = document.getElementById('infeccoes_doencas_reumaticas').value;
-	document.getElementById('possui_trombofilia').value = document.getElementById('trombofilia').value;
-	document.getElementById('possui_cancer_ativo').value = document.getElementById('cancer_ativo').value;
-	document.getElementById('possui_tratamento_hormonioterapia').value = document.getElementById('tratamento_hormonioterapia').value;
-	document.getElementById('possui_tev_previo').value = document.getElementById('tev_previo').value;
-	document.getElementById('possui_imobilizacao_prolongada').value = document.getElementById('imobilizacao_prolongada').value;
-	document.getElementById('possui_cirurgia_trauma_recente').value = document.getElementById('cirurgia_trauma_recente').value;
-	
-	function scorePadua(){
-		if(isNaN(document.getElementById('maior_70').value) || document.getElementById('maior_70').value == ''){
-			alert('Favor informar a idade');
-		}else{
-			let score = 0;
-			score += parseInt(document.getElementById('obesidade').value);
-			score += parseInt(document.getElementById('icc_ou_ir').value) == 0 ? 0 : 1;
-			score += parseInt(document.getElementById('iam').value);
-			score += parseInt(document.getElementById('avc').value);
-			score += parseInt(document.getElementById('infeccoes_doencas_reumaticas').value) == 0 ? 0 : 1;
-			score += parseInt(document.getElementById('trombofilia').value);
-			score += parseInt(document.getElementById('cancer_ativo').value) == 1 ? 3 : 0;
-			score += parseInt(document.getElementById('tratamento_hormonioterapia').value);
-			score += parseInt(document.getElementById('cirurgia_trauma_recente').value) == 1 ? 2 : 0;
-			score += parseInt(document.getElementById('tev_previo').value) == 1 ? 3 : 0;
-			score += parseInt(document.getElementById('imobilizacao_prolongada').value) == 1 ? 3 : 0;
-			score += parseInt(document.getElementById('maior_70').value);
-			document.getElementById('score_padua').value = score;
-		}
-	}
-	
-	function confirmacao(id) {
-		 var resposta = confirm("Deseja remover esse registro?");
-		 if (resposta == true) {
-			  window.location.href = "<?=base_url('administracao/destroy/');?>"+id;
-		 }
-	}
-	
-	function pegaId(id){
-		let urlExclusao = document.getElementById('confirmaExclusao');
-		
-		urlExclusao.setAttribute("href","<?=base_url('administracao/destroy/');?>"+id);
-	}
-	
-	function devolveId(id){
-		let urlDevolucao = document.getElementById('confirmaDevolucao');
-		
-		urlDevolucao.setAttribute("href","<?=base_url('administracao/devolveregistro/');?>"+id);
-		document.getElementById('devolucao').innerHTML = id;
-	}
-
-	function dataCovid(){
-		let teveCovid = document.getElementById('covid').value;
-		console.log(teveCovid);
-		if(teveCovid == '1'){
-			document.getElementById('data_diag_covid').removeAttribute("readonly");
-			document.getElementById('tempo_internacao').removeAttribute("readonly");
-		}else{
-			document.getElementById('data_diag_covid').setAttribute("readonly", "readonly");
-			document.getElementById('tempo_internacao').setAttribute("readonly", "readonly");
-		}
-	}
-
-	function verificaZeros() {
-	  let peso = document.getElementById("peso").value
-	  let altura = document.getElementById("altura").value
-	  
-	  if(peso == '0' || peso == '00' || altura == '0' || altura == '00'){
-		  alert('Os campos peso e/ou altura não podem ser 0(zero).\n Favor preencher N/A caso não tenha a informação.');
-		  return false;
-	  }else{
-		  document.form.submit();
-	  }
-	}	
 	
 <?php
 if(isset($vivian)){ ;?>
@@ -504,7 +386,7 @@ if(isset($vivian)){ ;?>
 	document.getElementById('evento_coag_intr').value = '<?=$vivian->evento_coag_intr;?>';
 	document.getElementById('evento_iam').value = '<?=$vivian->evento_iam;?>';
 	document.getElementById('evento_outro_lista').value = '<?=$vivian->evento_outro_lista;?>';
-	document.getElementById('evento_outro_escrito').value = '<?=$vivian->evento_outro_escrito;?>';
+	document.getElementById('evento_outro_escrito').value = '<?=rtrim($vivian->evento_outro_escrito);?>';
 	document.getElementById('sexo').value = '<?=$vivian->sexo;?>';
 	document.getElementById('raca').value = '<?=$vivian->raca;?>';
 	document.getElementById('obesidade').value = '<?=$vivian->obesidade;?>';
@@ -520,7 +402,7 @@ if(isset($vivian)){ ;?>
 	document.getElementById('outras_comorb_lista_1').value = '<?=$vivian->outras_comorb_lista_1;?>';
 	document.getElementById('outras_comorb_lista_2').value = '<?=$vivian->outras_comorb_lista_2;?>';
 	document.getElementById('outras_comorb_lista_3').value = '<?=$vivian->outras_comorb_lista_3;?>';
-	document.getElementById('outras_comorb_escrito').value = '<?=$vivian->outras_comorb_escrito;?>';
+	document.getElementById('outras_comorb_escrito').value = '<?=rtrim($vivian->outras_comorb_escrito);?>';
 	document.getElementById('neoplasia_maligna').value = '<?=$vivian->neoplasia_maligna;?>';
 	document.getElementById('cancer_ativo').value = '<?=$vivian->cancer_ativo;?>';
 	document.getElementById('sitio_tumoral_cerebro').value = '<?=$vivian->sitio_tumoral_cerebro;?>';
@@ -563,6 +445,40 @@ if(isset($vivian)){ ;?>
 	
 	
 <?php } ;?>
+	
+	function verificaVazios(){
+		var x = document.getElementById("formulario").querySelectorAll("[data-form]");
+		var vazios = [];
+		x.forEach(function(elemento){
+			if(elemento.value == ""){
+				vazios.push(elemento.name+"\n");
+			}			
+		});
+		if(vazios.length > 0){
+			let resposta = confirm("Os campos abaixo estão em branco, deseja salvar?\n" +vazios);
+			return resposta;
+		}
+	}	
+	
+	function confirmacao(id) {
+		 var resposta = confirm("Deseja remover esse registro?");
+		 if (resposta == true) {
+			  window.location.href = "<?=base_url('administracao/destroy/');?>"+id;
+		 }
+	}
+	
+	function pegaId(id){
+		let urlExclusao = document.getElementById('confirmaExclusao');
+		
+		urlExclusao.setAttribute("href","<?=base_url('administracao/destroy/');?>"+id);
+	}
+	
+	function devolveId(id){
+		let urlDevolucao = document.getElementById('confirmaDevolucao');
+		
+		urlDevolucao.setAttribute("href","<?=base_url('administracao/devolveregistro/');?>"+id);
+		document.getElementById('devolucao').innerHTML = id;
+	}
 
 </script>
 

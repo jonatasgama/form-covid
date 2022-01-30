@@ -114,85 +114,85 @@
 		<?php if($dados){ ;?>
 			<?php foreach($dados as $object) { ;?>
 			<tr>
-				<td><?= $object->id ?></td>
-				<td><?= $object->matricula ?></td>
-				<td><?= $object->iniciais ?></td>
-				<td><?= $object->covid == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->data_diag_covid ?></td>
-				<td><?= $object->tempo_internacao ?></td>
-				<td><?= $object->performance_status ?></td>
-				<td><?= $object->desfecho_alta == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->desfecho_obito == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->desfecho_acomp_amb == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_tromb == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->data_diagnostico_evento_tromb ?></td>
-				<td><?= $object->evento_tvp == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_ep == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_avc == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_coag_intr == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_iam == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->evento_outro_lista == '0' ? 'Não' : $object->evento_outro_lista ?></td>
-				<td><?= $object->evento_outro_escrito ?></td>
-				<td><?= $object->sexo ?></td>
-				<td><?= $object->raca ?></td>
-				<td><?= $object->idade ?></td>
-				<td><?= $object->maior_que_70 ?></td>
-				<td><?= $object->peso ?></td>
-				<td><?= $object->altura ?></td>
-				<td><?= $object->imc == 'NaN' ? 'N/A' : $object->imc ?></td>
-				<td><?= $object->classificacao ?></td>
-				<td><?= $object->obesidade == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->has == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->dm == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->icc_ou_ir == '0' ? 'Não': $object->icc_ou_ir ?></td>
-				<td><?= $object->iam == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->avc == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->infeccoes_doencas_reumaticas == '0' ? 'Não': $object->infeccoes_doencas_reumaticas ?></td>
-				<td><?= $object->trombofilia == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->outras_comorb_lista_1 == '0' ? 'Não': $object->outras_comorb_lista_1 ?></td>
-				<td><?= $object->outras_comorb_lista_2 == '0' ? 'Não': $object->outras_comorb_lista_2 ?></td>
-				<td><?= $object->outras_comorb_lista_3 == '0' ? 'Não':$object->outras_comorb_lista_3 ?></td>
-				<td><?= $object->outras_comorb_escrito ?></td>
-				<td><?= $object->neoplasia_maligna == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->cancer_ativo == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_cerebro == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_pancreas == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_estomago == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_pulmao == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_bexiga == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_ginecologicos == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_hematologicos == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_mama == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->sitio_tumoral_outros_lista == '0' ? 'Não': $object->sitio_tumoral_outros_lista ?></td>
-				<td><?= $object->sitio_tumoral_outros_escrito ?></td>
-				<td><?= $object->metastase == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_quimioterapia == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_radioterapia == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_braquiterapia == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_hormonioterapia == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_imunoterapia == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_cirurgia == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_terapias_angiogenicas == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tratamento_outros == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->quimioterapia_recente == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->plaquetas_pre_qt ?></td>
-				<td><?= $object->cirurgia_trauma_recente == '0' ? 'Não': $object->cirurgia_trauma_recente ?></td>
-				<td><?= $object->tev_previo == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->tabagismo == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->uso_de_aco == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->imobilizacao_prolongada == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->cvc == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->transfusoes == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->ag_estimulantes_eritropoese == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->hemoglobina ?></td>
-				<td><?= $object->ddimero ?></td>
-				<td><?= $object->fatores_geneticos == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->qual == '0' ? 'Não' : $object->qual ?></td>
-				<td><?= $object->outros_fatores_de_risco_tev == '0' ? 'Não':'Sim' ?></td>
-				<td><?= $object->score_padua ?></td>
-				<td width="80"><?= anchor(base_url('administracao/edit/').$object->id, 'Editar','class="btn btn-primary"'); ?></td>
-				<td width="80"><a href="#" class="btn btn-danger" onclick="pegaId(<?=$object->id;?>)" data-toggle="modal" data-target="#excluirModal">Deletar</a></td>
-				<td width="80"><a href="#" class="btn btn-secondary" onclick="devolveId(<?=$object->id;?>)" data-toggle="modal" data-target="#devolveModal">Devolver</a></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->id ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->matricula ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->iniciais ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->covid == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->data_diag_covid ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tempo_internacao ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->performance_status ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->desfecho_alta == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->desfecho_obito == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->desfecho_acomp_amb == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_tromb == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->data_diagnostico_evento_tromb ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_tvp == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_ep == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_avc == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_coag_intr == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_iam == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_outro_lista == '0' ? 'Não' : $object->evento_outro_lista ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->evento_outro_escrito ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sexo ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->raca ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->idade ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->maior_que_70 ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->peso ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->altura ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->imc == 'NaN' ? 'N/A' : $object->imc ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->classificacao ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->obesidade == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->has == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->dm == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->icc_ou_ir == '0' ? 'Não': $object->icc_ou_ir ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->iam == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->avc == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->infeccoes_doencas_reumaticas == '0' ? 'Não': $object->infeccoes_doencas_reumaticas ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->trombofilia == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->outras_comorb_lista_1 == '0' ? 'Não': $object->outras_comorb_lista_1 ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->outras_comorb_lista_2 == '0' ? 'Não': $object->outras_comorb_lista_2 ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->outras_comorb_lista_3 == '0' ? 'Não':$object->outras_comorb_lista_3 ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->outras_comorb_escrito ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->neoplasia_maligna == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->cancer_ativo == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_cerebro == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_pancreas == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_estomago == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_pulmao == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_bexiga == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_ginecologicos == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_hematologicos == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_mama == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_outros_lista == '0' ? 'Não': $object->sitio_tumoral_outros_lista ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->sitio_tumoral_outros_escrito ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->metastase == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_quimioterapia == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_radioterapia == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_braquiterapia == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_hormonioterapia == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_imunoterapia == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_cirurgia == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_terapias_angiogenicas == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tratamento_outros == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->quimioterapia_recente == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->plaquetas_pre_qt ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->cirurgia_trauma_recente == '0' ? 'Não': $object->cirurgia_trauma_recente ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tev_previo == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->tabagismo == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->uso_de_aco == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->imobilizacao_prolongada == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->cvc == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->transfusoes == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->ag_estimulantes_eritropoese == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->hemoglobina ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->ddimero ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->fatores_geneticos == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->qual == '0' ? 'Não' : $object->qual ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->outros_fatores_de_risco_tev == '0' ? 'Não':'Sim' ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= $object->score_padua ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><?= anchor(base_url('administracao/edit/').$object->id, 'Editar','class="btn btn-primary"'); ?></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><a href="#" class="btn btn-danger" onclick="pegaId(<?=$object->id;?>)" data-toggle="modal" data-target="#excluirModal">Deletar</a></td>
+				<?=$object->dono_registro == 'usr' ? '<td class="table-active">' : '<td>' ?><a href="#" class="<?=$object->dono_registro == 'usr' ? 'disable ' : '' ?> btn btn-secondary" onclick="devolveId(<?=$object->id;?>)" data-toggle="modal" data-target="#devolveModal">Devolver</a></td>
 			</tr><?php } ;?>
 		<?php } ;?>
 		</tbody>	

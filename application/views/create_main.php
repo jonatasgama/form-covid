@@ -7,12 +7,12 @@
 			<div class="form-group col-sm-2">
 				<label for="matricula">Matricula:</label><br/>
 				
-				<input type="text" name="matricula"  class="form-control" value="<?= isset($vivian)?$vivian->matricula:''?>">
+				<input type="text" name="matricula"  class="form-control" value="<?= isset($vivian)?$vivian->matricula:''?>" data-form="true">
 			</div>
 			<div class="form-group col-sm-2">
 				<label for="iniciais">Iniciais:</label><br/>
 				
-				<input type="text"  name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:''?>">
+				<input type="text"  name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:''?>" data-form="true">
 			</div>		
 			
 			<div class="form-group col-sm-2">
@@ -27,7 +27,7 @@
 			<div class="form-group col-sm-3">
 				<label for="data_diag_covid">Data de diagnóstico covid:</label><br/>
 				
-				<input type="text"  name="data_diag_covid"  id="data_diag_covid" class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:''?>" readonly="readonly">
+				<input type="text"  name="data_diag_covid"  id="data_diag_covid" class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:''?>" data-mask="00/00/0000" placeholder="DD/MM/AAAA" readonly="readonly">
 			</div>
 			
 			<div class="form-group col-sm-3">
@@ -40,7 +40,7 @@
 		
 		<div class="row">	
 
-			<div class="form-group col-sm-3">
+			<div class="form-group col-sm-2">
 				<label for="performance_status">Performance status:</label><br/>
 				
 				<select name="performance_status" id="performance_status" class="form-select form-select mb-3">
@@ -69,7 +69,7 @@
 				</select>			
 			</div>		
 			
-			<div class="form-group col-sm-3">
+			<div class="form-group col-sm-4">
 				<label for="desfecho">Desfecho acompanhamento ambulatorial:</label><br/>
 				
 				<select name="desfecho_acomp_amb" id ="desfecho_acomp_amb" class="form-select form-select mb-3">
@@ -175,7 +175,9 @@
 				<textarea 
 						class="form-control mb-3"
 						name="evento_outro_escrito"
-						id="evento_outro_escrito"><?=isset($vivian)?$vivian->evento_outro_escrito:''?>
+						id="evento_outro_escrito"
+						data-form="true"><?=isset($vivian)?$vivian->evento_outro_escrito:''?>
+						
 				</textarea>
 			</div>
 		</div>
@@ -210,7 +212,7 @@
 		<div class="form-group col-sm-1">
 			<label for="idade">Idade:</label><br/>
 			
-			<input type="number" name="idade" id="idade" class="form-control" onkeyup="verificaIdade()" value="<?= isset($vivian)?$vivian->idade:'00'?>">
+			<input type="number" name="idade" id="idade" class="form-control" onkeyup="verificaIdade()" value="<?= isset($vivian)?$vivian->idade:'00'?>" data-form="true">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="maior_que_70">Maior de 70 anos:</label><br/>
@@ -220,22 +222,23 @@
 		<div class="form-group col-sm-1">
 			<label for="peso">Peso:</label><br/>
 			
-			<input type="text" name="peso"  id="peso" class="form-control" value="<?= isset($vivian)?$vivian->peso:''?>">
+			<input type="text" name="peso" id="peso" class="form-control" value="<?= isset($vivian)?$vivian->peso:''?>" data-form="true">
 		</div>
 		<div class="form-group col-sm-2">
 			<label for="altura">Altura(em metros):</label><br/>
 			
-			<input type="text" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:''?>" placeholder="Ex. 1,77" data-mask="0,00">
+			<input type="text" name="altura"  id="altura" class="form-control" value="<?= isset($vivian)?$vivian->altura:''?>" placeholder="Ex. 1,77" data-mask="0,00" onblur="calculaImc()" data-form="true">
 		</div>
 		<!--<div class="form-group col-sm-2">
 			<label for="imc">Imc:</label><br/>
 			
 			<input type="text" name="imc"  id="imc" class="form-control" value="" onblur="calculaClassificacao()">
 		</div>-->
+		<input type="hidden" id="imc">
 		<div class="form-group col-sm-3">
 			<label for="classificacao">Classificação:</label><br/>
 			
-			<input type="text" name="classificacao"  id="classificacao" class="form-control" value="<?= isset($vivian)?$vivian->classificacao:''?>">
+			<input type="text" name="classificacao"  id="classificacao" class="form-control" value="<?= isset($vivian)?$vivian->classificacao:''?>" onfocus="calculaClassificacao()">
 		</div>		
 	</div>	
 		
@@ -664,7 +667,7 @@
 			<div class="form-group col-sm-3">
 				<label for="plaquetas_pre_qt">Plaquetas pré-qt:</label><br/>
 				
-				<input type="number" name="plaquetas_pre_qt"  id="plaquetas_pre_qt" class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:''?>" placeholder="somente números">
+				<input type="number" name="plaquetas_pre_qt"  id="plaquetas_pre_qt" class="form-control" value="<?= isset($vivian)?$vivian->plaquetas_pre_qt:''?>" placeholder="somente números" data-form="true">
 			</div>
 			
 			<div class="form-group col-sm-3">
@@ -751,13 +754,13 @@
 			<div class="form-group col-sm-3">
 				<label for="hemoglobina">Hemoglobina:</label><br/>
 				
-				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:''?>" data-mask="00,00">
+				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:''?>" data-mask="00,00" data-form="true">
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="ddimero">D-dímero(em ng/ml):</label><br/>
 				
-				<input type="text" name="ddimero"  id="ddimero" class="form-control" value="<?= isset($vivian)?$vivian->ddimero:''?>">
+				<input type="text" name="ddimero"  id="ddimero" class="form-control" value="<?= isset($vivian)?$vivian->ddimero:''?>" data-form="true">
 			</div>
 		
 		</div>

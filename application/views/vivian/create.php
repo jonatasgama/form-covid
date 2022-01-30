@@ -3,7 +3,7 @@
 	<?php }else{ ;?>
 	<h1>Novo Cadastro</h1>
 	<?php } ;?>
-	<?= form_open('vivian/save','role="form" autocomplete="on" onSubmit="verificaZeros(); return false;"'); ?><?php if(validation_errors() != NULL && validation_errors() != '') { ?>
+	<?= form_open('vivian/save','role="form" autocomplete="on" onSubmit="verificaZeros(); return false;" id="formulario"'); ?><?php if(validation_errors() != NULL && validation_errors() != '') { ?>
 		<div class="alert alert-danger"><?= validation_errors(); ?></div><?php } ?>
 		<input type="hidden" name="id" value="<?= isset($vivian)?$vivian->id:''?>"/>
 		
@@ -14,4 +14,3 @@
 	
 	</div>
 </div>
-

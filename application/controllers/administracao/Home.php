@@ -121,9 +121,6 @@ class Home extends CI_Controller {
 		$this->Vivian_model->save($data);
 		$this->session->set_tempdata('msg-success','Dados salvos com sucesso', 5);
 		redirect(base_url('administracao/paginacao/1'), 'refresh');
-		//$data['vivian'] =	$this->rebuild();
-		//$data['content'] = '/administracao/create';
-		//$this->load->view('/administracao/template', $data);
 	}
 
 	function rebuild() {
@@ -270,8 +267,7 @@ class Home extends CI_Controller {
 		$data['vivian'] = $this->Vivian_model->devolveRegistro($id);
 		$this->session->set_tempdata('msg-success','Registro devolvido para edição', 5);
 		redirect(base_url('administracao/paginacao/1'), 'refresh');
-	}	
-
+	}
 	
 }
 
