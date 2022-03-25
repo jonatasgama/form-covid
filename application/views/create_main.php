@@ -7,18 +7,18 @@
 			<div class="form-group col-sm-2">
 				<label for="matricula">Matricula:</label><br/>
 				
-				<input type="text" name="matricula"  class="form-control" value="<?= isset($vivian)?$vivian->matricula:''?>" data-form="true">
+				<input type="text" name="matricula" id="matricula" class="form-control" value="<?= isset($vivian)?$vivian->matricula:''?>" onblur="verificaMatricula(this)" data-form="true">
 			</div>
 			<div class="form-group col-sm-2">
 				<label for="iniciais">Iniciais:</label><br/>
 				
-				<input type="text"  name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:''?>" data-form="true">
+				<input type="text" name="iniciais"  class="form-control" value="<?= isset($vivian)?$vivian->iniciais:''?>" data-form="true">
 			</div>		
 			
 			<div class="form-group col-sm-2">
 				<label for="covid">Covid:</label><br/>
 				
-				<select name="covid" id="covid" class="form-select form-select mb-3" onchange="dataCovid()">
+				<select name="covid" id="covid" class="form-select form-select mb-3">
 					<option value="1">Sim</option>
 					<option value="0" selected>Não</option>
 				</select>
@@ -27,13 +27,13 @@
 			<div class="form-group col-sm-3">
 				<label for="data_diag_covid">Data de diagnóstico covid:</label><br/>
 				
-				<input type="text"  name="data_diag_covid"  id="data_diag_covid" class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:''?>" data-mask="00/00/0000" placeholder="DD/MM/AAAA" readonly="readonly">
+				<input type="text"  name="data_diag_covid"  id="data_diag_covid" class="form-control" value="<?= isset($vivian)?$vivian->data_diag_covid:''?>" data-mask="00/00/0000" placeholder="DD/MM/AAAA">
 			</div>
 			
 			<div class="form-group col-sm-3">
 				<label for="tempo_internacao">Tempo de internação(em dias):</label><br/>
 				
-				<input type="number" name="tempo_internacao"  id="tempo_internacao" class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:''?>" readonly="readonly" placeholder="somente números">
+				<input type="number" name="tempo_internacao"  id="tempo_internacao" class="form-control" value="<?= isset($vivian)?$vivian->tempo_internacao:''?>" placeholder="somente números">
 			</div>	
 		</div>
 	
@@ -44,10 +44,12 @@
 				<label for="performance_status">Performance status:</label><br/>
 				
 				<select name="performance_status" id="performance_status" class="form-select form-select mb-3">
+					<option value="0">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
 					<option value="4">4</option>
+					<option value="5">5</option>
 				</select>			
 			</div>
 		
@@ -172,13 +174,11 @@
 		<div class="row">
 			<div class="form-group col-sm-12">
 				<label for="evento_outro_escrito">Outro:</label><br/>
-				<textarea 
+				<textarea onkeypress="return event.keyCode != 13;"
 						class="form-control mb-3"
 						name="evento_outro_escrito"
 						id="evento_outro_escrito"
-						data-form="true"><?=isset($vivian)?$vivian->evento_outro_escrito:''?>
-						
-				</textarea>
+						data-form="true"><?=isset($vivian)?$vivian->evento_outro_escrito:''?></textarea>
 			</div>
 		</div>
 	</div>
@@ -423,11 +423,10 @@
 		<div class="row">
 			<div class="form-group col-sm-12">
 				<label for="outras_comorb_escrito">Outro:</label><br/>
-				<textarea 
+				<textarea onkeypress="return event.keyCode != 13;"
 						class="form-control mb-3" 
 						name="outras_comorb_escrito"
-						id="outras_comorb_escrito"><?=isset($vivian)?$vivian->outras_comorb_escrito:''?>
-				</textarea>
+						id="outras_comorb_escrito"><?=isset($vivian)?$vivian->outras_comorb_escrito:''?></textarea>
 			</div>
 		</div>
 	</div>
@@ -564,11 +563,10 @@
 			<div class="form-group col-sm-12">
 				<label for="sitio_tumoral_outros_escrito">Outros:</label><br/>
 				
-				<textarea 
+				<textarea onkeypress="return event.keyCode != 13;"
 						name="sitio_tumoral_outros_escrito" 
 						id="sitio_tumoral_outros_escrito" 
-						class="form-control"><?= isset($vivian)?$vivian->sitio_tumoral_outros_escrito:''?>
-				</textarea>
+						class="form-control"><?= isset($vivian)?$vivian->sitio_tumoral_outros_escrito:''?></textarea>
 			</div>
 		</div>
 	</div>
@@ -754,7 +752,7 @@
 			<div class="form-group col-sm-3">
 				<label for="hemoglobina">Hemoglobina:</label><br/>
 				
-				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:''?>" data-mask="00,00" data-form="true">
+				<input type="text" name="hemoglobina" id="hemoglobina" class="form-control" value="<?= isset($vivian)?$vivian->hemoglobina:''?>" data-form="true">
 			</div>
 			
 			<div class="form-group col-sm-3">

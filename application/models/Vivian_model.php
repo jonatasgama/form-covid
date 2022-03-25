@@ -316,4 +316,10 @@ class Vivian_model extends CI_Model {
 			return	false;
 		}
 	}
+	
+	function buscaMatricula($mat){
+		$sql = "SELECT count(*) as qtd FROM form_covid WHERE matricula = ?";
+		$result = $this->db->query($sql, $mat);
+		return $result;		
+	}
 }

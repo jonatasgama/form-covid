@@ -62,6 +62,7 @@ $route['login'] = "welcome";
 $route['entrar'] = "Vivian/logar";
 $route['sair'] = "Vivian/logout";
 $route['devolvidos'] = "Vivian/devolvidos";
+$route['verificaMatricula'] = "Vivian/verificaMatricula";
 $route['administracao'] = "administracao/Home/index";
 $route['administracao/create'] = "administracao/Home/create";
 $route['administracao/save'] = "administracao/Home/save";

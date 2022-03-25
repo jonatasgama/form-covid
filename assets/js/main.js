@@ -113,3 +113,32 @@
 		  document.form.submit();
 	  }
 	}
+	
+	function verificaMatricula(el){
+		if(el.classList.contains("is-invalid")){
+			el.classList.toggle("is-invalid");
+		}
+		
+		const divErro = document.getElementById("div-erro");
+		if(divErro){
+			divErro.remove();
+		}
+		
+		let matricula = el.value;
+		
+		if(matricula){
+			fetch('verificaMatricula/?matricula='+el.value)
+			.then( response => response.text())
+			.then( response => {
+				if(response.length > 0){
+					const div = document.createElement("div")
+					div.classList.add("invalid-feedback")
+					div.innerHTML = response;	
+					div.setAttribute("id", "div-erro")
+					el.classList.toggle("is-invalid");
+					el.insertAdjacentElement("afterEnd", div);
+					//alert(response)
+				} 
+			})
+		}
+	}

@@ -318,6 +318,33 @@ class Vivian extends CI_Controller {
 		$data['content'] = '/vivian/devolvidos';
 		$this->load->view('/includes/template', $data);
 	}	
+	
+	function verificaMatricula() {
+		$data = $this->input->get('matricula');
+		$result = $this->Vivian_model->buscaMatricula($data)->result();
+			//echo $this->db->last_query();
+			//echo sizeof($result) > 0;
+			//exit();		
+		if($result[0]->qtd > 0){
+			$mensagem = array("msg" => "Essa matrícula já está cadastrada.");
+			//header('Content-Type: application/json; charset=utf-8');
+			//return json_encode($mensagem);
+			echo "Essa matrícula já está cadastrada.";
+		}
+	}	
+	
+	function verificaMatricula2() {
+		$data = $this->input->get('matricula');
+		$result = $this->Vivian_model->buscaMatricula($data)->result();
+			//echo $this->db->last_query();
+			//print_r($result[0]->qtd);
+			//exit();	
+		if($result[0]->qtd >= 1){
+			$mensagem = array("msg" => "Essa matrícula já está cadastrada.");
+			//echo "Essa matrícula já está cadastrada.";
+			return json_encode($mensagem);
+		}
+	}		
 }
 
 ?>
