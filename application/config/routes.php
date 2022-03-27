@@ -74,3 +74,4 @@ $route['administracao/paginacao'] = "administracao/Home/index";
 $route['administracao/sair'] = "administracao/Home/logout";
 $route['administracao/dash'] = "administracao/Home/dash";
 $route['administracao/devolveregistro/(:num)'] = "administracao/Home/devolveregistro/$1";
+$route['administracao/verificaMatricula'] = "Vivian/verificaMatricula";
