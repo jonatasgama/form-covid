@@ -318,8 +318,20 @@ class Vivian_model extends CI_Model {
 	}
 	
 	function buscaMatricula($mat){
-		$sql = "SELECT count(*) as qtd FROM form_covid WHERE matricula = ?";
+		$sql = "SELECT * FROM form_covid WHERE matricula = ?";
 		$result = $this->db->query($sql, $mat);
 		return $result;		
+	}
+	
+	function procuraPorUsuario($id){
+		$sql = "SELECT * FROM form_covid WHERE id_usuario = ?";
+		$result = $this->db->query($sql, $id);
+		return $result;		
+	}
+	
+	function listaUsuarios() {
+		$sql = "SELECT id, nome FROM `usuarios` WHERE id NOT IN(1,2)";
+		$result = $this->db->query($sql);
+		return $result;
 	}
 }

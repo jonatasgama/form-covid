@@ -269,6 +269,31 @@ class Home extends CI_Controller {
 		redirect(base_url('administracao/paginacao/1'), 'refresh');
 	}
 	
+	function procura() {
+		$data['cabecalho'] = 'Procurar Registro';
+		$data['usuarios'] = $this->Vivian_model->listaUsuarios()->result();
+		$data['content'] = '/administracao/procura';
+		$this->load->view('/administracao/template', $data);
+	}
+	
+	function procuraMatricula() {
+		$mat = $this->input->post('matricula');
+		$data['cabecalho'] = 'Procurar Registro';
+		$data['dados'] = $this->Vivian_model->buscaMatricula($mat)->result();
+		$data['usuarios'] = $this->Vivian_model->listaUsuarios()->result();
+		$data['content'] = '/administracao/procura';
+		$this->load->view('/administracao/template', $data);
+	}
+	
+	function procuraPorUsuario() {
+		$id = $this->input->post('usuario');
+		$data['cabecalho'] = 'Procurar Registro';
+		$data['dados'] = $this->Vivian_model->procuraPorUsuario($id)->result();
+		$data['usuarios'] = $this->Vivian_model->listaUsuarios()->result();
+		$data['content'] = '/administracao/procura';
+		$this->load->view('/administracao/template', $data);
+	}
+	
 }
 
 ?>
