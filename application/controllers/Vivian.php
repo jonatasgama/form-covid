@@ -323,7 +323,7 @@ class Vivian extends CI_Controller {
 		$data = $this->input->get('matricula');
 		$result = $this->Vivian_model->buscaMatricula($data)->result();
 			//echo $this->db->last_query();
-			//echo sizeof($result) > 0;
+			//print_r($result[0]->qtd);
 			//exit();		
 		if($result[0]->qtd > 0){
 			$mensagem = array("msg" => "Essa matrícula já está cadastrada.");
